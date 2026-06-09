@@ -136,7 +136,7 @@ function Bar({ r, onOpen }) {
       title={r.tip}
       style={{
         position: "absolute", left: `calc(${left}% + 4px)`, width: `calc(${width}% - 8px)`,
-        top: 7, height: 34, display: "flex", alignItems: "center", gap: 5, padding: "0 8px",
+        top: 5, height: 28, display: "flex", alignItems: "center", gap: 5, padding: "0 8px",
         background: t.hatch ? `${HATCH}, ${t.bg}` : t.bg, border: "1px solid " + t.bd,
         borderRadius: 7, cursor: clickable ? "pointer" : "default", overflow: "hidden",
         zIndex: 2, transition: "box-shadow 120ms ease, transform 80ms ease",
@@ -154,8 +154,8 @@ function Bar({ r, onOpen }) {
 
 function RoomRow({ room, onOpen }) {
   return (
-    <div style={{ display: "flex", borderBottom: "1px solid var(--mews-border-secondary)", minHeight: 48 }}>
-      <div style={{ width: 290, flexShrink: 0, display: "flex", alignItems: "center", gap: 12, padding: "0 16px", borderRight: "1px solid var(--mews-border-secondary)" }}>
+    <div style={{ display: "flex", borderBottom: "1px solid var(--mews-border-secondary)", minHeight: 38 }}>
+      <div style={{ width: 220, flexShrink: 0, display: "flex", alignItems: "center", gap: 12, padding: "0 16px", borderRight: "1px solid var(--mews-border-secondary)" }}>
         <span style={{ width: 34, font: "600 11px/1 var(--mews-font-family)", letterSpacing: ".03em", color: ST_COLOR[room.st] }}>{room.st}</span>
         <span style={{ font: "500 14px/1 var(--mews-font-family)", color: "var(--mews-text-primary)" }}>{room.no}</span>
       </div>
@@ -168,8 +168,8 @@ function RoomRow({ room, onOpen }) {
 
 function GroupHeader({ group, open, onToggle }) {
   return (
-    <div style={{ display: "flex", background: "var(--mews-night-25)", borderBottom: "1px solid var(--mews-border-secondary)", minHeight: 52 }}>
-      <div style={{ width: 290, flexShrink: 0, display: "flex", alignItems: "center", gap: 8, padding: "0 16px", borderRight: "1px solid var(--mews-border-secondary)" }}>
+    <div style={{ display: "flex", background: "var(--mews-night-25)", borderBottom: "1px solid var(--mews-border-secondary)", minHeight: 40 }}>
+      <div style={{ width: 220, flexShrink: 0, display: "flex", alignItems: "center", gap: 8, padding: "0 16px", borderRight: "1px solid var(--mews-border-secondary)" }}>
         <button onClick={onToggle} style={{ border: "none", background: "transparent", cursor: "pointer", color: "var(--mews-text-secondary)", display: "inline-flex", padding: 2 }}>
           <Ic c={open ? ICON.chevDown : ICON.chevRight} s={18} />
         </button>
@@ -195,8 +195,8 @@ function GroupHeader({ group, open, onToggle }) {
 
 function DayHeader() {
   return (
-    <div style={{ display: "flex", borderBottom: "1px solid var(--mews-border-primary)", position: "sticky", top: 0, zIndex: 5, background: "#fff", minHeight: 48 }}>
-      <div style={{ width: 290, flexShrink: 0, display: "flex", alignItems: "center", padding: "0 16px", borderRight: "1px solid var(--mews-border-secondary)" }}>
+    <div style={{ display: "flex", borderBottom: "1px solid var(--mews-border-primary)", position: "sticky", top: 0, zIndex: 5, background: "#fff", minHeight: 40 }}>
+      <div style={{ width: 220, flexShrink: 0, display: "flex", alignItems: "center", padding: "0 16px", borderRight: "1px solid var(--mews-border-secondary)" }}>
         <span style={{ font: "600 16px/1 var(--mews-font-family)", color: "var(--mews-text-primary)" }}>October 2024</span>
       </div>
       <Track>
@@ -224,7 +224,7 @@ function TimelineGrid({ onOpen }) {
   const [openGroups, setOpenGroups] = React.useState(() => GROUPS.map(() => true));
   const toggle = (i) => setOpenGroups((g) => g.map((v, j) => (j === i ? !v : v)));
   return (
-    <div style={{ flex: 1, overflow: "auto", background: "#fff" }}>
+    <div style={{ flex: 1, overflowY: "auto", overflowX: "hidden", background: "#fff" }}>
       <DayHeader />
       {GROUPS.map((g, gi) => (
         <div key={gi}>

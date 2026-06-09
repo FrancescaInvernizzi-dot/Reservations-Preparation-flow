@@ -33,10 +33,10 @@ function ALink({ children, strong = true, size = 14, onClick }) {
     <span
       onClick={onClick}
       style={{
-        color: "var(--mews-text-primary-action)",
+        color: "var(--mews-text-primary)",
         textDecoration: "underline",
         textUnderlineOffset: 2,
-        textDecorationColor: "var(--mews-indigo-200)",
+        textDecorationColor: "var(--mews-night-150)",
         fontWeight: strong ? 600 : 400,
         fontSize: size,
         cursor: "pointer",
