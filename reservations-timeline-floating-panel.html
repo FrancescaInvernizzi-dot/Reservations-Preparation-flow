@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservations timeline — A2 floating panel</title>
+  <link rel="stylesheet" href="assets/tokens.css" />
+  <link rel="stylesheet" href="assets/optimus.css" />
+  <meta name="ext-resource-dependency" content="assets/mews_icon.png" data-resource-id="mewsIcon" />
+  <style>
+    html, body { height: 100%; margin: 0; background: var(--mews-bg-flat); }
+    #root { height: 100vh; }
+    ::-webkit-scrollbar { width: 12px; height: 12px; }
+    ::-webkit-scrollbar-thumb { background: var(--mews-night-100); border-radius: 999px; border: 3px solid transparent; background-clip: padding-box; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--mews-night-150); background-clip: padding-box; }
+    .mews-btn:disabled { cursor: not-allowed; }
+  </style>
+</head>
+<body>
+  <div id="root" data-variant="A2"></div>
+
+  <template id="__bundler_thumbnail" data-bg-color="#FFFFFF">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#FFFFFF"/>
+      <rect x="0" y="0" width="1200" height="70" fill="#F7F7FA"/>
+      <rect x="40" y="110" width="560" height="40" rx="8" fill="#E5F1FF"/>
+      <rect x="40" y="180" width="520" height="34" rx="6" fill="#EFEFF5"/>
+      <rect x="40" y="230" width="480" height="34" rx="6" fill="#EFEFF5"/>
+      <rect x="640" y="70" width="560" height="730" fill="#FFFFFF" stroke="#DFDFEA" stroke-width="2"/>
+      <rect x="700" y="120" width="440" height="560" rx="16" fill="#FFFFFF" stroke="#CFCFFE" stroke-width="3"/>
+      <rect x="730" y="160" width="260" height="22" rx="6" fill="#3B37F2"/>
+      <rect x="730" y="220" width="380" height="46" rx="8" fill="#F7F7FA" stroke="#DFDFEA" stroke-width="2"/>
+      <rect x="730" y="290" width="380" height="46" rx="8" fill="#F7F7FA" stroke="#DFDFEA" stroke-width="2"/>
+    </svg>
+  </template>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="app/shared.jsx"></script>
+  <script type="text/babel" src="app/summary.jsx"></script>
+  <script type="text/babel" src="app/forms.jsx"></script>
+  <script type="text/babel" src="app/explorations.jsx"></script>
+  <script type="text/babel" src="app/panel.jsx"></script>
+  <script type="text/babel" src="app/timeline.jsx"></script>
+  <script type="text/babel" src="app/timeline-app.jsx"></script>
+</body>
+</html>

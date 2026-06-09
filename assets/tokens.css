@@ -1,0 +1,503 @@
+/* ==========================================================================
+   Mews Optimus — Design Tokens (B2B Light)
+   Source: MewsSystems/design-tokens (themes/b2bLight.json) +
+           MewsSystems/mews-flutter (optimus package)
+   ========================================================================== */
+
+/* ---------- Inter (brand-uploaded variable fonts) ---------- */
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-VariableFont_opsz_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-Italic-VariableFont_opsz_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ---------- OptimusIcons icon font ---------- */
+@font-face {
+  font-family: 'OptimusIcons';
+  src: url('../fonts/OptimusIcons.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  /* ======================================================================
+     FOUNDATIONS — raw scales (don't use directly in UI unless unavoidable)
+     ====================================================================== */
+
+  /* Base grid */
+  --mews-spacing-base: 8px;
+  --mews-sizing-base: 8px;
+  --mews-border-radius-base: 8px;
+  --mews-font-size-base: 14px;       /* B2B condensed base */
+  --mews-font-size-ratio: 1.125;     /* Major Second */
+
+  /* Spacing (multiples of 8) */
+  --mews-spacing-0:    0;
+  --mews-spacing-25:   2px;
+  --mews-spacing-50:   4px;
+  --mews-spacing-100:  8px;
+  --mews-spacing-150:  12px;
+  --mews-spacing-200:  16px;
+  --mews-spacing-250:  20px;
+  --mews-spacing-300:  24px;
+  --mews-spacing-400:  32px;
+  --mews-spacing-450:  36px;
+  --mews-spacing-500:  40px;
+  --mews-spacing-600:  48px;
+  --mews-spacing-700:  56px;
+  --mews-spacing-800:  64px;
+  --mews-spacing-900:  72px;
+  --mews-spacing-1000: 80px;
+  --mews-spacing-1200: 96px;
+
+  /* Sizing */
+  --mews-sizing-50:   4px;
+  --mews-sizing-75:   6px;
+  --mews-sizing-100:  8px;
+  --mews-sizing-150:  12px;
+  --mews-sizing-200:  16px;
+  --mews-sizing-300:  24px;
+  --mews-sizing-400:  32px;
+  --mews-sizing-500:  40px;
+  --mews-sizing-550:  44px;
+  --mews-sizing-600:  48px;
+  --mews-sizing-700:  56px;
+  --mews-sizing-800:  64px;
+  --mews-sizing-900:  72px;
+  --mews-sizing-1000: 80px;
+  --mews-sizing-1200: 96px;
+  --mews-sizing-1300: 104px;
+
+  /* Border radius */
+  --mews-radius-0:    0;
+  --mews-radius-25:   2px;   /* checkbox */
+  --mews-radius-50:   4px;   /* tooltip */
+  --mews-radius-100:  8px;   /* default: buttons, inputs, small cards */
+  --mews-radius-150:  12px;  /* mid cards */
+  --mews-radius-200:  16px;  /* large cards */
+  --mews-radius-300:  24px;  /* modals, full-width */
+  --mews-radius-round: 50%;  /* avatars */
+
+  /* Border width */
+  --mews-border-0:   0;
+  --mews-border-100: 1px;
+  --mews-border-200: 2px;
+  --mews-border-300: 3px;
+  --mews-border-800: 8px;
+
+  /* Opacity */
+  --mews-opacity-0:    0;
+  --mews-opacity-100:  0.08;
+  --mews-opacity-150:  0.12;
+  --mews-opacity-200:  0.16;
+  --mews-opacity-400:  0.32;
+  --mews-opacity-600:  0.48;
+  --mews-opacity-800:  0.64;
+  --mews-opacity-1000: 1;
+
+  /* ======================================================================
+     PALETTE — brand
+     ====================================================================== */
+
+  /* Indigo (primary brand) */
+  --mews-indigo-0:    #FAFAFF;
+  --mews-indigo-25:   #F4F4FF;
+  --mews-indigo-50:   #E7E7FF;
+  --mews-indigo-100:  #CFCFFE;
+  --mews-indigo-150:  #B8B7FD;
+  --mews-indigo-200:  #A19FFD;
+  --mews-indigo-300:  #7876FB;
+  --mews-indigo-400:  #5653F7;
+  --mews-indigo-500:  #3B37F2;  /* ← primary action */
+  --mews-indigo-600:  #2622E9;
+  --mews-indigo-700:  #1613D7;
+  --mews-indigo-800:  #0A08AD;
+  --mews-indigo-900:  #04026B;
+  --mews-indigo-1000: #010033;
+
+  /* Night (neutrals) */
+  --mews-night-0:     #FFFFFF;
+  --mews-night-25:    #F7F7FA;
+  --mews-night-50:    #EFEFF5;
+  --mews-night-100:   #DFDFEA;
+  --mews-night-150:   #C1C1D5;
+  --mews-night-200:   #A6A6C0;
+  --mews-night-300:   #8D8DAC;
+  --mews-night-400:   #777797;
+  --mews-night-500:   #646482;
+  --mews-night-600:   #52526D;
+  --mews-night-700:   #414158;
+  --mews-night-800:   #313143;
+  --mews-night-900:   #21212E;      /* ← primary text */
+  --mews-night-1000:  #121219;
+  --mews-night-1000-8:  #12121914;  /* alpha overlays */
+  --mews-night-1000-12: #1212191F;
+  --mews-night-1000-16: #12121929;
+
+  /* Coral (brand accent) */
+  --mews-coral-0:    #FFF5F6;
+  --mews-coral-25:   #FFE9EB;
+  --mews-coral-50:   #FFCFD2;
+  --mews-coral-100:  #FE9FA5;
+  --mews-coral-150:  #FD707A;       /* ← accent-secondary */
+  --mews-coral-200:  #FD424F;
+  --mews-coral-300:  #FB0011;
+  --mews-coral-500:  #F20010;
+  --mews-coral-700:  #D7000E;
+  --mews-coral-900:  #6B0007;
+
+  /* Grey (neutral, chromatic-neutral) */
+  --mews-grey-0:    #FFFFFF;
+  --mews-grey-25:   #FAFAFA;
+  --mews-grey-50:   #F3F3F3;        /* ← sunken background */
+  --mews-grey-100:  #E7E7E7;
+  --mews-grey-200:  #D0D0D0;
+  --mews-grey-500:  #888888;
+  --mews-grey-700:  #595959;
+  --mews-grey-900:  #2A2A2A;
+
+  /* ======================================================================
+     PALETTE — semantic
+     ====================================================================== */
+
+  /* Blue (info) */
+  --mews-blue-25:  #E5F1FF;
+  --mews-blue-50:  #CEE5FE;
+  --mews-blue-100: #A6CEFE;
+  --mews-blue-400: #3C89F7;
+  --mews-blue-500: #2B7CF2;
+  --mews-blue-600: #1E6FE9;
+  --mews-blue-700: #1361D7;
+  --mews-blue-800: #1B51AD;
+
+  /* Orange (warning) */
+  --mews-orange-25:  #FCF5E3;
+  --mews-orange-50:  #FCEDCA;
+  --mews-orange-100: #FBDB98;
+  --mews-orange-400: #F3A01F;
+  --mews-orange-500: #ED9310;
+  --mews-orange-700: #CC7300;
+  --mews-orange-800: #996100;
+
+  /* Green (success) */
+  --mews-green-25:  #EEFAEC;
+  --mews-green-50:  #DFF5DB;
+  --mews-green-100: #C7EBC1;
+  --mews-green-400: #61AD55;
+  --mews-green-500: #4D993F;
+  --mews-green-600: #3E8537;
+  --mews-green-700: #327030;
+  --mews-green-800: #2A5C2C;
+
+  /* Red (danger) */
+  --mews-red-25:  #FEEDED;
+  --mews-red-50:  #FDE0E0;
+  --mews-red-100: #FCC8C8;
+  --mews-red-400: #F34E4D;
+  --mews-red-500: #ED3433;
+  --mews-red-600: #E31F1E;
+  --mews-red-700: #CF0F0F;
+  --mews-red-800: #A41206;
+
+  /* ======================================================================
+     LEGACY CATEGORICAL (denim, lime, mustard, lavender, ruby, tangerine)
+     Still used for tags, room statuses, data viz categories.
+     ====================================================================== */
+  --mews-denim-50: #E6EFF6;  --mews-denim-500: #2E7BB2;  --mews-denim-900: #124B8A;
+  --mews-lime-50:  #E5F1E6;  --mews-lime-500:  #2A8732;  --mews-lime-900:  #0F5713;
+  --mews-mustard-50: #FCF6E4; --mews-mustard-500: #EAB71F; --mews-mustard-900: #DB900A;
+  --mews-lavender-50: #F0EDF7; --mews-lavender-500: #7E6ABA; --mews-lavender-900: #4E3C94;
+  --mews-ruby-50: #FAE8EB;   --mews-ruby-500: #D63C56;   --mews-ruby-900: #BC1A2B;
+  --mews-tangerine-50: #FCF0EA; --mews-tangerine-500: #EA814D; --mews-tangerine-900: #DB5125;
+
+  /* ======================================================================
+     SEMANTIC TOKENS — background
+     ====================================================================== */
+
+  /* Static surfaces */
+  --mews-bg-flat:             #FFFFFF;   /* base page */
+  --mews-bg-raised:           #FFFFFF;   /* cards */
+  --mews-bg-floating:         #FFFFFF;   /* modals */
+  --mews-bg-sunken:           #F3F3F3;   /* soft panel */
+  --mews-bg-inverse:          #21212E;   /* high contrast */
+  --mews-bg-on-color:         #FFFFFF;
+  --mews-bg-inverse-on-color: #21212E;
+  --mews-bg-disabled:         #EFEFF5;
+  --mews-bg-brand:            #000000;   /* logo only */
+  --mews-bg-backdrop:         #12121914;
+
+  /* Interactive — primary */
+  --mews-bg-primary:          #3B37F2;
+  --mews-bg-primary-hover:    #1613D7;
+  --mews-bg-primary-active:   #0A08AD;
+
+  /* Interactive — secondary (tinted indigo) */
+  --mews-bg-secondary:        #F4F4FF;
+  --mews-bg-secondary-hover:  #E7E7FF;
+  --mews-bg-secondary-active: #CFCFFE;
+
+  /* Interactive — danger */
+  --mews-bg-danger:           #E31F1E;
+  --mews-bg-danger-hover:     #CF0F0F;
+  --mews-bg-danger-active:    #A41206;
+
+  /* Interactive — neutral-subtle (ghost) */
+  --mews-bg-subtle:           #FFFFFF;
+  --mews-bg-subtle-hover:     #8D8DAC14;
+  --mews-bg-subtle-active:    #8D8DAC29;
+
+  /* Interactive — neutral */
+  --mews-bg-neutral:          #EFEFF5;
+  --mews-bg-neutral-hover:    #DFDFEA;
+  --mews-bg-neutral-active:   #C1C1D5;
+
+  /* Interactive — neutral-bold */
+  --mews-bg-neutral-bold:        #777797;
+  --mews-bg-neutral-bold-hover:  #646482;
+  --mews-bg-neutral-bold-active: #52526D;
+
+  /* Interactive — success */
+  --mews-bg-success:          #3E8537;
+  --mews-bg-success-hover:    #327030;
+  --mews-bg-success-active:   #2A5C2C;
+
+  /* Alert backgrounds (for banners, tags, alerts) */
+  --mews-bg-alert-warning:           #FCF5E3;
+  --mews-bg-alert-warning-secondary: #F3A01F;
+  --mews-bg-alert-success:           #EEFAEC;
+  --mews-bg-alert-success-secondary: #61AD55;
+  --mews-bg-alert-info:              #E5F1FF;
+  --mews-bg-alert-info-secondary:    #3C89F7;
+  --mews-bg-alert-danger:            #FEEDED;
+  --mews-bg-alert-danger-secondary:  #F34E4D;
+  --mews-bg-alert-basic:             #F7F7FA;
+  --mews-bg-alert-basic-secondary:   #52526D;
+
+  /* Accent (for spinners, progress, pictograms) */
+  --mews-bg-accent-primary:   #3B37F2;
+  --mews-bg-accent-secondary: #FD707A;
+  --mews-bg-accent-brand:     #7876FB;
+
+  /* ======================================================================
+     DATAVIZ — chart/graph palette (B2B Light surface)
+     Use ONLY for charts, graphs, and data-visualization fills.
+     Never reuse for UI chrome, tags, or status. Pair primary fills with
+     their matching secondary tints for ranges, bands, hover states, etc.
+     ====================================================================== */
+
+  /* Categorical primaries (use this fixed order for chart series) */
+  --mews-bg-dataviz-blue-primary:    #2B5BFF;
+  --mews-bg-dataviz-orange-primary:  #FF6B0A;
+  --mews-bg-dataviz-green-primary:   #0E8478;
+  --mews-bg-dataviz-red-primary:     #FF0F1E;
+  --mews-bg-dataviz-purple-primary:  #5C20A8;
+  --mews-bg-dataviz-pink-primary:    #FF2D8A;
+
+  /* Categorical secondaries (light tints — ranges, bands, fills under lines) */
+  --mews-bg-dataviz-blue-secondary:    #D8E5F7;
+  --mews-bg-dataviz-orange-secondary:  #FFD8B8;
+  --mews-bg-dataviz-green-secondary:   #C5E5DD;
+  --mews-bg-dataviz-red-secondary:     #FCC8C8;
+  --mews-bg-dataviz-purple-secondary:  #DDC9E8;
+  --mews-bg-dataviz-pink-secondary:    #FFCFE0;
+
+  /* Semantic dataviz (use for state-encoded series only) */
+  --mews-bg-dataviz-info:     #2B5BFF;
+  --mews-bg-dataviz-success:  #3F8B3F;
+  --mews-bg-dataviz-warning:  #C58B0A;
+  --mews-bg-dataviz-danger:   #E62828;
+  --mews-bg-dataviz-basic:    #383F58;
+
+  /* ======================================================================
+     SEMANTIC TOKENS — text
+     ====================================================================== */
+
+  --mews-text-primary:    #21212E;   /* body, headings */
+  --mews-text-secondary:  #52526D;   /* subtitles, labels */
+  --mews-text-tertiary:   #646482;   /* placeholder, secondary icons */
+  --mews-text-inverse:    #FFFFFF;   /* on dark */
+  --mews-text-on-color:   #FFFFFF;   /* on indigo/red/green */
+  --mews-text-disabled:   #C1C1D5;
+
+  --mews-text-primary-action:          #3B37F2;
+  --mews-text-primary-action-hover:    #1613D7;
+  --mews-text-primary-action-active:   #0A08AD;
+  --mews-text-secondary-action:        #21212E;
+  --mews-text-secondary-action-hover:  #313143;
+  --mews-text-secondary-action-active: #414158;
+
+  --mews-text-alert-danger:   #CF0F0F;
+  --mews-text-alert-warning:  #996100;
+  --mews-text-alert-success:  #2A5C2C;
+  --mews-text-alert-info:     #1361D7;
+  --mews-text-alert-basic:    #52526D;
+
+  /* ======================================================================
+     SEMANTIC TOKENS — border
+     ====================================================================== */
+
+  --mews-border-primary:   #DFDFEA;    /* card outline */
+  --mews-border-secondary: #EFEFF5;    /* subtle divider */
+  --mews-border-tertiary:  #8D8DAC;
+  --mews-border-inverse:   #FFFFFF;
+  --mews-border-disabled:  #EFEFF5;
+  --mews-border-brand:     #313143;
+
+  --mews-border-primary-action:          #3B37F2;
+  --mews-border-primary-action-hover:    #1613D7;
+  --mews-border-primary-action-active:   #0A08AD;
+  --mews-border-secondary-action:        #C1C1D5;
+  --mews-border-secondary-action-hover:  #8D8DAC;
+  --mews-border-secondary-action-active: #777797;
+  --mews-border-bold:                    #52526D;
+  --mews-border-focus:                   #5653F7;
+  --mews-border-input:                   #8D8DAC;
+  --mews-border-input-hover:             #777797;
+  --mews-border-input-active:            #646482;
+  --mews-border-input-error:             #E31F1E;
+
+  --mews-border-alert-warning: #FACF7A;
+  --mews-border-alert-success: #B0E0A9;
+  --mews-border-alert-info:    #8CBFFD;
+  --mews-border-alert-danger:  #FBB0B0;
+  --mews-border-alert-basic:   #C1C1D5;
+
+  /* ======================================================================
+     SHADOWS (elevation)
+     ====================================================================== */
+  --mews-shadow-0: none;
+  --mews-shadow-100:
+    0 2px 6px -1px #12121914,
+    0 -1px 4px -2px #12121914;
+  --mews-shadow-200:
+    0 8px 24px -4px #12121914,
+    0 6px 12px -6px #12121914;
+  --mews-shadow-300:
+    0 18px 88px -4px #1212191F,
+    0 12px 28px -6px #1212191F;
+
+  /* Focus ring (two-layer offset) */
+  --mews-focus-ring:
+    0 0 0 2px #FFFFFF,
+    0 0 0 4px #5653F7;
+
+  /* ======================================================================
+     TYPOGRAPHY — primitives
+     ====================================================================== */
+  --mews-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --mews-font-weight-300: 300;
+  --mews-font-weight-400: 400;
+  --mews-font-weight-500: 500;
+  --mews-font-weight-600: 600;
+
+  --mews-line-height-100: 100%;
+  --mews-line-height-200: 130%;
+  --mews-line-height-300: 150%;
+
+  --mews-tracking-condensed: -0.2px;
+  --mews-tracking-default:   0;
+  --mews-tracking-wide:      0.2px;
+
+  /* Font sizes (B2B scale, base = 14, ratio = 1.125) */
+  --mews-fs-50:  11px;   /* legal */
+  --mews-fs-75:  12px;   /* body-small */
+  --mews-fs-100: 14px;   /* body-medium — workhorse */
+  --mews-fs-200: 16px;   /* body-large */
+  --mews-fs-300: 18px;   /* title-small, highlight-small */
+  --mews-fs-400: 20px;   /* title-medium */
+  --mews-fs-500: 22px;   /* title-large */
+  --mews-fs-600: 25px;   /* highlight-medium */
+  --mews-fs-700: 28px;
+  --mews-fs-800: 32px;
+  --mews-fs-900: 36px;   /* highlight-large */
+}
+
+/* ==========================================================================
+   BASELINE RESET + BODY DEFAULTS
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--mews-font-family);
+  font-size: var(--mews-fs-100);
+  font-weight: var(--mews-font-weight-400);
+  line-height: var(--mews-line-height-300);
+  color: var(--mews-text-primary);
+  background: var(--mews-bg-flat);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Slashed zero — Inter OpenType `zero` feature.
+     Distinguishes 0 from O in numbers, IDs, codes, table data.
+     Applied globally; inherits to every element. */
+  font-feature-settings: "zero" 1, "cv11" 1;
+  font-variant-numeric: slashed-zero;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY UTILITY CLASSES
+   Named after the Figma tokens: Highlight / Title / Body × size × weight
+   ========================================================================== */
+
+/* Highlight — spotlight values in cards, hero numbers */
+.mews-highlight-large   { font: var(--mews-font-weight-500) var(--mews-fs-900)/var(--mews-line-height-200) var(--mews-font-family); letter-spacing: var(--mews-tracking-condensed); }
+.mews-highlight-medium  { font: var(--mews-font-weight-500) var(--mews-fs-600)/var(--mews-line-height-200) var(--mews-font-family); letter-spacing: var(--mews-tracking-condensed); }
+.mews-highlight-small   { font: var(--mews-font-weight-500) var(--mews-fs-300)/var(--mews-line-height-200) var(--mews-font-family); }
+
+/* Title — page / section headings */
+.mews-title-large         { font: var(--mews-font-weight-400) var(--mews-fs-500)/var(--mews-line-height-300) var(--mews-font-family); }
+.mews-title-large-strong  { font: var(--mews-font-weight-600) var(--mews-fs-500)/var(--mews-line-height-300) var(--mews-font-family); }
+.mews-title-medium        { font: var(--mews-font-weight-400) var(--mews-fs-400)/var(--mews-line-height-300) var(--mews-font-family); }
+.mews-title-medium-strong { font: var(--mews-font-weight-600) var(--mews-fs-400)/var(--mews-line-height-300) var(--mews-font-family); }
+.mews-title-small         { font: var(--mews-font-weight-400) var(--mews-fs-300)/var(--mews-line-height-200) var(--mews-font-family); }
+.mews-title-small-strong  { font: var(--mews-font-weight-600) var(--mews-fs-300)/var(--mews-line-height-200) var(--mews-font-family); }
+
+/* Body — table content, helpers, inputs */
+.mews-body-large          { font: var(--mews-font-weight-400) var(--mews-fs-200)/var(--mews-line-height-300) var(--mews-font-family); }
+.mews-body-large-strong   { font: var(--mews-font-weight-500) var(--mews-fs-200)/var(--mews-line-height-300) var(--mews-font-family); }
+.mews-body-medium         { font: var(--mews-font-weight-400) var(--mews-fs-100)/var(--mews-line-height-300) var(--mews-font-family); }
+.mews-body-medium-strong  { font: var(--mews-font-weight-500) var(--mews-fs-100)/var(--mews-line-height-300) var(--mews-font-family); }
+.mews-body-small          { font: var(--mews-font-weight-400) var(--mews-fs-75)/var(--mews-line-height-300) var(--mews-font-family); }
+.mews-body-small-strong   { font: var(--mews-font-weight-500) var(--mews-fs-75)/var(--mews-line-height-300) var(--mews-font-family); }
+.mews-body-xsmall         { font: var(--mews-font-weight-400) var(--mews-fs-50)/var(--mews-line-height-100) var(--mews-font-family); letter-spacing: var(--mews-tracking-wide); }
+.mews-body-xsmall-strong  { font: var(--mews-font-weight-500) var(--mews-fs-50)/var(--mews-line-height-100) var(--mews-font-family); letter-spacing: var(--mews-tracking-wide); }
+
+/* ==========================================================================
+   ICON FONT USAGE
+   <i class="mews-icon">reservation</i>  → uses ligature
+   ========================================================================== */
+.mews-icon {
+  font-family: 'OptimusIcons';
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  font-size: 16px;
+  color: currentColor;
+}
+.mews-icon--24 { font-size: 24px; }
+.mews-icon--20 { font-size: 20px; }
+.mews-icon--12 { font-size: 12px; }

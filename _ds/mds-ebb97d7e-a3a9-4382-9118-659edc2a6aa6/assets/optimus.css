@@ -1,0 +1,1295 @@
+/* ==========================================================================
+   Mews Optimus — Component styles built on tokens.css
+   Aligned to MDS B2B Storybook (April 2026)
+   ========================================================================== */
+
+/* ==========================================================================
+   BUTTON — .mews-btn
+   Variants: primary | secondary | tertiary | ghost | danger
+   Sizes: sm (32px) | default (40px) | lg (48px)
+   ========================================================================== */
+
+.mews-btn {
+  --_bg: var(--mews-bg-primary);
+  --_bg-hover: var(--mews-bg-primary-hover);
+  --_bg-active: var(--mews-bg-primary-active);
+  --_fg: var(--mews-text-on-color);
+  --_border: transparent;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--mews-spacing-100);
+  height: 40px;
+  padding: 0 var(--mews-spacing-200);
+  font-family: var(--mews-font-family);
+  font-size: var(--mews-fs-100);
+  font-weight: var(--mews-font-weight-500);
+  line-height: 1;
+  letter-spacing: var(--mews-tracking-default);
+  color: var(--_fg);
+  background: var(--_bg);
+  border: 1px solid var(--_border);
+  border-radius: var(--mews-radius-100);
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+  white-space: nowrap;
+  user-select: none;
+}
+.mews-btn:hover  { background: var(--_bg-hover); }
+.mews-btn:active { background: var(--_bg-active); }
+.mews-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--mews-focus-ring);
+}
+.mews-btn:disabled,
+.mews-btn[aria-disabled="true"] {
+  background: var(--mews-bg-disabled);
+  color: var(--mews-text-disabled);
+  border-color: transparent;
+  cursor: not-allowed;
+}
+
+/* Secondary — outline with indigo border + indigo label (brand primary).
+   Per B2B Storybook: transparent bg, indigo-500 border, indigo-500 text. */
+.mews-btn--secondary {
+  --_bg: transparent;
+  --_bg-hover: var(--mews-indigo-25);
+  --_bg-active: var(--mews-indigo-50);
+  --_fg: var(--mews-indigo-500);
+  --_border: var(--mews-indigo-500);
+}
+.mews-btn--secondary:hover  { border-color: var(--mews-indigo-600); color: var(--mews-indigo-600); }
+.mews-btn--secondary:active { border-color: var(--mews-indigo-700); color: var(--mews-indigo-700); }
+.mews-btn--secondary:disabled,
+.mews-btn--secondary[aria-disabled="true"] {
+  --_border: var(--mews-border-disabled);
+  color: var(--mews-text-disabled);
+  background: transparent;
+}
+
+/* Tertiary — outlined grey border, transparent bg */
+.mews-btn--tertiary {
+  --_bg: transparent;
+  --_bg-hover: var(--mews-bg-subtle-hover);
+  --_bg-active: var(--mews-bg-subtle-active);
+  --_fg: var(--mews-text-primary);
+  --_border: var(--mews-border-secondary-action);
+}
+
+/* Ghost — transparent, used in toolbars/table rows */
+.mews-btn--ghost {
+  --_bg: transparent;
+  --_bg-hover: var(--mews-bg-subtle-hover);
+  --_bg-active: var(--mews-bg-subtle-active);
+  --_fg: var(--mews-text-primary);
+}
+
+/* Destructive / danger */
+.mews-btn--danger {
+  --_bg: var(--mews-bg-danger);
+  --_bg-hover: var(--mews-bg-danger-hover);
+  --_bg-active: var(--mews-bg-danger-active);
+  --_fg: var(--mews-text-on-color);
+}
+
+/* Loading state */
+.mews-btn--loading {
+  color: transparent !important;
+  pointer-events: none;
+  position: relative;
+}
+.mews-btn--loading::after {
+  content: '';
+  position: absolute;
+  width: 16px; height: 16px;
+  border: 2px solid var(--mews-text-on-color);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: mews-spin 720ms linear infinite;
+}
+.mews-btn--secondary.mews-btn--loading::after { border-color: var(--mews-indigo-500); border-top-color: transparent; }
+.mews-btn--tertiary.mews-btn--loading::after,
+.mews-btn--ghost.mews-btn--loading::after { border-color: var(--mews-text-primary); border-top-color: transparent; }
+@keyframes mews-spin { to { transform: rotate(360deg); } }
+
+/* Sizes */
+.mews-btn--sm { height: 32px; padding: 0 var(--mews-spacing-150); font-size: var(--mews-fs-75); }
+.mews-btn--lg { height: 48px; padding: 0 var(--mews-spacing-300); font-size: var(--mews-fs-200); }
+
+/* Icon-only button */
+.mews-btn--icon { width: 40px; padding: 0; }
+.mews-btn--icon.mews-btn--sm { width: 32px; }
+.mews-btn--icon.mews-btn--lg { width: 48px; }
+
+/* ==========================================================================
+   INPUT — .mews-input
+   ========================================================================== */
+
+.mews-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mews-spacing-50);
+}
+.mews-input-label {
+  font: var(--mews-font-weight-500) var(--mews-fs-75)/var(--mews-line-height-300) var(--mews-font-family);
+  color: var(--mews-text-secondary);
+}
+.mews-input {
+  height: 40px;
+  padding: 0 var(--mews-spacing-150);
+  font-family: var(--mews-font-family);
+  font-size: var(--mews-fs-100);
+  font-weight: var(--mews-font-weight-400);
+  color: var(--mews-text-primary);
+  background: var(--mews-bg-flat);
+  border: 1px solid var(--mews-border-input);
+  border-radius: var(--mews-radius-100);
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+  outline: none;
+}
+.mews-input::placeholder { color: var(--mews-text-tertiary); }
+.mews-input:hover { border-color: var(--mews-border-input-hover); }
+.mews-input:focus {
+  border-color: var(--mews-border-focus);
+  box-shadow: 0 0 0 3px #5653F71F;
+}
+.mews-input:disabled {
+  background: var(--mews-bg-disabled);
+  color: var(--mews-text-disabled);
+  border-color: var(--mews-border-disabled);
+  cursor: not-allowed;
+}
+.mews-input--error { border-color: var(--mews-border-input-error); }
+.mews-input--error:focus { box-shadow: 0 0 0 3px #E31F1E29; }
+.mews-input--sm { height: 32px; padding: 0 var(--mews-spacing-100); font-size: var(--mews-fs-75); }
+
+.mews-input-help {
+  font: var(--mews-font-weight-400) var(--mews-fs-75)/var(--mews-line-height-300) var(--mews-font-family);
+  color: var(--mews-text-tertiary);
+}
+.mews-input-help--error { color: var(--mews-text-alert-danger); }
+
+/* ==========================================================================
+   NUMBER INPUT — .mews-number
+   Text input with stacked stepper buttons (chevron up/down) on the right.
+   Same outer chrome as .mews-input — stepper sits inside the border.
+   ========================================================================== */
+.mews-number {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  height: 40px;
+  background: var(--mews-bg-flat);
+  border: 1px solid var(--mews-border-input);
+  border-radius: var(--mews-radius-100);
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+.mews-number:hover { border-color: var(--mews-border-input-hover); }
+.mews-number:focus-within {
+  border-color: var(--mews-border-focus);
+  box-shadow: 0 0 0 3px #5653F71F;
+}
+.mews-number--error { border-color: var(--mews-border-input-error); }
+.mews-number--error:focus-within { box-shadow: 0 0 0 3px #E31F1E29; }
+.mews-number--disabled,
+.mews-number[aria-disabled="true"] {
+  background: var(--mews-bg-disabled);
+  color: var(--mews-text-disabled);
+  pointer-events: none;
+}
+.mews-number__field {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+  padding: 0 var(--mews-spacing-150);
+  border: 0;
+  background: transparent;
+  outline: none;
+  color: var(--mews-text-primary);
+  font: var(--mews-font-weight-400) var(--mews-fs-100)/1 var(--mews-font-family);
+  -moz-appearance: textfield;
+}
+.mews-number__field::-webkit-outer-spin-button,
+.mews-number__field::-webkit-inner-spin-button {
+  -webkit-appearance: none; margin: 0;
+}
+.mews-number__affix {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--mews-text-tertiary);
+  font: var(--mews-font-weight-400) var(--mews-fs-100)/1 var(--mews-font-family);
+  white-space: nowrap;
+  user-select: none;
+}
+.mews-number__affix--prefix { padding-left: var(--mews-spacing-150); padding-right: 0; }
+.mews-number__affix--suffix { padding-right: var(--mews-spacing-150); padding-left: 0; }
+.mews-number__steppers {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  flex-shrink: 0;
+  padding-right: 4px;
+}
+.mews-number__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  color: var(--mews-text-primary);
+  cursor: pointer;
+  border-radius: var(--mews-radius-50);
+  transition: background 120ms ease, color 120ms ease;
+}
+.mews-number__btn + .mews-number__btn { position: relative; }
+.mews-number__btn + .mews-number__btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 25%;
+  bottom: 25%;
+  width: 1px;
+  background: var(--mews-border-input);
+}
+.mews-number__btn:hover { background: var(--mews-night-50); }
+.mews-number__btn:active { background: var(--mews-night-100); }
+.mews-number__btn:disabled,
+.mews-number__btn[aria-disabled="true"] {
+  color: var(--mews-text-disabled);
+  cursor: not-allowed;
+  background: transparent;
+}
+.mews-number__btn .mews-icon { font-size: 16px; }
+
+.mews-number--sm { height: 32px; }
+.mews-number--sm .mews-number__field { padding: 0 var(--mews-spacing-100); font-size: var(--mews-fs-75); }
+
+/* ==========================================================================
+   AFFIXED INPUT SHELL — used by search & password
+   ========================================================================== */
+.mews-input-affixed {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  height: 40px;
+  background: var(--mews-bg-flat);
+  border: 1px solid var(--mews-border-input);
+  border-radius: var(--mews-radius-100);
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+.mews-input-affixed:hover { border-color: var(--mews-border-input-hover); }
+.mews-input-affixed:focus-within {
+  border-color: var(--mews-border-focus);
+  box-shadow: 0 0 0 3px #5653F71F;
+}
+.mews-input-affixed--error { border-color: var(--mews-border-input-error); }
+.mews-input-affixed--error:focus-within { box-shadow: 0 0 0 3px #E31F1E29; }
+.mews-input-affixed--disabled,
+.mews-input-affixed[aria-disabled="true"] {
+  background: var(--mews-bg-disabled);
+  color: var(--mews-text-disabled);
+  pointer-events: none;
+}
+.mews-input-affixed__lead {
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  padding-left: 12px; padding-right: 4px;
+  color: var(--mews-text-tertiary);
+}
+.mews-input-affixed__lead .mews-icon { font-size: 16px; }
+.mews-input-affixed__field {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+  padding: 0 12px;
+  border: 0;
+  background: transparent;
+  outline: none;
+  color: var(--mews-text-primary);
+  font: var(--mews-font-weight-400) var(--mews-fs-100)/1 var(--mews-font-family);
+}
+.mews-input-affixed__field::placeholder { color: var(--mews-text-tertiary); }
+.mews-input-affixed__btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px;
+  align-self: center;
+  margin-right: 4px;
+  padding: 0; border: 0; background: transparent;
+  color: var(--mews-text-secondary);
+  cursor: pointer;
+  border-radius: var(--mews-radius-50);
+  transition: background 120ms ease, color 120ms ease;
+}
+.mews-input-affixed__btn:hover { background: var(--mews-night-50); color: var(--mews-text-primary); }
+.mews-input-affixed__btn:active { background: var(--mews-night-100); }
+.mews-input-affixed__btn:disabled,
+.mews-input-affixed__btn[aria-disabled="true"] {
+  color: var(--mews-text-disabled);
+  cursor: not-allowed;
+  background: transparent;
+}
+.mews-input-affixed__btn .mews-icon { font-size: 16px; }
+
+/* ==========================================================================
+   TEXT AREA — .mews-textarea
+   ========================================================================== */
+.mews-textarea {
+  width: 100%;
+  min-height: 96px;
+  padding: 10px var(--mews-spacing-150);
+  background: var(--mews-bg-flat);
+  border: 1px solid var(--mews-border-input);
+  border-radius: var(--mews-radius-100);
+  color: var(--mews-text-primary);
+  font: var(--mews-font-weight-400) var(--mews-fs-100)/1.5 var(--mews-font-family);
+  outline: none;
+  resize: vertical;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+.mews-textarea::placeholder { color: var(--mews-text-tertiary); }
+.mews-textarea:hover { border-color: var(--mews-border-input-hover); }
+.mews-textarea:focus { border-color: var(--mews-border-focus); box-shadow: 0 0 0 3px #5653F71F; }
+.mews-textarea:disabled {
+  background: var(--mews-bg-disabled);
+  color: var(--mews-text-disabled);
+  cursor: not-allowed;
+}
+.mews-textarea--error { border-color: var(--mews-border-input-error); }
+.mews-textarea--error:focus { box-shadow: 0 0 0 3px #E31F1E29; }
+
+/* ==========================================================================
+   SELECT — .mews-select  (custom shell — not a native <select>)
+   Field row: optional start slot · placeholder/value (or chips) · clear · chevron
+   Open variant shows .mews-select__panel below.
+   ========================================================================== */
+.mews-select {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 40px;
+  padding: 4px 4px 4px 12px;
+  background: var(--mews-bg-flat);
+  border: 1px solid var(--mews-border-input);
+  border-radius: var(--mews-radius-100);
+  cursor: pointer;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+.mews-select:hover { border-color: var(--mews-border-input-hover); }
+.mews-select.is-open,
+.mews-select:focus-within {
+  border-color: var(--mews-border-focus);
+  box-shadow: 0 0 0 3px #5653F71F;
+}
+.mews-select--error { border-color: var(--mews-border-input-error); }
+.mews-select--disabled,
+.mews-select[aria-disabled="true"] {
+  background: var(--mews-bg-disabled);
+  color: var(--mews-text-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.mews-select__lead {
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  color: var(--mews-text-tertiary);
+}
+.mews-select__lead .mews-icon { font-size: 16px; }
+.mews-select__value {
+  flex: 1 1 auto;
+  min-width: 0;
+  font: var(--mews-font-weight-400) var(--mews-fs-100)/1 var(--mews-font-family);
+  color: var(--mews-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mews-select__value--placeholder { color: var(--mews-text-tertiary); }
+.mews-select__chips {
+  display: flex; flex-wrap: wrap; gap: 4px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.mews-select__btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px;
+  flex-shrink: 0;
+  padding: 0; margin: 0; border: 0;
+  background: transparent;
+  color: var(--mews-text-secondary);
+  cursor: pointer;
+  border-radius: var(--mews-radius-50);
+  transition: background 120ms ease, color 120ms ease, transform 150ms ease;
+}
+.mews-select__btn:hover { background: var(--mews-night-50); color: var(--mews-text-primary); }
+.mews-select__btn .mews-icon { font-size: 16px; }
+.mews-select.is-open .mews-select__chevron { transform: rotate(180deg); }
+
+/* Dropdown panel */
+.mews-select__panel {
+  margin-top: 8px;
+  background: var(--mews-bg-floating, #fff);
+  border: 1px solid var(--mews-border-primary);
+  border-radius: var(--mews-radius-100);
+  box-shadow: var(--mews-shadow-200);
+  padding: 8px;
+  display: flex; flex-direction: column;
+  gap: 2px;
+  max-width: 100%;
+}
+.mews-select__group-label {
+  padding: 8px 12px 4px;
+  font: var(--mews-font-weight-500) var(--mews-fs-75)/1.4 var(--mews-font-family);
+  color: var(--mews-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.mews-select__divider { height: 1px; background: var(--mews-border-primary); margin: 6px 0; }
+.mews-select__item {
+  display: flex; align-items: center; gap: 8px;
+  min-height: 40px;
+  padding: 6px 12px;
+  border-radius: var(--mews-radius-50);
+  cursor: pointer;
+  color: var(--mews-text-primary);
+  font: var(--mews-font-weight-400) var(--mews-fs-100)/1.4 var(--mews-font-family);
+  transition: background 120ms ease;
+}
+.mews-select__item:hover { background: var(--mews-night-50); }
+.mews-select__item.is-active { background: var(--mews-night-100); }
+.mews-select__item.is-selected { background: var(--mews-indigo-25); color: var(--mews-indigo-700); }
+.mews-select__item.is-disabled { color: var(--mews-text-disabled); cursor: not-allowed; pointer-events: none; }
+.mews-select__item-body { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.mews-select__item-title { font-weight: var(--mews-font-weight-500); }
+.mews-select__item-desc { font-size: var(--mews-fs-75); color: var(--mews-text-secondary); }
+.mews-select__check { color: var(--mews-indigo-600); flex-shrink: 0; }
+.mews-select__check .mews-icon { font-size: 16px; }
+.mews-select__item:not(.is-selected) .mews-select__check { visibility: hidden; }
+
+.mews-select--sm { min-height: 32px; padding: 2px 4px 2px 10px; }
+.mews-select--lg { min-height: 48px; padding: 6px 6px 6px 14px; }
+
+/* ==========================================================================
+   PROGRESS INDICATOR — .mews-progind
+   Linear, multi-step navigation. Step variants: completed / current /
+   visited / next. Two orientations: horizontal (full bar) + vertical
+   (mobile, condensed by default with step counter + expand button).
+   ========================================================================== */
+
+/* ----- HORIZONTAL ---------------------------------------------------------
+   Layout: each step occupies an equal-width cell. The circle is centered
+   inside its cell with two half-tracks on either side (left = "incoming"
+   from previous step, right = "outgoing" to next step). The label lives
+   below the circle, also centered. The leftmost half-track of the first
+   step and the rightmost half-track of the last step are hidden.
+   -------------------------------------------------------------------------- */
+.mews-progind {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  width: 100%;
+  font-family: var(--mews-font-family);
+}
+.mews-progind__step {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: var(--mews-text-primary);
+  font-family: inherit;
+  text-align: center;
+}
+.mews-progind__step:disabled,
+.mews-progind__step[aria-disabled="true"] { cursor: not-allowed; }
+.mews-progind__step:focus-visible { outline: none; }
+.mews-progind__step:focus-visible .mews-progind__circle {
+  box-shadow: 0 0 0 3px #5653F71F;
+}
+
+/* Row holding circle in the middle + two half-tracks */
+.mews-progind__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 24px;
+}
+.mews-progind__track {
+  flex: 1 1 0;
+  height: 1px;
+  background: var(--mews-night-100);
+  border-radius: 999px;
+}
+.mews-progind__track--completed { background: var(--mews-indigo-600); }
+.mews-progind__step:first-child .mews-progind__track--first,
+.mews-progind__step:last-child  .mews-progind__track--last { visibility: hidden; }
+
+/* Circle — 24px default; Next is smaller (12px, empty) */
+.mews-progind__circle {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font: var(--mews-font-weight-600) 12px/1 var(--mews-font-family);
+  background: var(--mews-bg-flat);
+  border: 0;
+  color: var(--mews-text-secondary);
+  transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+.mews-progind__circle .mews-icon { font-size: 14px; }
+
+/* Variants */
+.mews-progind__step--completed .mews-progind__circle {
+  background: var(--mews-indigo-100);
+  color: var(--mews-indigo-700);
+}
+.mews-progind__step--current .mews-progind__circle {
+  background: var(--mews-indigo-600);
+  color: #fff;
+}
+.mews-progind__step--visited .mews-progind__circle {
+  background: var(--mews-night-100);
+  color: var(--mews-text-primary);
+}
+.mews-progind__step--visited:hover .mews-progind__circle { background: var(--mews-night-200); }
+.mews-progind__step--next .mews-progind__circle {
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;            /* keep 24px-equivalent center for track alignment */
+  background: transparent;
+  border: 1px solid var(--mews-night-200);
+  color: transparent;
+}
+.mews-progind__step--next { cursor: not-allowed; }
+
+/* Hover for interactive (completed / visited / current) */
+.mews-progind__step--completed:hover .mews-progind__circle { background: var(--mews-indigo-200); }
+.mews-progind__step--current:hover   .mews-progind__circle { background: var(--mews-indigo-700); }
+
+/* Labels — centered under the circle */
+.mews-progind__label {
+  font: var(--mews-font-weight-600) var(--mews-fs-100)/1.4 var(--mews-font-family);
+  color: var(--mews-text-primary);
+  max-width: 100%;
+  display: block;
+  padding: 0 8px;
+  text-wrap: pretty;
+}
+.mews-progind__step--current .mews-progind__label { color: var(--mews-text-primary); }
+.mews-progind__step--next    .mews-progind__label { color: var(--mews-text-tertiary); font-weight: var(--mews-font-weight-500); }
+.mews-progind__optional {
+  display: block;
+  font: var(--mews-font-weight-400) var(--mews-fs-75)/1.4 var(--mews-font-family);
+  color: var(--mews-text-tertiary);
+  margin-top: 4px;
+}
+
+/* ----- VERTICAL (mobile) -------------------------------------------------- */
+.mews-progind-vert {
+  border: 1px solid var(--mews-border-primary);
+  border-radius: var(--mews-radius-100);
+  background: var(--mews-bg-flat);
+  font-family: var(--mews-font-family);
+  overflow: hidden;
+}
+.mews-progind-vert__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 8px 12px 16px;
+  cursor: pointer;
+}
+.mews-progind-vert__head .mews-progind__circle { margin: 0; }
+.mews-progind-vert__head-text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.mews-progind-vert__counter {
+  font: var(--mews-font-weight-500) var(--mews-fs-75)/1.4 var(--mews-font-family);
+  color: var(--mews-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.mews-progind-vert__current-label {
+  font: var(--mews-font-weight-600) var(--mews-fs-200)/1.3 var(--mews-font-family);
+  color: var(--mews-text-primary);
+}
+.mews-progind-vert__expand {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px;
+  border: 0; background: transparent;
+  border-radius: var(--mews-radius-50);
+  cursor: pointer;
+  color: var(--mews-text-secondary);
+  transition: background 120ms ease, transform 200ms ease;
+}
+.mews-progind-vert__expand:hover { background: var(--mews-night-50); }
+.mews-progind-vert__expand .mews-icon { font-size: 16px; transition: transform 200ms ease; }
+.mews-progind-vert.is-open .mews-progind-vert__expand .mews-icon { transform: rotate(180deg); }
+
+.mews-progind-vert__body {
+  display: none;
+  padding: 4px 8px 12px;
+  border-top: 1px solid var(--mews-border-primary);
+}
+.mews-progind-vert.is-open .mews-progind-vert__body { display: block; }
+
+.mews-progind-vert__step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 8px 8px 8px;
+  background: transparent;
+  border: 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  border-radius: var(--mews-radius-50);
+  font-family: inherit;
+}
+.mews-progind-vert__step:hover { background: var(--mews-night-50); }
+.mews-progind-vert__step--next { cursor: not-allowed; }
+.mews-progind-vert__step--next:hover { background: transparent; }
+
+/* Vertical track segment behind the circle */
+.mews-progind-vert__step::before {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: 32px;
+  bottom: -8px;
+  width: 2px;
+  background: var(--mews-night-100);
+}
+.mews-progind-vert__step:last-child::before { display: none; }
+.mews-progind-vert__step--completed::before { background: var(--mews-indigo-600); }
+
+.mews-progind-vert__body-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-top: 2px;
+}
+.mews-progind-vert__body-text .mews-progind__label { display: block; }
+
+/* ==========================================================================
+   CHECKBOX + RADIO
+   Per DS: 16×16, 2px radius checkbox. Checkmark is a simple centered
+   polyline stroke (not a filled clip-path). Hover shows indigo-50 bg.
+   ========================================================================== */
+
+.mews-checkbox, .mews-radio {
+  appearance: none;
+  width: 16px; height: 16px;
+  border: 1.5px solid var(--mews-border-input);
+  background: var(--mews-bg-flat);
+  cursor: pointer;
+  display: inline-grid; place-content: center;
+  transition: all 120ms ease;
+  flex-shrink: 0;
+}
+.mews-checkbox { border-radius: var(--mews-radius-25); }
+.mews-radio    { border-radius: 50%; }
+.mews-checkbox:hover, .mews-radio:hover {
+  border-color: var(--mews-border-input-hover);
+  background: var(--mews-indigo-0);
+}
+.mews-checkbox:checked, .mews-radio:checked {
+  background: var(--mews-bg-primary);
+  border-color: var(--mews-bg-primary);
+}
+.mews-checkbox:checked:hover, .mews-radio:checked:hover {
+  background: var(--mews-bg-primary-hover);
+  border-color: var(--mews-bg-primary-hover);
+}
+.mews-checkbox:disabled, .mews-radio:disabled {
+  background: var(--mews-bg-disabled);
+  border-color: var(--mews-border-disabled);
+  cursor: not-allowed;
+}
+.mews-checkbox:checked:disabled, .mews-radio:checked:disabled {
+  background: var(--mews-night-150);
+  border-color: var(--mews-night-150);
+}
+/* Checkmark: SVG-based via background-image for precise stroke match */
+.mews-checkbox:checked::before {
+  content: '';
+  width: 10px; height: 10px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpolyline points='1.5 5 4 7.5 8.5 2.5' fill='none' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.mews-radio:checked::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--mews-text-on-color);
+}
+
+/* ==========================================================================
+   CARD — .mews-card
+   ========================================================================== */
+
+.mews-card {
+  background: var(--mews-bg-raised);
+  border: 1px solid var(--mews-border-primary);
+  border-radius: var(--mews-radius-150);
+  padding: var(--mews-spacing-300);
+  box-shadow: var(--mews-shadow-0);
+}
+.mews-card--raised { border: none; box-shadow: var(--mews-shadow-100); }
+.mews-card--floating { border: none; box-shadow: var(--mews-shadow-200); }
+.mews-card--sunken { background: var(--mews-bg-sunken); border: none; }
+.mews-card--inverse { background: var(--mews-bg-inverse); color: var(--mews-text-inverse); border: none; }
+
+/* ==========================================================================
+   TAG — .mews-tag
+   Categorical only (room type, channel, segment). Rectangle 4px radius.
+   NOT semantic. NOT removable — removable belongs to Chip.
+   Text weight is DEFAULT (400) — never bold.
+   Two variants: filled (default) and outlined (--outlined).
+   Colors: denim · lime · mustard · lavender · ruby · tangerine · indigo
+           · basic (default neutral) · basicBold (neutral dark)
+   ========================================================================== */
+
+.mews-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mews-spacing-50);
+  height: 20px;
+  padding: 0 6px;
+  font: var(--mews-font-weight-400) var(--mews-fs-75)/1 var(--mews-font-family);
+  color: var(--mews-night-800);
+  background: var(--mews-night-50);
+  border-radius: var(--mews-radius-50);
+  white-space: nowrap;
+  border: 1px solid transparent; /* reserve 1px so filled and outlined match heights */
+}
+
+/* ---- Filled (default) ---- */
+.mews-tag--denim     { color: var(--mews-denim-900);    background: var(--mews-denim-50); }
+.mews-tag--lime      { color: var(--mews-lime-900);     background: var(--mews-lime-50); }
+.mews-tag--mustard   { color: #6A4B0A;                  background: var(--mews-mustard-50); }
+.mews-tag--lavender  { color: var(--mews-lavender-900); background: var(--mews-lavender-50); }
+.mews-tag--ruby      { color: var(--mews-ruby-900);     background: var(--mews-ruby-50); }
+.mews-tag--tangerine { color: #8B3B18;                  background: var(--mews-tangerine-50); }
+.mews-tag--indigo    { color: var(--mews-indigo-800);   background: var(--mews-indigo-50); }
+.mews-tag--basicBold { color: var(--mews-night-900);    background: var(--mews-night-100); }
+
+/* ---- Outlined ---- */
+.mews-tag--outlined                     { background: transparent; border-color: var(--mews-night-300);     color: var(--mews-night-800); }
+.mews-tag--outlined.mews-tag--denim     { background: transparent; border-color: var(--mews-denim-500);    color: var(--mews-denim-900); }
+.mews-tag--outlined.mews-tag--lime      { background: transparent; border-color: var(--mews-lime-500);     color: var(--mews-lime-900); }
+.mews-tag--outlined.mews-tag--mustard   { background: transparent; border-color: var(--mews-mustard-500);  color: #6A4B0A; }
+.mews-tag--outlined.mews-tag--lavender  { background: transparent; border-color: var(--mews-lavender-500); color: var(--mews-lavender-900); }
+.mews-tag--outlined.mews-tag--ruby      { background: transparent; border-color: var(--mews-ruby-500);     color: var(--mews-ruby-900); }
+.mews-tag--outlined.mews-tag--tangerine { background: transparent; border-color: var(--mews-tangerine-500);color: #8B3B18; }
+.mews-tag--outlined.mews-tag--indigo    { background: transparent; border-color: var(--mews-indigo-500);   color: var(--mews-indigo-800); }
+.mews-tag--outlined.mews-tag--basicBold { background: transparent; border-color: var(--mews-night-500);    color: var(--mews-night-900); }
+
+/* ==========================================================================
+   STATUS INDICATOR — .mews-si
+   Per MDS Storybook: pill with icon + optional label.
+   Variants: danger | info | primary | success | warning | basicSubtle
+   Filled prop (default true): adds background + border.
+   No size prop — one size.
+   ========================================================================== */
+
+.mews-si {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px 3px 6px;
+  height: 24px;
+  border-radius: var(--mews-radius-50);
+  font: var(--mews-font-weight-500) var(--mews-fs-75)/1 var(--mews-font-family);
+  white-space: nowrap;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--mews-night-600);
+}
+.mews-si .mews-icon { font-size: 16px; flex-shrink: 0; }
+
+/* Icon-only */
+.mews-si--icon-only { padding: 3px; width: 24px; justify-content: center; }
+
+/* ── Filled variants (default) — background + border ── */
+.mews-si--basicSubtle   { color: var(--mews-night-700); background: var(--mews-night-50); border-color: var(--mews-night-150); }
+.mews-si--danger        { color: var(--mews-red-700); background: var(--mews-red-25); border-color: var(--mews-red-100); }
+.mews-si--success       { color: var(--mews-green-700); background: var(--mews-green-25); border-color: var(--mews-green-100); }
+.mews-si--warning       { color: var(--mews-orange-800); background: var(--mews-orange-25); border-color: var(--mews-orange-100); }
+.mews-si--info          { color: var(--mews-blue-700); background: var(--mews-blue-25); border-color: var(--mews-blue-100); }
+.mews-si--primary       { color: var(--mews-indigo-700); background: var(--mews-indigo-25); border-color: var(--mews-indigo-100); }
+
+/* ── Ghost (filled=false) — no background, no border, just colored text/icon ── */
+.mews-si--ghost.mews-si--basicSubtle   { background: transparent; border-color: transparent; color: var(--mews-night-600); }
+.mews-si--ghost.mews-si--danger        { background: transparent; border-color: transparent; color: var(--mews-red-600); }
+.mews-si--ghost.mews-si--success       { background: transparent; border-color: transparent; color: var(--mews-green-600); }
+.mews-si--ghost.mews-si--warning       { background: transparent; border-color: transparent; color: var(--mews-orange-700); }
+.mews-si--ghost.mews-si--info          { background: transparent; border-color: transparent; color: var(--mews-blue-600); }
+.mews-si--ghost.mews-si--primary       { background: transparent; border-color: transparent; color: var(--mews-indigo-500); }
+
+/* ==========================================================================
+   BADGE — .mews-badge
+   Only two variants: primary (indigo) and subtle (neutral).
+   ========================================================================== */
+
+.mews-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 5px;
+  font: var(--mews-font-weight-600) 10px/1 var(--mews-font-family);
+  color: var(--mews-text-on-color);
+  background: var(--mews-indigo-500);
+  border: 2px solid var(--mews-bg-flat);
+  border-radius: 999px;
+}
+.mews-badge--subtle {
+  background: var(--mews-night-100);
+  color: var(--mews-text-secondary);
+}
+.mews-badge--dot { min-width: 8px; width: 8px; height: 8px; padding: 0; }
+
+/* ==========================================================================
+   CHIP — .mews-chip
+   Displays user selections or search terms. Removable token (close button
+   shown by default). Chips are NOT toggleable — there is no "selected"
+   state; if it's on screen, it's a selection. For filter toggles, use
+   Segmented Control or Selection Card Group.
+   Spec: mews.design/components/chip
+   - Height 24px (sizing.300), width auto
+   - Padding 8px L / 4px R + 4px gap (with close)
+   - Padding 8px L / 8px R         (without close)
+   - States: default / hover / active
+   - Variants: default / disabled / error
+   ========================================================================== */
+
+.mews-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 24px;
+  padding: 0 8px;                                /* default = no close */
+  font: var(--mews-font-weight-500) var(--mews-fs-75)/1 var(--mews-font-family);
+  color: var(--mews-text-primary);
+  background: var(--mews-night-50);
+  border: 1px solid transparent;
+  border-radius: var(--mews-radius-100);
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease;
+  white-space: nowrap;
+  user-select: none;
+}
+.mews-chip:hover  { background: var(--mews-night-100); }
+.mews-chip:active,
+.mews-chip.is-active { background: var(--mews-night-200); }
+
+/* With close button: tighter right padding to balance the bare icon button */
+.mews-chip:has(.mews-chip__close),
+.mews-chip--with-close { padding: 0 4px 0 8px; }
+
+/* Disabled — visible but not interactive */
+.mews-chip--disabled,
+.mews-chip[aria-disabled="true"] {
+  background: var(--mews-night-25);
+  color: var(--mews-text-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.mews-chip--disabled .mews-chip__close { color: var(--mews-text-disabled); }
+
+/* Error — flags a problem requiring resolution */
+.mews-chip--error {
+  background: var(--mews-red-50);
+  color: var(--mews-red-700);
+  border-color: var(--mews-red-200);
+}
+.mews-chip--error:hover  { background: var(--mews-red-100); }
+.mews-chip--error:active { background: var(--mews-red-200); }
+
+/* Close — Bare Icon Button inside chip (16px hit target, 12px glyph) */
+.mews-chip__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  color: currentColor;
+  border-radius: var(--mews-radius-50);
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.7;
+  transition: background 120ms ease, opacity 120ms ease;
+}
+.mews-chip__close .mews-icon { font-size: 12px; }
+.mews-chip__close:hover  { opacity: 1; background: rgba(13,15,22,0.08); }
+.mews-chip__close:active { background: rgba(13,15,22,0.16); }
+
+/* ==========================================================================
+   BANNER — .mews-banner  (inline page-level message)
+   Per DS: NO left border accent. Icon sits inside a rounded container.
+   ========================================================================== */
+
+.mews-banner {
+  display: flex;
+  gap: var(--mews-spacing-150);
+  padding: var(--mews-spacing-150) var(--mews-spacing-200);
+  background: var(--mews-bg-alert-basic);
+  border: none;
+  border-radius: var(--mews-radius-100);
+  align-items: flex-start;
+}
+.mews-banner--info    { background: var(--mews-bg-alert-info); }
+.mews-banner--success { background: var(--mews-bg-alert-success); }
+.mews-banner--warning { background: var(--mews-bg-alert-warning); }
+.mews-banner--danger  { background: var(--mews-bg-alert-danger); }
+
+.mews-banner__icon {
+  flex: 0 0 auto;
+  font-size: 20px;
+  line-height: 1;
+}
+.mews-banner--info .mews-banner__icon    { color: var(--mews-blue-600); }
+.mews-banner--success .mews-banner__icon { color: var(--mews-green-600); }
+.mews-banner--warning .mews-banner__icon { color: var(--mews-orange-700); }
+.mews-banner--danger .mews-banner__icon  { color: var(--mews-red-600); }
+
+.mews-banner__body { flex: 1; font: var(--mews-font-weight-400) var(--mews-fs-100)/var(--mews-line-height-300) var(--mews-font-family); }
+.mews-banner__title { font-weight: var(--mews-font-weight-500); margin: 0 0 2px; }
+
+/* ==========================================================================
+   ALERT / TOAST — .mews-toast  (overlay notification)
+   Per MDS 2.0 Figma: white floating card with shadow. Left side has a
+   tinted color area containing an outline icon. Title + description on
+   the right. Close button far-right.
+   ========================================================================== */
+
+.mews-toast {
+  display: flex;
+  align-items: stretch;
+  background: var(--mews-bg-floating);
+  border: none;
+  border-radius: var(--mews-radius-150);
+  box-shadow: var(--mews-shadow-200);
+  max-width: 480px;
+  overflow: hidden;
+}
+.mews-toast__icon-area {
+  flex: 0 0 auto;
+  width: 56px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: var(--mews-spacing-200);
+  background: var(--mews-night-25);
+}
+.mews-toast__icon-area i {
+  font-size: 20px;
+}
+.mews-toast--info .mews-toast__icon-area    { background: var(--mews-blue-25);   color: var(--mews-blue-600); }
+.mews-toast--success .mews-toast__icon-area { background: var(--mews-green-25);  color: var(--mews-green-600); }
+.mews-toast--warning .mews-toast__icon-area { background: var(--mews-orange-25); color: var(--mews-orange-700); }
+.mews-toast--danger .mews-toast__icon-area  { background: var(--mews-red-25);    color: var(--mews-red-600); }
+
+.mews-toast__content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: var(--mews-spacing-200);
+  gap: var(--mews-spacing-200);
+}
+.mews-toast__body {
+  flex: 1;
+  font: var(--mews-font-weight-400) var(--mews-fs-100)/var(--mews-line-height-300) var(--mews-font-family);
+}
+.mews-toast__title { font-weight: var(--mews-font-weight-500); margin: 0 0 2px; }
+.mews-toast__close {
+  flex: 0 0 auto;
+  cursor: pointer;
+  color: var(--mews-text-tertiary);
+  display: flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px;
+  border-radius: var(--mews-radius-50);
+  transition: all 120ms ease;
+}
+.mews-toast__close:hover { color: var(--mews-text-primary); background: var(--mews-bg-subtle-hover); }
+
+/* ==========================================================================
+   AVATAR — .mews-avatar
+   Three sub-types: initials, image, icon.
+   ========================================================================== */
+
+.mews-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 32px;
+  border-radius: var(--mews-radius-round);
+  background: var(--mews-indigo-100);
+  color: var(--mews-indigo-800);
+  font: var(--mews-font-weight-600) var(--mews-fs-75)/1 var(--mews-font-family);
+  overflow: hidden;
+}
+.mews-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.mews-avatar--sm { width: 24px; height: 24px; font-size: 10px; }
+.mews-avatar--lg { width: 40px; height: 40px; font-size: var(--mews-fs-100); }
+.mews-avatar--xl { width: 64px; height: 64px; font-size: var(--mews-fs-400); }
+/* Icon avatar variant */
+.mews-avatar--icon {
+  background: var(--mews-night-50);
+  color: var(--mews-text-tertiary);
+}
+
+/* ==========================================================================
+   DIVIDER
+   ========================================================================== */
+.mews-divider { border: 0; border-top: 1px solid var(--mews-border-primary); margin: 0; }
+.mews-divider--strong { border-top-color: var(--mews-border-bold); }
+
+/* ==========================================================================
+   TABLE
+   ========================================================================== */
+.mews-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--mews-fs-100);
+}
+.mews-table thead th {
+  text-align: left;
+  padding: var(--mews-spacing-100) var(--mews-spacing-150);
+  font: var(--mews-font-weight-500) var(--mews-fs-100)/var(--mews-line-height-300) var(--mews-font-family);
+  color: var(--mews-text-secondary);
+  background: var(--mews-night-25);
+  border-bottom: 1px solid var(--mews-border-primary);
+}
+.mews-table tbody td {
+  padding: var(--mews-spacing-150);
+  border-bottom: 1px solid var(--mews-border-secondary);
+  color: var(--mews-text-primary);
+}
+.mews-table tbody tr:hover td { background: var(--mews-bg-subtle-hover); }
+
+
+/* ============== SEGMENTED CONTROL ============== */
+.mews-segmented {
+  display: inline-flex;
+  align-items: stretch;
+  padding: 2px;
+  background: var(--mews-night-50);
+  border-radius: var(--mews-radius-100);
+  border: 1px solid var(--mews-border-primary);
+  font-family: var(--mews-font-family);
+}
+.mews-segmented__seg {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 16px;
+  height: 28px;
+  border: 0;
+  background: transparent;
+  color: var(--mews-text-secondary);
+  font: var(--mews-font-weight-500) var(--mews-fs-100)/1 var(--mews-font-family);
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 120ms ease, color 120ms ease, box-shadow 120ms ease;
+  user-select: none;
+}
+.mews-segmented__seg:hover { color: var(--mews-text-primary); }
+.mews-segmented__seg.is-selected {
+  background: var(--mews-bg-flat);
+  color: var(--mews-text-primary);
+  box-shadow: var(--mews-shadow-100);
+  font-weight: var(--mews-font-weight-600);
+}
+.mews-segmented__seg:focus-visible {
+  outline: 2px solid var(--mews-border-focus);
+  outline-offset: 1px;
+}
+.mews-segmented__seg:disabled,
+.mews-segmented__seg[aria-disabled="true"] {
+  color: var(--mews-text-disabled);
+  cursor: not-allowed;
+}
+
+/* Size variants */
+.mews-segmented--sm { padding: 2px; }
+.mews-segmented--sm .mews-segmented__seg { height: 24px; padding: 0 12px; font-size: 13px; }
+.mews-segmented--lg .mews-segmented__seg { height: 36px; padding: 0 20px; font-size: 15px; }
+
+/* Full-width: fills its container, segments share width equally */
+.mews-segmented--full { display: flex; width: 100%; }
+.mews-segmented--full .mews-segmented__seg { flex: 1 1 0; }
+
+/* Disabled whole control */
+.mews-segmented.is-disabled {
+  background: var(--mews-bg-disabled, var(--mews-night-50));
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+
+/* ============== SELECTION CARD GROUP ==============
+   Mirrors @optimus-web/core SelectionCard (mews-js).
+   Source: packages/ui/optimus/core/src/SelectionCard/style.ts
+============== */
+.mews-selcard-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: var(--mews-font-family);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.mews-selcard-group--vertical-list { flex-direction: column; flex-wrap: nowrap; }
+.mews-selcard-group--grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+/* horizontal: padding spacing-200 all sides; vertical: 300 top/bottom, 100 sides */
+.mews-selcard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: var(--mews-bg-flat);
+  border: 1px solid var(--mews-border-primary);
+  border-radius: var(--mews-radius-100); /* small (group default) */
+  cursor: pointer;
+  transition: border-color 120ms ease, background-color 120ms ease, color 120ms ease;
+  min-width: 0;
+}
+.mews-selcard--rounded { border-radius: var(--mews-radius-200); } /* cornerRadius="medium" */
+
+@media (hover: hover) {
+  .mews-selcard:hover { border-color: var(--mews-border-input-hover); }
+}
+.mews-selcard:active { border-color: var(--mews-indigo-700); }
+
+.mews-selcard.is-selected {
+  background: var(--mews-indigo-25);
+  border-color: var(--mews-indigo-500);
+}
+.mews-selcard.is-selected:hover { border-color: var(--mews-indigo-700); }
+
+.mews-selcard.is-disabled {
+  background: var(--mews-bg-flat);
+  border-color: var(--mews-border-disabled);
+  color: var(--mews-text-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.mews-selcard.is-disabled .mews-selcard__title,
+.mews-selcard.is-disabled .mews-selcard__desc,
+.mews-selcard.is-disabled .mews-selcard__meta { color: var(--mews-text-disabled); }
+.mews-selcard.is-disabled .mews-selcard__slot { color: var(--mews-text-disabled); }
+
+/* Selector — kept on the LEFT in horizontal */
+.mews-selcard__selector {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  pointer-events: none; /* card itself receives the click */
+}
+
+/* Decorative slot (media) — bare icon by default; no tinted box */
+.mews-selcard__slot {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--mews-text-secondary);
+}
+.mews-selcard.is-selected .mews-selcard__slot { color: var(--mews-indigo-700); }
+.mews-selcard__slot--lg { font-size: 32px; }
+
+.mews-selcard__body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px; /* horizontal uses spacing-25 between label/desc */
+  min-width: 0;
+}
+.mews-selcard__title {
+  font: var(--mews-font-weight-700) var(--mews-fs-200)/1.3 var(--mews-font-family); /* bodyLargeStrong */
+  color: var(--mews-text-primary);
+}
+.mews-selcard__desc {
+  font: var(--mews-font-weight-400) var(--mews-fs-100)/1.4 var(--mews-font-family); /* bodyMedium */
+  color: var(--mews-text-tertiary);
+}
+.mews-selcard__meta {
+  margin-top: 6px;
+  font: var(--mews-font-weight-600) var(--mews-fs-100)/1 var(--mews-font-family);
+  color: var(--mews-text-primary);
+}
+
+/* Vertical layout — media on top, text centered, selector floats as a corner badge OUTSIDE the card */
+.mews-selcard--vertical {
+  flex-direction: column;
+  align-items: stretch;
+  justify-items: center;
+  padding: 24px 8px; /* 300 / 100 */
+  gap: 8px;
+  text-align: center;
+  overflow: visible;
+}
+.mews-selcard--vertical .mews-selcard__body { align-items: center; gap: 4px; }
+.mews-selcard--vertical .mews-selcard__slot {
+  width: 100%;
+  height: 64px;
+  font-size: 36px;
+}
+.mews-selcard--vertical .mews-selcard__selector {
+  position: absolute;
+  top: 12px;           /* inside, near top-right corner */
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+}
+.mews-selcard--vertical .mews-selcard__selector input { margin: 0; }
+
+/* Card-only selection (showSelector={false}) — selector still rendered but invisible.
+   Selection visible only via border + bg shift (matches the React impl). */
+.mews-selcard--cardonly .mews-selcard__selector {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  pointer-events: none;
+}
+.mews-selcard--cardonly .mews-selcard__check { display: none; } /* legacy, kept for compat */

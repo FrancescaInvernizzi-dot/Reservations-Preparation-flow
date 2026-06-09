@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservation preparation flow — prototypes</title>
+  <link rel="stylesheet" href="assets/tokens.css" />
+  <link rel="stylesheet" href="assets/optimus.css" />
+  <style>
+    html, body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--mews-bg-flat, #ECEAE4);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      color: var(--mews-night-900, #21212E);
+    }
+    .wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 32px 96px;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin: 0 0 8px;
+    }
+    .lede {
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--mews-night-500, #6E6E8B);
+      margin: 0 0 40px;
+    }
+    .card-list {
+      display: grid;
+      gap: 16px;
+    }
+    .card {
+      display: block;
+      padding: 24px 28px;
+      background: #FFFFFF;
+      border: 1px solid var(--mews-night-100, #DFDFEA);
+      border-radius: 12px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 120ms ease, transform 120ms ease, box-shadow 120ms ease;
+    }
+    .card:hover {
+      border-color: var(--mews-brand-500, #3B37F2);
+      box-shadow: 0 4px 16px rgba(59, 55, 242, 0.08);
+      transform: translateY(-1px);
+    }
+    .card-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--mews-brand-500, #3B37F2);
+      margin-bottom: 6px;
+    }
+    .card-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 0 4px;
+    }
+    .card-desc {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--mews-night-500, #6E6E8B);
+      margin: 0;
+    }
+    footer {
+      margin-top: 56px;
+      font-size: 13px;
+      color: var(--mews-night-400, #8D8DAC);
+    }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Reservation preparation flow</h1>
+    <p class="lede">Interactive prototypes exploring how front-office staff prepare reservations ahead of arrival. Click any prototype to open it.</p>
+
+    <div class="card-list">
+      <a class="card" href="reservations-timeline.html">
+        <span class="card-tag">A1 · Detail panel</span>
+        <p class="card-title">Reservations timeline</p>
+        <p class="card-desc">Timeline view with an inline detail panel for the selected reservation.</p>
+      </a>
+
+      <a class="card" href="reservations-timeline-floating-panel.html">
+        <span class="card-tag">A2 · Floating panel</span>
+        <p class="card-title">Reservations timeline — floating panel</p>
+        <p class="card-desc">Same timeline with a floating detail panel that overlays the canvas.</p>
+      </a>
+
+      <a class="card" href="reservation-preparation-flow.html">
+        <span class="card-tag">Explorations</span>
+        <p class="card-title">Reservation preparation flow — canvas</p>
+        <p class="card-desc">Design canvas with the full set of explorations and references.</p>
+      </a>
+    </div>
+
+    <footer>
+      Prototypes exported from Claude Design. Source on <a href="https://github.com/FrancescaInvernizzi-dot/Reservations-Preparation-flow">GitHub</a>.
+    </footer>
+  </div>
+</body>
+</html>

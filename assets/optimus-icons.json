@@ -1,0 +1,2822 @@
+[
+  {
+    "name": "accounting_ledger_24",
+    "code": "0xe800"
+  },
+  {
+    "name": "accounting_ledger",
+    "code": "0xe801"
+  },
+  {
+    "name": "accounting_report_24",
+    "code": "0xe802"
+  },
+  {
+    "name": "accounting_report",
+    "code": "0xe803"
+  },
+  {
+    "name": "action_log_24",
+    "code": "0xe804"
+  },
+  {
+    "name": "activity_report_24",
+    "code": "0xe805"
+  },
+  {
+    "name": "action_log",
+    "code": "0xe806"
+  },
+  {
+    "name": "activity_report",
+    "code": "0xe807"
+  },
+  {
+    "name": "add_24",
+    "code": "0xe808"
+  },
+  {
+    "name": "add_customer_24",
+    "code": "0xe809"
+  },
+  {
+    "name": "add_customer",
+    "code": "0xe80a"
+  },
+  {
+    "name": "add_photo_24",
+    "code": "0xe80b"
+  },
+  {
+    "name": "add_photo",
+    "code": "0xe80c"
+  },
+  {
+    "name": "add",
+    "code": "0xe80d"
+  },
+  {
+    "name": "ai_24",
+    "code": "0xe80e"
+  },
+  {
+    "name": "ai",
+    "code": "0xe80f"
+  },
+  {
+    "name": "alert_circle_24",
+    "code": "0xe810"
+  },
+  {
+    "name": "alert_circle",
+    "code": "0xe811"
+  },
+  {
+    "name": "analytics_24",
+    "code": "0xe812"
+  },
+  {
+    "name": "analytics",
+    "code": "0xe813"
+  },
+  {
+    "name": "app_switcher_24",
+    "code": "0xe814"
+  },
+  {
+    "name": "app_switcher",
+    "code": "0xe815"
+  },
+  {
+    "name": "archive_24",
+    "code": "0xe816"
+  },
+  {
+    "name": "archive",
+    "code": "0xe817"
+  },
+  {
+    "name": "arrivals_24",
+    "code": "0xe818"
+  },
+  {
+    "name": "arrivals",
+    "code": "0xe819"
+  },
+  {
+    "name": "arrow_down_24",
+    "code": "0xe81a"
+  },
+  {
+    "name": "arrow_down",
+    "code": "0xe81b"
+  },
+  {
+    "name": "arrow_joined_24",
+    "code": "0xe81c"
+  },
+  {
+    "name": "arrow_joined",
+    "code": "0xe81d"
+  },
+  {
+    "name": "arrow_left_24",
+    "code": "0xe81e"
+  },
+  {
+    "name": "arrow_left",
+    "code": "0xe81f"
+  },
+  {
+    "name": "arrow_right_24",
+    "code": "0xe820"
+  },
+  {
+    "name": "arrow_right",
+    "code": "0xe821"
+  },
+  {
+    "name": "arrow_trend_down_24_24",
+    "code": "0xe822"
+  },
+  {
+    "name": "arrow_trend_up_24_24",
+    "code": "0xe823"
+  },
+  {
+    "name": "arrow_up_24",
+    "code": "0xe824"
+  },
+  {
+    "name": "arrow_up",
+    "code": "0xe825"
+  },
+  {
+    "name": "arrow_counter_clockwise_1_24",
+    "code": "0xe826"
+  },
+  {
+    "name": "arrow_counter_clockwise_1_16",
+    "code": "0xe827"
+  },
+  {
+    "name": "arrow_counter_clockwise_2_24",
+    "code": "0xe828"
+  },
+  {
+    "name": "arrow_counter_clockwise_2_16",
+    "code": "0xe829"
+  },
+  {
+    "name": "arrow_counter_clockwise_3_24",
+    "code": "0xe82a"
+  },
+  {
+    "name": "arrow_counter_clockwise_3_16",
+    "code": "0xe82b"
+  },
+  {
+    "name": "arrow_counter_clockwise_4_24",
+    "code": "0xe82c"
+  },
+  {
+    "name": "arrow_counter_clockwise_4_16",
+    "code": "0xe82d"
+  },
+  {
+    "name": "arrow_counter_clockwise_5_24",
+    "code": "0xe82e"
+  },
+  {
+    "name": "arrow_counter_clockwise_5_16",
+    "code": "0xe82f"
+  },
+  {
+    "name": "arrow_counter_clockwise_6_24",
+    "code": "0xe830"
+  },
+  {
+    "name": "arrow_counter_clockwise_6_16",
+    "code": "0xe831"
+  },
+  {
+    "name": "arrow_counter_clockwise_7_24",
+    "code": "0xe832"
+  },
+  {
+    "name": "arrow_counter_clockwise_7_16",
+    "code": "0xe833"
+  },
+  {
+    "name": "arrow_counter_clockwise_8_24",
+    "code": "0xe834"
+  },
+  {
+    "name": "arrow_counter_clockwise_8_16",
+    "code": "0xe835"
+  },
+  {
+    "name": "arrow_counter_clockwise_9_24",
+    "code": "0xe836"
+  },
+  {
+    "name": "arrow_counter_clockwise_9_plus_24",
+    "code": "0xe837"
+  },
+  {
+    "name": "arrow_counter_clockwise_9_16",
+    "code": "0xe838"
+  },
+  {
+    "name": "arrow_counter_clockwise_9_plus_16",
+    "code": "0xe839"
+  },
+  {
+    "name": "assign_24",
+    "code": "0xe83a"
+  },
+  {
+    "name": "assign",
+    "code": "0xe83b"
+  },
+  {
+    "name": "at_mention_24",
+    "code": "0xe83c"
+  },
+  {
+    "name": "autosize",
+    "code": "0xe83d"
+  },
+  {
+    "name": "autosize_24",
+    "code": "0xe83e"
+  },
+  {
+    "name": "availability_24",
+    "code": "0xe83f"
+  },
+  {
+    "name": "availability",
+    "code": "0xe840"
+  },
+  {
+    "name": "available_dates_24",
+    "code": "0xe841"
+  },
+  {
+    "name": "available_dates",
+    "code": "0xe842"
+  },
+  {
+    "name": "baby_cot_24",
+    "code": "0xe843"
+  },
+  {
+    "name": "baby_cot",
+    "code": "0xe844"
+  },
+  {
+    "name": "backward_24",
+    "code": "0xe845"
+  },
+  {
+    "name": "backward_more_24",
+    "code": "0xe846"
+  },
+  {
+    "name": "backward_more",
+    "code": "0xe847"
+  },
+  {
+    "name": "backward",
+    "code": "0xe848"
+  },
+  {
+    "name": "bathroom_24",
+    "code": "0xe849"
+  },
+  {
+    "name": "bathroom",
+    "code": "0xe84a"
+  },
+  {
+    "name": "bi_24",
+    "code": "0xe84b"
+  },
+  {
+    "name": "bike_24",
+    "code": "0xe84c"
+  },
+  {
+    "name": "bike",
+    "code": "0xe84d"
+  },
+  {
+    "name": "bills_invoices_24",
+    "code": "0xe84e"
+  },
+  {
+    "name": "bills_invoices",
+    "code": "0xe84f"
+  },
+  {
+    "name": "birthday_24",
+    "code": "0xe850"
+  },
+  {
+    "name": "birthday",
+    "code": "0xe851"
+  },
+  {
+    "name": "blacklist_24",
+    "code": "0xe852"
+  },
+  {
+    "name": "blacklist",
+    "code": "0xe853"
+  },
+  {
+    "name": "bold_24",
+    "code": "0xe854"
+  },
+  {
+    "name": "briefcase_24",
+    "code": "0xe855"
+  },
+  {
+    "name": "briefcase",
+    "code": "0xe856"
+  },
+  {
+    "name": "broom_24",
+    "code": "0xe857"
+  },
+  {
+    "name": "broom",
+    "code": "0xe858"
+  },
+  {
+    "name": "building_plus_24",
+    "code": "0xe859"
+  },
+  {
+    "name": "building_plus",
+    "code": "0xe85a"
+  },
+  {
+    "name": "bulb_stars_24",
+    "code": "0xe85b"
+  },
+  {
+    "name": "bulb_stars",
+    "code": "0xe85c"
+  },
+  {
+    "name": "bulk_edit_24",
+    "code": "0xe85d"
+  },
+  {
+    "name": "bulk_edit",
+    "code": "0xe85e"
+  },
+  {
+    "name": "bus_24",
+    "code": "0xe85f"
+  },
+  {
+    "name": "bus",
+    "code": "0xe860"
+  },
+  {
+    "name": "calendar_24",
+    "code": "0xe861"
+  },
+  {
+    "name": "calendar_day_24",
+    "code": "0xe862"
+  },
+  {
+    "name": "calendar_month_24",
+    "code": "0xe863"
+  },
+  {
+    "name": "calendar_stars_24",
+    "code": "0xe864"
+  },
+  {
+    "name": "calendar_stars",
+    "code": "0xe865"
+  },
+  {
+    "name": "calendar_week_24",
+    "code": "0xe866"
+  },
+  {
+    "name": "calendar",
+    "code": "0xe867"
+  },
+  {
+    "name": "camera_24",
+    "code": "0xe868"
+  },
+  {
+    "name": "camera",
+    "code": "0xe869"
+  },
+  {
+    "name": "campervan_24",
+    "code": "0xe86a"
+  },
+  {
+    "name": "campervan",
+    "code": "0xe86b"
+  },
+  {
+    "name": "camping_pitch_24",
+    "code": "0xe86c"
+  },
+  {
+    "name": "camping_pitch",
+    "code": "0xe86d"
+  },
+  {
+    "name": "cancel_square_24",
+    "code": "0xe86e"
+  },
+  {
+    "name": "cancel_square",
+    "code": "0xe86f"
+  },
+  {
+    "name": "caravan_24",
+    "code": "0xe870"
+  },
+  {
+    "name": "caravan",
+    "code": "0xe871"
+  },
+  {
+    "name": "card_check_24",
+    "code": "0xe872"
+  },
+  {
+    "name": "card_check",
+    "code": "0xe873"
+  },
+  {
+    "name": "card_keys_24",
+    "code": "0xe874"
+  },
+  {
+    "name": "card_keys",
+    "code": "0xe875"
+  },
+  {
+    "name": "card_nfc_24",
+    "code": "0xe876"
+  },
+  {
+    "name": "card_nfc",
+    "code": "0xe877"
+  },
+  {
+    "name": "caret_filled_down_24",
+    "code": "0xe878"
+  },
+  {
+    "name": "caret_filled_down",
+    "code": "0xe879"
+  },
+  {
+    "name": "caret_filled_up_24",
+    "code": "0xe87a"
+  },
+  {
+    "name": "caret_filled_up",
+    "code": "0xe87b"
+  },
+  {
+    "name": "cash_payment_24",
+    "code": "0xe87c"
+  },
+  {
+    "name": "cash_payment",
+    "code": "0xe87d"
+  },
+  {
+    "name": "cashier_24",
+    "code": "0xe87e"
+  },
+  {
+    "name": "cashier",
+    "code": "0xe87f"
+  },
+  {
+    "name": "cashlist_24",
+    "code": "0xe880"
+  },
+  {
+    "name": "cashlist",
+    "code": "0xe881"
+  },
+  {
+    "name": "channel_manager_24",
+    "code": "0xe882"
+  },
+  {
+    "name": "channel_manager",
+    "code": "0xe883"
+  },
+  {
+    "name": "charge_24",
+    "code": "0xe884"
+  },
+  {
+    "name": "charge",
+    "code": "0xe885"
+  },
+  {
+    "name": "chargeable_24",
+    "code": "0xe886"
+  },
+  {
+    "name": "chargeable",
+    "code": "0xe887"
+  },
+  {
+    "name": "chargeback_24",
+    "code": "0xe888"
+  },
+  {
+    "name": "chargeback",
+    "code": "0xe889"
+  },
+  {
+    "name": "checkbox_empty_24",
+    "code": "0xe88a"
+  },
+  {
+    "name": "checkbox_empty",
+    "code": "0xe88b"
+  },
+  {
+    "name": "checkbox_minus",
+    "code": "0xe88c"
+  },
+  {
+    "name": "checkbox_plus",
+    "code": "0xe88d"
+  },
+  {
+    "name": "checkbox_tick_24",
+    "code": "0xe88e"
+  },
+  {
+    "name": "checkbox_tick",
+    "code": "0xe88f"
+  },
+  {
+    "name": "checked_in_24",
+    "code": "0xe890"
+  },
+  {
+    "name": "checked_in",
+    "code": "0xe891"
+  },
+  {
+    "name": "checked_out_24",
+    "code": "0xe892"
+  },
+  {
+    "name": "checked_out",
+    "code": "0xe893"
+  },
+  {
+    "name": "checkin_24",
+    "code": "0xe894"
+  },
+  {
+    "name": "checkin",
+    "code": "0xe895"
+  },
+  {
+    "name": "checkout_24",
+    "code": "0xe896"
+  },
+  {
+    "name": "checkout",
+    "code": "0xe897"
+  },
+  {
+    "name": "chevron_down_24",
+    "code": "0xe898"
+  },
+  {
+    "name": "chevron_down",
+    "code": "0xe899"
+  },
+  {
+    "name": "chevron_left_24",
+    "code": "0xe89a"
+  },
+  {
+    "name": "chevron_left",
+    "code": "0xe89b"
+  },
+  {
+    "name": "chevron_right_24",
+    "code": "0xe89c"
+  },
+  {
+    "name": "chevron_right",
+    "code": "0xe89d"
+  },
+  {
+    "name": "chevron_up_24",
+    "code": "0xe89e"
+  },
+  {
+    "name": "chevron_up",
+    "code": "0xe89f"
+  },
+  {
+    "name": "child_head_24",
+    "code": "0xe8a0"
+  },
+  {
+    "name": "child_head",
+    "code": "0xe8a1"
+  },
+  {
+    "name": "city_24",
+    "code": "0xe8a2"
+  },
+  {
+    "name": "city",
+    "code": "0xe8a3"
+  },
+  {
+    "name": "clear_selection_24",
+    "code": "0xe8a4"
+  },
+  {
+    "name": "clear_selection",
+    "code": "0xe8a5"
+  },
+  {
+    "name": "collapse_24",
+    "code": "0xe8a6"
+  },
+  {
+    "name": "collapse_all_24",
+    "code": "0xe8a7"
+  },
+  {
+    "name": "collapse_all",
+    "code": "0xe8a8"
+  },
+  {
+    "name": "collapse",
+    "code": "0xe8a9"
+  },
+  {
+    "name": "companies",
+    "code": "0xe8aa"
+  },
+  {
+    "name": "complaint_24",
+    "code": "0xe8ab"
+  },
+  {
+    "name": "complaint",
+    "code": "0xe8ac"
+  },
+  {
+    "name": "configuration_24",
+    "code": "0xe8ad"
+  },
+  {
+    "name": "configuration",
+    "code": "0xe8ae"
+  },
+  {
+    "name": "connect_24",
+    "code": "0xe8af"
+  },
+  {
+    "name": "connect",
+    "code": "0xe8b0"
+  },
+  {
+    "name": "contract",
+    "code": "0xe8b1"
+  },
+  {
+    "name": "controls_24",
+    "code": "0xe8b2"
+  },
+  {
+    "name": "controls",
+    "code": "0xe8b3"
+  },
+  {
+    "name": "copy_24",
+    "code": "0xe8b4"
+  },
+  {
+    "name": "copy",
+    "code": "0xe8b5"
+  },
+  {
+    "name": "countries_24",
+    "code": "0xe8b6"
+  },
+  {
+    "name": "countries",
+    "code": "0xe8b7"
+  },
+  {
+    "name": "covid_protection_24",
+    "code": "0xe8b8"
+  },
+  {
+    "name": "covid_protection",
+    "code": "0xe8b9"
+  },
+  {
+    "name": "credit_card_file_24",
+    "code": "0xe8ba"
+  },
+  {
+    "name": "credit_card_file",
+    "code": "0xe8bb"
+  },
+  {
+    "name": "credit_card_report_24",
+    "code": "0xe8bc"
+  },
+  {
+    "name": "credit_card_report",
+    "code": "0xe8bd"
+  },
+  {
+    "name": "crib_24",
+    "code": "0xe8be"
+  },
+  {
+    "name": "crib",
+    "code": "0xe8bf"
+  },
+  {
+    "name": "cross_close_24",
+    "code": "0xe8c0"
+  },
+  {
+    "name": "cross_close",
+    "code": "0xe8c1"
+  },
+  {
+    "name": "cultures_24",
+    "code": "0xe8c2"
+  },
+  {
+    "name": "cultures",
+    "code": "0xe8c3"
+  },
+  {
+    "name": "currency_switch_24",
+    "code": "0xe8c4"
+  },
+  {
+    "name": "currency_switch",
+    "code": "0xe8c5"
+  },
+  {
+    "name": "custom_link_24",
+    "code": "0xe8c6"
+  },
+  {
+    "name": "custom_link_item_24",
+    "code": "0xe8c7"
+  },
+  {
+    "name": "custom_link_item",
+    "code": "0xe8c8"
+  },
+  {
+    "name": "custom_link",
+    "code": "0xe8c9"
+  },
+  {
+    "name": "customer_profiles_24",
+    "code": "0xe8ca"
+  },
+  {
+    "name": "customer_profiles",
+    "code": "0xe8cb"
+  },
+  {
+    "name": "customer_success_24",
+    "code": "0xe8cc"
+  },
+  {
+    "name": "customer_success",
+    "code": "0xe8cd"
+  },
+  {
+    "name": "dashboard_24",
+    "code": "0xe8ce"
+  },
+  {
+    "name": "dashboard",
+    "code": "0xe8cf"
+  },
+  {
+    "name": "day",
+    "code": "0xe8d0"
+  },
+  {
+    "name": "delete_24",
+    "code": "0xe8d1"
+  },
+  {
+    "name": "delete",
+    "code": "0xe8d2"
+  },
+  {
+    "name": "departures_24",
+    "code": "0xe8d3"
+  },
+  {
+    "name": "departures",
+    "code": "0xe8d4"
+  },
+  {
+    "name": "deployments_24",
+    "code": "0xe8d5"
+  },
+  {
+    "name": "deployments",
+    "code": "0xe8d6"
+  },
+  {
+    "name": "desk_24",
+    "code": "0xe8d7"
+  },
+  {
+    "name": "desk",
+    "code": "0xe8d8"
+  },
+  {
+    "name": "device_command_24",
+    "code": "0xe8d9"
+  },
+  {
+    "name": "device_command",
+    "code": "0xe8da"
+  },
+  {
+    "name": "disability_24",
+    "code": "0xe8db"
+  },
+  {
+    "name": "disability",
+    "code": "0xe8dc"
+  },
+  {
+    "name": "disable_24",
+    "code": "0xe8dd"
+  },
+  {
+    "name": "disable",
+    "code": "0xe8de"
+  },
+  {
+    "name": "dollar_arrow_down_24",
+    "code": "0xe8df"
+  },
+  {
+    "name": "dollar_arrow_down",
+    "code": "0xe8e0"
+  },
+  {
+    "name": "done_24",
+    "code": "0xe8e1"
+  },
+  {
+    "name": "done_circle_24",
+    "code": "0xe8e2"
+  },
+  {
+    "name": "done_circle",
+    "code": "0xe8e3"
+  },
+  {
+    "name": "done",
+    "code": "0xe8e4"
+  },
+  {
+    "name": "door_hanger_24",
+    "code": "0xe8e5"
+  },
+  {
+    "name": "door_hanger",
+    "code": "0xe8e6"
+  },
+  {
+    "name": "dot_filled_24",
+    "code": "0xe8e7"
+  },
+  {
+    "name": "dot_filled",
+    "code": "0xe8e8"
+  },
+  {
+    "name": "double_bed_24",
+    "code": "0xe8e9"
+  },
+  {
+    "name": "double_bed",
+    "code": "0xe8ea"
+  },
+  {
+    "name": "download_24",
+    "code": "0xe8eb"
+  },
+  {
+    "name": "download",
+    "code": "0xe8ec"
+  },
+  {
+    "name": "draggable_24",
+    "code": "0xe8ed"
+  },
+  {
+    "name": "draggable",
+    "code": "0xe8ee"
+  },
+  {
+    "name": "driving_licence_24",
+    "code": "0xe8ef"
+  },
+  {
+    "name": "driving_licence",
+    "code": "0xe8f0"
+  },
+  {
+    "name": "edit_24",
+    "code": "0xe8f1"
+  },
+  {
+    "name": "edit",
+    "code": "0xe8f2"
+  },
+  {
+    "name": "education_24",
+    "code": "0xe8f3"
+  },
+  {
+    "name": "education",
+    "code": "0xe8f4"
+  },
+  {
+    "name": "email_queue_24",
+    "code": "0xe8f5"
+  },
+  {
+    "name": "email_queue",
+    "code": "0xe8f6"
+  },
+  {
+    "name": "email_queues_24",
+    "code": "0xe8f7"
+  },
+  {
+    "name": "email_queues",
+    "code": "0xe8f8"
+  },
+  {
+    "name": "employees_24",
+    "code": "0xe8f9"
+  },
+  {
+    "name": "employees",
+    "code": "0xe8fa"
+  },
+  {
+    "name": "enterprise_snapshot_24",
+    "code": "0xe8fb"
+  },
+  {
+    "name": "enterprise_snapshot",
+    "code": "0xe8fc"
+  },
+  {
+    "name": "error_circle_24",
+    "code": "0xe8fd"
+  },
+  {
+    "name": "error_circle",
+    "code": "0xe8fe"
+  },
+  {
+    "name": "execute_24",
+    "code": "0xe8ff"
+  },
+  {
+    "name": "execute_merchant_24",
+    "code": "0xe900"
+  },
+  {
+    "name": "execute_merchant",
+    "code": "0xe901"
+  },
+  {
+    "name": "execute",
+    "code": "0xe902"
+  },
+  {
+    "name": "expand_24",
+    "code": "0xe903"
+  },
+  {
+    "name": "expand_all_24",
+    "code": "0xe904"
+  },
+  {
+    "name": "expand_all",
+    "code": "0xe905"
+  },
+  {
+    "name": "expand",
+    "code": "0xe906"
+  },
+  {
+    "name": "experiences_24",
+    "code": "0xe907"
+  },
+  {
+    "name": "experiences",
+    "code": "0xe908"
+  },
+  {
+    "name": "export_schedule_24",
+    "code": "0xe909"
+  },
+  {
+    "name": "export_schedule",
+    "code": "0xe90a"
+  },
+  {
+    "name": "exports_24",
+    "code": "0xe90b"
+  },
+  {
+    "name": "exports",
+    "code": "0xe90c"
+  },
+  {
+    "name": "external_link_24",
+    "code": "0xe90d"
+  },
+  {
+    "name": "external_link",
+    "code": "0xe90e"
+  },
+  {
+    "name": "external_payment_24",
+    "code": "0xe90f"
+  },
+  {
+    "name": "external_payment",
+    "code": "0xe910"
+  },
+  {
+    "name": "extrabed_24",
+    "code": "0xe911"
+  },
+  {
+    "name": "extrabed",
+    "code": "0xe912"
+  },
+  {
+    "name": "face_happy_24",
+    "code": "0xe913"
+  },
+  {
+    "name": "face_happy",
+    "code": "0xe914"
+  },
+  {
+    "name": "face_id_24",
+    "code": "0xe915"
+  },
+  {
+    "name": "face_id",
+    "code": "0xe916"
+  },
+  {
+    "name": "face_sad_24",
+    "code": "0xe917"
+  },
+  {
+    "name": "face_sad",
+    "code": "0xe918"
+  },
+  {
+    "name": "facebook_24",
+    "code": "0xe919"
+  },
+  {
+    "name": "facebook",
+    "code": "0xe91a"
+  },
+  {
+    "name": "fast_backward_simple_24",
+    "code": "0xe91b"
+  },
+  {
+    "name": "fast_backward_simple",
+    "code": "0xe91c"
+  },
+  {
+    "name": "fast_forward_simple_24",
+    "code": "0xe91d"
+  },
+  {
+    "name": "fast_forward_simple",
+    "code": "0xe91e"
+  },
+  {
+    "name": "features_24",
+    "code": "0xe91f"
+  },
+  {
+    "name": "features",
+    "code": "0xe920"
+  },
+  {
+    "name": "female_24",
+    "code": "0xe921"
+  },
+  {
+    "name": "female",
+    "code": "0xe922"
+  },
+  {
+    "name": "file_check_24_24",
+    "code": "0xe923"
+  },
+  {
+    "name": "filter_24",
+    "code": "0xe924"
+  },
+  {
+    "name": "filter",
+    "code": "0xe925"
+  },
+  {
+    "name": "finance_24",
+    "code": "0xe926"
+  },
+  {
+    "name": "finance",
+    "code": "0xe927"
+  },
+  {
+    "name": "fiscal_report_24",
+    "code": "0xe928"
+  },
+  {
+    "name": "fiscal_report",
+    "code": "0xe929"
+  },
+  {
+    "name": "floppy_disc_24",
+    "code": "0xe92a"
+  },
+  {
+    "name": "floppy_disc",
+    "code": "0xe92b"
+  },
+  {
+    "name": "folder_closed_24",
+    "code": "0xe92c"
+  },
+  {
+    "name": "folder_closed",
+    "code": "0xe92d"
+  },
+  {
+    "name": "folder_opened_24",
+    "code": "0xe92e"
+  },
+  {
+    "name": "folder_opened",
+    "code": "0xe92f"
+  },
+  {
+    "name": "food_24",
+    "code": "0xe930"
+  },
+  {
+    "name": "food",
+    "code": "0xe931"
+  },
+  {
+    "name": "forum_outline_24",
+    "code": "0xe932"
+  },
+  {
+    "name": "forum_outline",
+    "code": "0xe933"
+  },
+  {
+    "name": "forward_24",
+    "code": "0xe934"
+  },
+  {
+    "name": "forward_more_24",
+    "code": "0xe935"
+  },
+  {
+    "name": "forward_more",
+    "code": "0xe936"
+  },
+  {
+    "name": "forward",
+    "code": "0xe937"
+  },
+  {
+    "name": "free_24",
+    "code": "0xe938"
+  },
+  {
+    "name": "free",
+    "code": "0xe939"
+  },
+  {
+    "name": "friend_family_24",
+    "code": "0xe93a"
+  },
+  {
+    "name": "friend_family",
+    "code": "0xe93b"
+  },
+  {
+    "name": "ftp_24",
+    "code": "0xe93c"
+  },
+  {
+    "name": "ftp",
+    "code": "0xe93d"
+  },
+  {
+    "name": "gateway_payments_24",
+    "code": "0xe93e"
+  },
+  {
+    "name": "gateway_payments",
+    "code": "0xe93f"
+  },
+  {
+    "name": "gift_24",
+    "code": "0xe940"
+  },
+  {
+    "name": "gift",
+    "code": "0xe941"
+  },
+  {
+    "name": "guest_in_house_24",
+    "code": "0xe942"
+  },
+  {
+    "name": "guest_in_house",
+    "code": "0xe943"
+  },
+  {
+    "name": "guides_24",
+    "code": "0xe944"
+  },
+  {
+    "name": "guides",
+    "code": "0xe945"
+  },
+  {
+    "name": "help_24",
+    "code": "0xe946"
+  },
+  {
+    "name": "help_center_24",
+    "code": "0xe947"
+  },
+  {
+    "name": "help_center",
+    "code": "0xe948"
+  },
+  {
+    "name": "help",
+    "code": "0xe949"
+  },
+  {
+    "name": "hide_24",
+    "code": "0xe94a"
+  },
+  {
+    "name": "hide",
+    "code": "0xe94b"
+  },
+  {
+    "name": "home_24",
+    "code": "0xe94c"
+  },
+  {
+    "name": "home_empty_24",
+    "code": "0xe94d"
+  },
+  {
+    "name": "home_empty",
+    "code": "0xe94e"
+  },
+  {
+    "name": "home",
+    "code": "0xe94f"
+  },
+  {
+    "name": "hourglass_24",
+    "code": "0xe950"
+  },
+  {
+    "name": "hourglass",
+    "code": "0xe951"
+  },
+  {
+    "name": "house_use_24",
+    "code": "0xe952"
+  },
+  {
+    "name": "house_use",
+    "code": "0xe953"
+  },
+  {
+    "name": "icon",
+    "code": "0xe954"
+  },
+  {
+    "name": "id_card_24",
+    "code": "0xe955"
+  },
+  {
+    "name": "id_card",
+    "code": "0xe956"
+  },
+  {
+    "name": "import_24",
+    "code": "0xe957"
+  },
+  {
+    "name": "import_customers_24",
+    "code": "0xe958"
+  },
+  {
+    "name": "import_customers",
+    "code": "0xe959"
+  },
+  {
+    "name": "import_icon",
+    "code": "0xe95a"
+  },
+  {
+    "name": "important_24",
+    "code": "0xe95b"
+  },
+  {
+    "name": "important",
+    "code": "0xe95c"
+  },
+  {
+    "name": "imports_24",
+    "code": "0xe95d"
+  },
+  {
+    "name": "imports",
+    "code": "0xe95e"
+  },
+  {
+    "name": "improvement_24",
+    "code": "0xe95f"
+  },
+  {
+    "name": "improvement",
+    "code": "0xe960"
+  },
+  {
+    "name": "info_24",
+    "code": "0xe961"
+  },
+  {
+    "name": "info",
+    "code": "0xe962"
+  },
+  {
+    "name": "installations_24",
+    "code": "0xe963"
+  },
+  {
+    "name": "installations",
+    "code": "0xe964"
+  },
+  {
+    "name": "integration_partners_24",
+    "code": "0xe965"
+  },
+  {
+    "name": "integration_partners",
+    "code": "0xe966"
+  },
+  {
+    "name": "integrations_24",
+    "code": "0xe967"
+  },
+  {
+    "name": "integrations",
+    "code": "0xe968"
+  },
+  {
+    "name": "inventory_updates_24",
+    "code": "0xe969"
+  },
+  {
+    "name": "inventory_updates",
+    "code": "0xe96a"
+  },
+  {
+    "name": "italic_24",
+    "code": "0xe96b"
+  },
+  {
+    "name": "items_24",
+    "code": "0xe96c"
+  },
+  {
+    "name": "items",
+    "code": "0xe96d"
+  },
+  {
+    "name": "jobs_24",
+    "code": "0xe96e"
+  },
+  {
+    "name": "jobs",
+    "code": "0xe96f"
+  },
+  {
+    "name": "key_24",
+    "code": "0xe970"
+  },
+  {
+    "name": "key",
+    "code": "0xe971"
+  },
+  {
+    "name": "language_switch_24",
+    "code": "0xe972"
+  },
+  {
+    "name": "language_switch",
+    "code": "0xe973"
+  },
+  {
+    "name": "languages_24",
+    "code": "0xe974"
+  },
+  {
+    "name": "languages",
+    "code": "0xe975"
+  },
+  {
+    "name": "layout_grid_24",
+    "code": "0xe976"
+  },
+  {
+    "name": "layout_grid",
+    "code": "0xe977"
+  },
+  {
+    "name": "legal_environments_24",
+    "code": "0xe978"
+  },
+  {
+    "name": "legal_environments",
+    "code": "0xe979"
+  },
+  {
+    "name": "lightning_bolt_24",
+    "code": "0xe97a"
+  },
+  {
+    "name": "lightning_bolt",
+    "code": "0xe97b"
+  },
+  {
+    "name": "linkedin_24",
+    "code": "0xe97c"
+  },
+  {
+    "name": "linkedin",
+    "code": "0xe97d"
+  },
+  {
+    "name": "list_ordered_24",
+    "code": "0xe97e"
+  },
+  {
+    "name": "location_24",
+    "code": "0xe97f"
+  },
+  {
+    "name": "location",
+    "code": "0xe980"
+  },
+  {
+    "name": "lock_24",
+    "code": "0xe981"
+  },
+  {
+    "name": "lock",
+    "code": "0xe982"
+  },
+  {
+    "name": "logout_24",
+    "code": "0xe983"
+  },
+  {
+    "name": "logout",
+    "code": "0xe984"
+  },
+  {
+    "name": "loyalty_24",
+    "code": "0xe985"
+  },
+  {
+    "name": "loyalty",
+    "code": "0xe986"
+  },
+  {
+    "name": "luggage_24",
+    "code": "0xe987"
+  },
+  {
+    "name": "luggage",
+    "code": "0xe988"
+  },
+  {
+    "name": "magic_24",
+    "code": "0xe989"
+  },
+  {
+    "name": "magic",
+    "code": "0xe98a"
+  },
+  {
+    "name": "mails_24",
+    "code": "0xe98b"
+  },
+  {
+    "name": "mails",
+    "code": "0xe98c"
+  },
+  {
+    "name": "make_default_24",
+    "code": "0xe98d"
+  },
+  {
+    "name": "make_default",
+    "code": "0xe98e"
+  },
+  {
+    "name": "male_24",
+    "code": "0xe98f"
+  },
+  {
+    "name": "male",
+    "code": "0xe990"
+  },
+  {
+    "name": "manager_report_24",
+    "code": "0xe991"
+  },
+  {
+    "name": "manager_report",
+    "code": "0xe992"
+  },
+  {
+    "name": "mark_as_read_24",
+    "code": "0xe993"
+  },
+  {
+    "name": "mark_as_read",
+    "code": "0xe994"
+  },
+  {
+    "name": "marketplace_24",
+    "code": "0xe995"
+  },
+  {
+    "name": "marketplace",
+    "code": "0xe996"
+  },
+  {
+    "name": "media_24",
+    "code": "0xe997"
+  },
+  {
+    "name": "media_playback_pause_24",
+    "code": "0xe998"
+  },
+  {
+    "name": "media_playback_pause",
+    "code": "0xe999"
+  },
+  {
+    "name": "media_playback_play_24",
+    "code": "0xe99a"
+  },
+  {
+    "name": "media_playback_play",
+    "code": "0xe99b"
+  },
+  {
+    "name": "media",
+    "code": "0xe99c"
+  },
+  {
+    "name": "megaphone_24",
+    "code": "0xe99d"
+  },
+  {
+    "name": "megaphone",
+    "code": "0xe99e"
+  },
+  {
+    "name": "menu_24",
+    "code": "0xe99f"
+  },
+  {
+    "name": "menu_arrow_left_24",
+    "code": "0xe9a0"
+  },
+  {
+    "name": "menu_arrow_left",
+    "code": "0xe9a1"
+  },
+  {
+    "name": "menu_arrow_right_24",
+    "code": "0xe9a2"
+  },
+  {
+    "name": "menu_arrow_right",
+    "code": "0xe9a3"
+  },
+  {
+    "name": "menu",
+    "code": "0xe9a4"
+  },
+  {
+    "name": "merchant_24",
+    "code": "0xe9a5"
+  },
+  {
+    "name": "merchant",
+    "code": "0xe9a6"
+  },
+  {
+    "name": "message_24",
+    "code": "0xe9a7"
+  },
+  {
+    "name": "message",
+    "code": "0xe9a8"
+  },
+  {
+    "name": "messages_plural_24",
+    "code": "0xe9a9"
+  },
+  {
+    "name": "messages_plural",
+    "code": "0xe9aa"
+  },
+  {
+    "name": "mews_logo_24",
+    "code": "0xe9ab"
+  },
+  {
+    "name": "mews_logo",
+    "code": "0xe9ac"
+  },
+  {
+    "name": "microphone_24",
+    "code": "0xe9ad"
+  },
+  {
+    "name": "microphone",
+    "code": "0xe9ae"
+  },
+  {
+    "name": "military_24",
+    "code": "0xe9af"
+  },
+  {
+    "name": "military",
+    "code": "0xe9b0"
+  },
+  {
+    "name": "minus_24",
+    "code": "0xe9b1"
+  },
+  {
+    "name": "minus_simple_24",
+    "code": "0xe9b2"
+  },
+  {
+    "name": "minus_simple",
+    "code": "0xe9b3"
+  },
+  {
+    "name": "minus",
+    "code": "0xe9b4"
+  },
+  {
+    "name": "month",
+    "code": "0xe9b5"
+  },
+  {
+    "name": "more_24",
+    "code": "0xe9b6"
+  },
+  {
+    "name": "more",
+    "code": "0xe9b7"
+  },
+  {
+    "name": "move_24",
+    "code": "0xe9b8"
+  },
+  {
+    "name": "move_payment_24",
+    "code": "0xe9b9"
+  },
+  {
+    "name": "move_payment_horizontal_24",
+    "code": "0xe9ba"
+  },
+  {
+    "name": "move_payment_horizontal",
+    "code": "0xe9bb"
+  },
+  {
+    "name": "move_payment",
+    "code": "0xe9bc"
+  },
+  {
+    "name": "move",
+    "code": "0xe9bd"
+  },
+  {
+    "name": "nonbreaking_space_24",
+    "code": "0xe9be"
+  },
+  {
+    "name": "nonbreaking_space",
+    "code": "0xe9bf"
+  },
+  {
+    "name": "notes_24",
+    "code": "0xe9c0"
+  },
+  {
+    "name": "notes",
+    "code": "0xe9c1"
+  },
+  {
+    "name": "notifications_24",
+    "code": "0xe9c2"
+  },
+  {
+    "name": "notifications",
+    "code": "0xe9c3"
+  },
+  {
+    "name": "occupancy_24",
+    "code": "0xe9c4"
+  },
+  {
+    "name": "occupancy",
+    "code": "0xe9c5"
+  },
+  {
+    "name": "operations_24",
+    "code": "0xe9c6"
+  },
+  {
+    "name": "operations",
+    "code": "0xe9c7"
+  },
+  {
+    "name": "out_of_order_24",
+    "code": "0xe9c8"
+  },
+  {
+    "name": "out_of_order",
+    "code": "0xe9c9"
+  },
+  {
+    "name": "paperclip_24",
+    "code": "0xe9ca"
+  },
+  {
+    "name": "passport_24",
+    "code": "0xe9cb"
+  },
+  {
+    "name": "passport",
+    "code": "0xe9cc"
+  },
+  {
+    "name": "past_shifts_24",
+    "code": "0xe9cd"
+  },
+  {
+    "name": "past_shifts",
+    "code": "0xe9ce"
+  },
+  {
+    "name": "paymaster_24",
+    "code": "0xe9cf"
+  },
+  {
+    "name": "paymaster",
+    "code": "0xe9d0"
+  },
+  {
+    "name": "payment_attempts_24",
+    "code": "0xe9d1"
+  },
+  {
+    "name": "payment_attempts",
+    "code": "0xe9d2"
+  },
+  {
+    "name": "payment_card_24",
+    "code": "0xe9d3"
+  },
+  {
+    "name": "payment_card",
+    "code": "0xe9d4"
+  },
+  {
+    "name": "payment_report_24",
+    "code": "0xe9d5"
+  },
+  {
+    "name": "payment_report",
+    "code": "0xe9d6"
+  },
+  {
+    "name": "payment_request_24",
+    "code": "0xe9d7"
+  },
+  {
+    "name": "payment_request",
+    "code": "0xe9d8"
+  },
+  {
+    "name": "payments_24",
+    "code": "0xe9d9"
+  },
+  {
+    "name": "payments",
+    "code": "0xe9da"
+  },
+  {
+    "name": "phone_24",
+    "code": "0xe9db"
+  },
+  {
+    "name": "phone",
+    "code": "0xe9dc"
+  },
+  {
+    "name": "photo_expand_24",
+    "code": "0xe9dd"
+  },
+  {
+    "name": "photo_expand",
+    "code": "0xe9de"
+  },
+  {
+    "name": "pin_24",
+    "code": "0xe9df"
+  },
+  {
+    "name": "pin",
+    "code": "0xe9e0"
+  },
+  {
+    "name": "places_24",
+    "code": "0xe9e1"
+  },
+  {
+    "name": "places_pin_24",
+    "code": "0xe9e2"
+  },
+  {
+    "name": "places_pin",
+    "code": "0xe9e3"
+  },
+  {
+    "name": "places",
+    "code": "0xe9e4"
+  },
+  {
+    "name": "plane_24",
+    "code": "0xe9e5"
+  },
+  {
+    "name": "plane",
+    "code": "0xe9e6"
+  },
+  {
+    "name": "platform_migrations_24",
+    "code": "0xe9e7"
+  },
+  {
+    "name": "platform_migrations",
+    "code": "0xe9e8"
+  },
+  {
+    "name": "plus_24",
+    "code": "0xe9e9"
+  },
+  {
+    "name": "plus_simple_24",
+    "code": "0xe9ea"
+  },
+  {
+    "name": "plus_simple",
+    "code": "0xe9eb"
+  },
+  {
+    "name": "plus",
+    "code": "0xe9ec"
+  },
+  {
+    "name": "posting_journal_24",
+    "code": "0xe9ed"
+  },
+  {
+    "name": "posting_journal",
+    "code": "0xe9ee"
+  },
+  {
+    "name": "power_bi",
+    "code": "0xe9ef"
+  },
+  {
+    "name": "preauthorization_24",
+    "code": "0xe9f0"
+  },
+  {
+    "name": "preauthorization",
+    "code": "0xe9f1"
+  },
+  {
+    "name": "pricing_24",
+    "code": "0xe9f2"
+  },
+  {
+    "name": "pricing",
+    "code": "0xe9f3"
+  },
+  {
+    "name": "print_24",
+    "code": "0xe9f4"
+  },
+  {
+    "name": "print_pdf_24",
+    "code": "0xe9f5"
+  },
+  {
+    "name": "print_pdf",
+    "code": "0xe9f6"
+  },
+  {
+    "name": "print",
+    "code": "0xe9f7"
+  },
+  {
+    "name": "problematic_24",
+    "code": "0xe9f8"
+  },
+  {
+    "name": "problematic",
+    "code": "0xe9f9"
+  },
+  {
+    "name": "product_24",
+    "code": "0xe9fa"
+  },
+  {
+    "name": "product_event",
+    "code": "0xe9fb"
+  },
+  {
+    "name": "product_events_24",
+    "code": "0xe9fc"
+  },
+  {
+    "name": "product_kds_24",
+    "code": "0xe9fd"
+  },
+  {
+    "name": "product_kds",
+    "code": "0xe9fe"
+  },
+  {
+    "name": "product_pos_24",
+    "code": "0xe9ff"
+  },
+  {
+    "name": "product_pos",
+    "code": "0xea00"
+  },
+  {
+    "name": "product_report_24",
+    "code": "0xea01"
+  },
+  {
+    "name": "product_report",
+    "code": "0xea02"
+  },
+  {
+    "name": "profile_24",
+    "code": "0xea03"
+  },
+  {
+    "name": "profile",
+    "code": "0xea04"
+  },
+  {
+    "name": "profiles_24",
+    "code": "0xea05"
+  },
+  {
+    "name": "profiles",
+    "code": "0xea06"
+  },
+  {
+    "name": "property_24",
+    "code": "0xea07"
+  },
+  {
+    "name": "property",
+    "code": "0xea08"
+  },
+  {
+    "name": "queues_24",
+    "code": "0xea09"
+  },
+  {
+    "name": "queues",
+    "code": "0xea0a"
+  },
+  {
+    "name": "quote_24",
+    "code": "0xea0b"
+  },
+  {
+    "name": "radio_empty_24",
+    "code": "0xea0c"
+  },
+  {
+    "name": "radio_empty",
+    "code": "0xea0d"
+  },
+  {
+    "name": "radio_selected_24",
+    "code": "0xea0e"
+  },
+  {
+    "name": "rate_management_24",
+    "code": "0xea0f"
+  },
+  {
+    "name": "rate_management",
+    "code": "0xea10"
+  },
+  {
+    "name": "rebate_24",
+    "code": "0xea11"
+  },
+  {
+    "name": "rebate",
+    "code": "0xea12"
+  },
+  {
+    "name": "refresh_24",
+    "code": "0xea13"
+  },
+  {
+    "name": "refresh",
+    "code": "0xea14"
+  },
+  {
+    "name": "refund_24",
+    "code": "0xea15"
+  },
+  {
+    "name": "refund",
+    "code": "0xea16"
+  },
+  {
+    "name": "report_bug_24",
+    "code": "0xea17"
+  },
+  {
+    "name": "report_bug",
+    "code": "0xea18"
+  },
+  {
+    "name": "reservation_group_24",
+    "code": "0xea19"
+  },
+  {
+    "name": "reservation_group",
+    "code": "0xea1a"
+  },
+  {
+    "name": "reservation_overview_24",
+    "code": "0xea1b"
+  },
+  {
+    "name": "reservation_overview",
+    "code": "0xea1c"
+  },
+  {
+    "name": "reservation_preview_24",
+    "code": "0xea1d"
+  },
+  {
+    "name": "reservation_preview",
+    "code": "0xea1e"
+  },
+  {
+    "name": "reservation_properties_24",
+    "code": "0xea1f"
+  },
+  {
+    "name": "reservation_properties",
+    "code": "0xea20"
+  },
+  {
+    "name": "reservation_report_24",
+    "code": "0xea21"
+  },
+  {
+    "name": "reservation_report",
+    "code": "0xea22"
+  },
+  {
+    "name": "reservations_24",
+    "code": "0xea23"
+  },
+  {
+    "name": "reservations",
+    "code": "0xea24"
+  },
+  {
+    "name": "reset_24",
+    "code": "0xea25"
+  },
+  {
+    "name": "reset",
+    "code": "0xea26"
+  },
+  {
+    "name": "restore_24",
+    "code": "0xea27"
+  },
+  {
+    "name": "restore",
+    "code": "0xea28"
+  },
+  {
+    "name": "restriction_24",
+    "code": "0xea29"
+  },
+  {
+    "name": "restriction",
+    "code": "0xea2a"
+  },
+  {
+    "name": "return_24",
+    "code": "0xea2b"
+  },
+  {
+    "name": "return_icon",
+    "code": "0xea2c"
+  },
+  {
+    "name": "returning_24",
+    "code": "0xea2d"
+  },
+  {
+    "name": "returning",
+    "code": "0xea2e"
+  },
+  {
+    "name": "room_24",
+    "code": "0xea2f"
+  },
+  {
+    "name": "room",
+    "code": "0xea30"
+  },
+  {
+    "name": "scan_id_24",
+    "code": "0xea31"
+  },
+  {
+    "name": "scan_id",
+    "code": "0xea32"
+  },
+  {
+    "name": "scan_qr_24",
+    "code": "0xea33"
+  },
+  {
+    "name": "scan_qr",
+    "code": "0xea34"
+  },
+  {
+    "name": "scanner_24",
+    "code": "0xea35"
+  },
+  {
+    "name": "scanner",
+    "code": "0xea36"
+  },
+  {
+    "name": "schedules_24",
+    "code": "0xea37"
+  },
+  {
+    "name": "schedules",
+    "code": "0xea38"
+  },
+  {
+    "name": "search_24",
+    "code": "0xea39"
+  },
+  {
+    "name": "search",
+    "code": "0xea3a"
+  },
+  {
+    "name": "security_24",
+    "code": "0xea3b"
+  },
+  {
+    "name": "security",
+    "code": "0xea3c"
+  },
+  {
+    "name": "send_message_24",
+    "code": "0xea3d"
+  },
+  {
+    "name": "send_message",
+    "code": "0xea3e"
+  },
+  {
+    "name": "service_order",
+    "code": "0xea3f"
+  },
+  {
+    "name": "services_24",
+    "code": "0xea40"
+  },
+  {
+    "name": "services",
+    "code": "0xea41"
+  },
+  {
+    "name": "settings_24",
+    "code": "0xea42"
+  },
+  {
+    "name": "settings_user_24",
+    "code": "0xea43"
+  },
+  {
+    "name": "settings_user",
+    "code": "0xea44"
+  },
+  {
+    "name": "settings",
+    "code": "0xea45"
+  },
+  {
+    "name": "share_24",
+    "code": "0xea46"
+  },
+  {
+    "name": "share",
+    "code": "0xea47"
+  },
+  {
+    "name": "shared_data_24",
+    "code": "0xea48"
+  },
+  {
+    "name": "shared_data",
+    "code": "0xea49"
+  },
+  {
+    "name": "show_24",
+    "code": "0xea4a"
+  },
+  {
+    "name": "show",
+    "code": "0xea4b"
+  },
+  {
+    "name": "shrink_24",
+    "code": "0xea4c"
+  },
+  {
+    "name": "shrink",
+    "code": "0xea4d"
+  },
+  {
+    "name": "space_status_24",
+    "code": "0xea4e"
+  },
+  {
+    "name": "space_status",
+    "code": "0xea4f"
+  },
+  {
+    "name": "special_character_24",
+    "code": "0xea50"
+  },
+  {
+    "name": "special_character",
+    "code": "0xea51"
+  },
+  {
+    "name": "spent_nights_24",
+    "code": "0xea52"
+  },
+  {
+    "name": "spent_nights",
+    "code": "0xea53"
+  },
+  {
+    "name": "spinner_24",
+    "code": "0xea54"
+  },
+  {
+    "name": "spinner",
+    "code": "0xea55"
+  },
+  {
+    "name": "split_24",
+    "code": "0xea56"
+  },
+  {
+    "name": "split",
+    "code": "0xea57"
+  },
+  {
+    "name": "staff_24",
+    "code": "0xea58"
+  },
+  {
+    "name": "staff",
+    "code": "0xea59"
+  },
+  {
+    "name": "star_filled_24",
+    "code": "0xea5a"
+  },
+  {
+    "name": "star_filled",
+    "code": "0xea5b"
+  },
+  {
+    "name": "stars_24",
+    "code": "0xea5c"
+  },
+  {
+    "name": "stars",
+    "code": "0xea5d"
+  },
+  {
+    "name": "statistics_24",
+    "code": "0xea5e"
+  },
+  {
+    "name": "statistics",
+    "code": "0xea5f"
+  },
+  {
+    "name": "stayovers_24",
+    "code": "0xea60"
+  },
+  {
+    "name": "stayovers",
+    "code": "0xea61"
+  },
+  {
+    "name": "strikethrough_24",
+    "code": "0xea62"
+  },
+  {
+    "name": "subscription_24",
+    "code": "0xea63"
+  },
+  {
+    "name": "subscription",
+    "code": "0xea64"
+  },
+  {
+    "name": "summary_24",
+    "code": "0xea65"
+  },
+  {
+    "name": "summary_order_24",
+    "code": "0xea66"
+  },
+  {
+    "name": "summary_order",
+    "code": "0xea67"
+  },
+  {
+    "name": "summary",
+    "code": "0xea68"
+  },
+  {
+    "name": "switch_video_24",
+    "code": "0xea69"
+  },
+  {
+    "name": "switch_video",
+    "code": "0xea6a"
+  },
+  {
+    "name": "targets_24",
+    "code": "0xea6b"
+  },
+  {
+    "name": "targets",
+    "code": "0xea6c"
+  },
+  {
+    "name": "task",
+    "code": "0xea6d"
+  },
+  {
+    "name": "tasks_24",
+    "code": "0xea6e"
+  },
+  {
+    "name": "tax_environment_24",
+    "code": "0xea6f"
+  },
+  {
+    "name": "tax_environment",
+    "code": "0xea70"
+  },
+  {
+    "name": "team_area_24",
+    "code": "0xea71"
+  },
+  {
+    "name": "team_area",
+    "code": "0xea72"
+  },
+  {
+    "name": "tent_24",
+    "code": "0xea73"
+  },
+  {
+    "name": "tent",
+    "code": "0xea74"
+  },
+  {
+    "name": "terminal_24",
+    "code": "0xea75"
+  },
+  {
+    "name": "terminal_payment_24",
+    "code": "0xea76"
+  },
+  {
+    "name": "terminal_payment",
+    "code": "0xea77"
+  },
+  {
+    "name": "terminal",
+    "code": "0xea78"
+  },
+  {
+    "name": "text_align_center_24",
+    "code": "0xea79"
+  },
+  {
+    "name": "text_align_justify_24",
+    "code": "0xea7a"
+  },
+  {
+    "name": "text_align_left_24",
+    "code": "0xea7b"
+  },
+  {
+    "name": "text_align_right_24",
+    "code": "0xea7c"
+  },
+  {
+    "name": "text_line_height_24",
+    "code": "0xea7d"
+  },
+  {
+    "name": "text_line_height",
+    "code": "0xea7e"
+  },
+  {
+    "name": "thumbs_down_24",
+    "code": "0xea7f"
+  },
+  {
+    "name": "thumbs_down",
+    "code": "0xea80"
+  },
+  {
+    "name": "thumbs_up_24",
+    "code": "0xea81"
+  },
+  {
+    "name": "thumbs_up",
+    "code": "0xea82"
+  },
+  {
+    "name": "time_24",
+    "code": "0xea83"
+  },
+  {
+    "name": "time",
+    "code": "0xea84"
+  },
+  {
+    "name": "timeline_24",
+    "code": "0xea85"
+  },
+  {
+    "name": "timeline_compact_24",
+    "code": "0xea86"
+  },
+  {
+    "name": "timeline_compact",
+    "code": "0xea87"
+  },
+  {
+    "name": "timeline_dense_24",
+    "code": "0xea88"
+  },
+  {
+    "name": "timeline_dense",
+    "code": "0xea89"
+  },
+  {
+    "name": "timeline_spacious_24",
+    "code": "0xea8a"
+  },
+  {
+    "name": "timeline_spacious",
+    "code": "0xea8b"
+  },
+  {
+    "name": "timeline",
+    "code": "0xea8c"
+  },
+  {
+    "name": "toggle_left_24",
+    "code": "0xea8d"
+  },
+  {
+    "name": "toggle_left",
+    "code": "0xea8e"
+  },
+  {
+    "name": "toggle_right_24",
+    "code": "0xea8f"
+  },
+  {
+    "name": "toggle_right",
+    "code": "0xea90"
+  },
+  {
+    "name": "top_management_24",
+    "code": "0xea91"
+  },
+  {
+    "name": "top_management",
+    "code": "0xea92"
+  },
+  {
+    "name": "train_24",
+    "code": "0xea93"
+  },
+  {
+    "name": "train",
+    "code": "0xea94"
+  },
+  {
+    "name": "travel_agency_24",
+    "code": "0xea95"
+  },
+  {
+    "name": "travel_agency",
+    "code": "0xea96"
+  },
+  {
+    "name": "travel_club_24",
+    "code": "0xea97"
+  },
+  {
+    "name": "travel_club",
+    "code": "0xea98"
+  },
+  {
+    "name": "travel_visa_24",
+    "code": "0xea99"
+  },
+  {
+    "name": "travel_visa",
+    "code": "0xea9a"
+  },
+  {
+    "name": "trend_down",
+    "code": "0xea9b"
+  },
+  {
+    "name": "trend_up",
+    "code": "0xea9c"
+  },
+  {
+    "name": "tripadvisor_24",
+    "code": "0xea9d"
+  },
+  {
+    "name": "tripadvisor",
+    "code": "0xea9e"
+  },
+  {
+    "name": "twitter_24",
+    "code": "0xea9f"
+  },
+  {
+    "name": "twitter",
+    "code": "0xeaa0"
+  },
+  {
+    "name": "type_24",
+    "code": "0xeaa1"
+  },
+  {
+    "name": "type",
+    "code": "0xeaa2"
+  },
+  {
+    "name": "underline_24",
+    "code": "0xeaa3"
+  },
+  {
+    "name": "unlock_24",
+    "code": "0xeaa4"
+  },
+  {
+    "name": "unlock",
+    "code": "0xeaa5"
+  },
+  {
+    "name": "unpin_24",
+    "code": "0xeaa6"
+  },
+  {
+    "name": "unpin",
+    "code": "0xeaa7"
+  },
+  {
+    "name": "upgraded_24",
+    "code": "0xeaa8"
+  },
+  {
+    "name": "upgraded",
+    "code": "0xeaa9"
+  },
+  {
+    "name": "upload_24",
+    "code": "0xeaaa"
+  },
+  {
+    "name": "upload",
+    "code": "0xeaab"
+  },
+  {
+    "name": "user_card_stack_24",
+    "code": "0xeaac"
+  },
+  {
+    "name": "user_card_stack",
+    "code": "0xeaad"
+  },
+  {
+    "name": "user_clock_24",
+    "code": "0xeaae"
+  },
+  {
+    "name": "user_clock",
+    "code": "0xeaaf"
+  },
+  {
+    "name": "user_refresh_24",
+    "code": "0xeab0"
+  },
+  {
+    "name": "user_refresh",
+    "code": "0xeab1"
+  },
+  {
+    "name": "very_important_24",
+    "code": "0xeab2"
+  },
+  {
+    "name": "very_important",
+    "code": "0xeab3"
+  },
+  {
+    "name": "view_off_24",
+    "code": "0xeab4"
+  },
+  {
+    "name": "view_off",
+    "code": "0xeab5"
+  },
+  {
+    "name": "view_report_24",
+    "code": "0xeab6"
+  },
+  {
+    "name": "view_report",
+    "code": "0xeab7"
+  },
+  {
+    "name": "website_24",
+    "code": "0xeab8"
+  },
+  {
+    "name": "website",
+    "code": "0xeab9"
+  },
+  {
+    "name": "week",
+    "code": "0xeaba"
+  },
+  {
+    "name": "wellness_24",
+    "code": "0xeabb"
+  },
+  {
+    "name": "wellness",
+    "code": "0xeabc"
+  },
+  {
+    "name": "window_24",
+    "code": "0xeabd"
+  },
+  {
+    "name": "window",
+    "code": "0xeabe"
+  },
+  {
+    "name": "mews_icon",
+    "code": "0xeabf"
+  },
+  {
+    "name": "mews_favicon",
+    "code": "0xeac0"
+  }
+]
