@@ -35,7 +35,7 @@ function Tabs({ tabs, active, setActive }) {
           <button key={t.name} onClick={() => setActive(t.name)}
             style={{ border: "none", background: "none", cursor: "pointer", padding: "12px 8px", marginBottom: -1, display: "inline-flex", alignItems: "center", gap: 6, whiteSpace: "nowrap",
               font: (on ? "600" : "500") + " 14px/1.4 var(--mews-font-family)",
-              color: on ? "var(--mews-indigo-600)" : "var(--mews-text-secondary)",
+              color: on ? "var(--mews-text-primary)" : "var(--mews-text-secondary)",
               borderBottom: "2px solid " + (on ? "var(--mews-indigo-500)" : "transparent") }}>
             {t.icon != null && <Ic c={t.icon} s={16} style={{ color: on ? "var(--mews-indigo-600)" : "var(--mews-text-tertiary)" }} />}
             {t.name}
