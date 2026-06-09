@@ -8,7 +8,6 @@ Interactive prototypes exploring how front-office staff prepare reservations ahe
 
 - **A1 — Reservations timeline (detail panel):** [`reservations-timeline.html`](reservations-timeline.html)
 - **A2 — Reservations timeline (floating panel):** [`reservations-timeline-floating-panel.html`](reservations-timeline-floating-panel.html)
-- **Explorations canvas:** [`reservation-preparation-flow.html`](reservation-preparation-flow.html)
 
 ## Stack
 
