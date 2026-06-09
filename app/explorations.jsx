@@ -210,11 +210,11 @@ function InlineResolve({ task, onClose, onResolve }) {
   const flow = getFlow(task);
   const Body = flow.Body;
   return (
-    <div style={{ margin: "0 4px 12px", border: "1px solid var(--mews-indigo-200)", borderRadius: 10, overflow: "hidden", background: "var(--mews-indigo-0)", boxShadow: "var(--mews-shadow-100)" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 14px", borderBottom: "1px solid var(--mews-indigo-100)" }}>
-        <Ic c={flow.icon} s={16} style={{ color: "var(--mews-indigo-600)" }} />
+    <div style={{ margin: "0 4px 12px", border: "1px solid var(--mews-border-secondary)", borderRadius: 10, overflow: "hidden", background: "var(--mews-indigo-0)", boxShadow: "var(--mews-shadow-100)" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 14px", borderBottom: "1px solid var(--mews-border-secondary)" }}>
+        <Ic c={flow.icon} s={16} style={{ color: "var(--mews-text-primary)" }} />
         <span style={{ font: "600 13px/1.3 var(--mews-font-family)", color: "var(--mews-text-primary)" }}>{flow.title}</span>
-        <BareBtn icon={ICON.cross} s={16} title="Close" onClick={onClose} style={{ marginLeft: "auto", width: 26, height: 26 }} />
+        <BareBtn icon={ICON.cross} s={16} title="Close" onClick={onClose} color="var(--mews-text-tertiary)" style={{ marginLeft: "auto", width: 26, height: 26 }} />
       </div>
       <div style={{ padding: 16, background: "#fff" }}>
         <Body task={task} />
@@ -291,12 +291,13 @@ function TodoTabInline({ status = "Confirmed" }) {
     () => STAGES_SPLIT.filter((s, i) => i < phase).flatMap((s) => TASKS.filter(s.match).map((t) => t.id)),
     [phase]
   );
-  const [done, , markDone] = useTasks(seedDone);
+  const [done, toggle, markDone] = useTasks(seedDone);
   const [expandedId, setExpandedId] = React.useState(null);
   const activeStage = STAGES_SPLIT[phase];
   const onAction = (t) => setExpandedId((id) => (id === t.id ? null : t.id));
   const onResolve = (id) => { markDone(id); setExpandedId(null); };
-  const groupProps = { done, onToggle: () => {}, onAction, expandedId, onResolve };
+  const onToggle = (id) => { toggle(id); if (expandedId === id) setExpandedId(null); };
+  const groupProps = { done, onToggle, onAction, expandedId, onResolve };
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
       <ReadinessStrip stage={activeStage} done={done} />
@@ -322,12 +323,12 @@ function FloatingPanel({ task, onClose, onResolve }) {
       <div style={{ position: "absolute", top: 8, left: 0, right: 0, bottom: 0, width: "100%", background: "#fff", boxShadow: "var(--mews-shadow-300)", borderRadius: "16px 16px 0 0", display: "flex", flexDirection: "column", overflow: "hidden",
         transform: shown ? "translateY(0)" : "translateY(14px)", opacity: shown ? 1 : 0, transition: "transform 220ms cubic-bezier(.22,.61,.36,1), opacity 180ms ease" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "16px 20px", borderBottom: "1px solid var(--mews-border-secondary)" }}>
-          <span style={{ width: 32, height: 32, borderRadius: 8, background: "var(--mews-indigo-25)", color: "var(--mews-indigo-600)", display: "inline-flex", alignItems: "center", justifyContent: "center" }}><Ic c={flow.icon} s={18} /></span>
+          <span style={{ width: 32, height: 32, borderRadius: 8, background: "var(--mews-night-50)", color: "var(--mews-text-primary)", display: "inline-flex", alignItems: "center", justifyContent: "center" }}><Ic c={flow.icon} s={18} /></span>
           <div style={{ flex: 1 }}>
             <div style={{ font: "600 16px/1.3 var(--mews-font-family)", color: "var(--mews-text-primary)" }}>{flow.title}</div>
             {task.taskNo && <div style={{ font: "400 12px/1.3 var(--mews-font-family)", color: "var(--mews-text-tertiary)" }}>Task {task.taskNo} · {task.title}</div>}
           </div>
-          <BareBtn icon={ICON.cross} s={18} title="Close" onClick={close} />
+          <BareBtn icon={ICON.cross} s={18} title="Close" onClick={close} color="var(--mews-text-tertiary)" />
         </div>
         <div style={{ flex: 1, overflow: "auto", padding: 20 }}>
           <Body task={task} />
@@ -347,10 +348,11 @@ function TodoTabPanel({ status = "Confirmed" }) {
     () => STAGES_SPLIT.filter((s, i) => i < phase).flatMap((s) => TASKS.filter(s.match).map((t) => t.id)),
     [phase]
   );
-  const [done, , markDone] = useTasks(seedDone);
+  const [done, toggle, markDone] = useTasks(seedDone);
   const [panelTask, setPanelTask] = React.useState(null);
   const activeStage = STAGES_SPLIT[phase];
-  const groupProps = { done, onToggle: () => {}, onAction: (t) => setPanelTask(t) };
+  const onToggle = (id) => { toggle(id); if (panelTask && panelTask.id === id) setPanelTask(null); };
+  const groupProps = { done, onToggle, onAction: (t) => setPanelTask(t) };
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
       <ReadinessStrip stage={activeStage} done={done} />
