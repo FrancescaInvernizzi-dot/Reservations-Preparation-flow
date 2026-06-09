@@ -107,14 +107,10 @@ function Checkbox({ checked, onChange }) {
 
 // Full task row (used by To-do tab + lifecycle prep panel)
 function TaskRow({ task, done, onToggle, onDeep, onAction, active, compact = false }) {
-  const tone = done ? TONE.done : TONE[task.tone];
   const fire = () => (onAction ? onAction(task) : onDeep && onDeep(task.deep));
   return (
     <div style={{ display: "flex", alignItems: "flex-start", gap: 12, padding: compact ? "10px 0" : "12px 4px", opacity: done ? 0.66 : 1, transition: "opacity 160ms ease" }}>
       <Checkbox checked={done} onChange={() => onToggle(task.id)} />
-      <span style={{ width: 30, height: 30, borderRadius: 8, background: tone.bg, color: tone.fg, display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-        <Ic c={done ? ICON.done : task.icon} s={17} />
-      </span>
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <span style={{ font: "500 14px/1.4 var(--mews-font-family)", color: "var(--mews-text-primary)", textDecoration: done ? "line-through" : "none" }}>{task.title}</span>
@@ -155,40 +151,44 @@ function MetaItem({ icon, children, color }) {
 
 // Richer row for system-generated / Tasks-module entities
 function SystemTaskRow({ task, done, onToggle, onDeep, onAction, active }) {
-  const tone = done ? TONE.done : TONE[task.tone];
   const fire = (which) => (onAction ? onAction(task, which) : onDeep && onDeep(task.deep));
+  const primaryActionClass = active
+    ? "mews-btn--primary"
+    : task.blocking ? "mews-btn--secondary" : "mews-btn--tertiary";
   return (
-    <div style={{ display: "flex", alignItems: "flex-start", gap: 12, padding: "12px 4px", opacity: done ? 0.6 : 1, transition: "opacity 160ms ease" }}>
-      <Checkbox checked={done} onChange={() => onToggle(task.id)} />
-      <span style={{ width: 30, height: 30, borderRadius: 8, background: tone.bg, color: tone.fg, display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-        <Ic c={done ? ICON.done : task.icon} s={17} />
-      </span>
-      <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
-          <ALink size={14}>{task.taskNo} · {task.title}</ALink>
+    <div style={{ display: "flex", flexDirection: "column", gap: 6, padding: "12px 4px", opacity: done ? 0.6 : 1, transition: "opacity 160ms ease" }}>
+      <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
+        <Checkbox checked={done} onChange={() => onToggle(task.id)} />
+        <div style={{ flex: 1, minWidth: 0, display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
+          <span
+            onClick={() => onDeep && onDeep(task.deep)}
+            style={{ font: "600 14px/1.4 var(--mews-font-family)", color: "var(--mews-text-primary)", textDecoration: done ? "line-through" : "underline", textUnderlineOffset: 2, textDecorationColor: "var(--mews-night-150)", cursor: "pointer" }}
+          >
+            {task.taskNo} · {task.title}
+          </span>
           <Pill tone="primary" icon={task.source === "Auto" ? ICON.bolt : ICON.settings} style={{ height: 18, fontSize: 11, padding: "0 6px 0 5px" }}>{task.source}</Pill>
           {!done && task.blocking && <Pill tone="danger" style={{ height: 18, fontSize: 11, padding: "0 6px" }}>Blocks check-in</Pill>}
         </div>
-        <div style={{ font: "400 12px/1.45 var(--mews-font-family)", color: "var(--mews-text-secondary)", marginTop: 4, textDecoration: done ? "line-through" : "none" }}>{task.detail}</div>
-        <div style={{ display: "flex", alignItems: "center", gap: 14, marginTop: 8, flexWrap: "wrap" }}>
-          {task.assignee
-            ? <MetaItem><Avatar name={task.assignee} />{task.assignee}</MetaItem>
-            : <MetaItem icon={ICON.profile} color="var(--mews-text-tertiary)">Unassigned</MetaItem>}
-          <MetaItem icon={ICON.time} color={task.overdue ? "var(--mews-red-600)" : "var(--mews-text-tertiary)"}>{task.deadline}</MetaItem>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
+          {task.meta && !done && <span style={{ font: "600 14px/1 var(--mews-font-family)", fontVariantNumeric: "tabular-nums", color: task.tone === "danger" ? "var(--mews-red-600)" : "var(--mews-text-primary)" }}>{task.meta}</span>}
+          {done ? (
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 4, font: "500 12px/1 var(--mews-font-family)", color: "var(--mews-green-600)" }}><Ic c={ICON.doneCircle} s={15} />Closed</span>
+          ) : (
+            <div style={{ display: "flex", gap: 6 }}>
+              {task.action2 && <button className="mews-btn mews-btn--tertiary mews-btn--sm" onClick={() => fire("action2")}>{task.action2}</button>}
+              <button className={"mews-btn mews-btn--sm " + primaryActionClass} onClick={() => fire("action")}>
+                {active ? <Ic c={ICON.chevUp} s={15} /> : null}{task.action}
+              </button>
+            </div>
+          )}
         </div>
       </div>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 8, flexShrink: 0 }}>
-        {task.meta && !done && <span style={{ font: "600 14px/1 var(--mews-font-family)", fontVariantNumeric: "tabular-nums", color: task.tone === "danger" ? "var(--mews-red-600)" : "var(--mews-text-primary)" }}>{task.meta}</span>}
-        {done ? (
-          <span style={{ display: "inline-flex", alignItems: "center", gap: 4, font: "500 12px/1 var(--mews-font-family)", color: "var(--mews-green-600)" }}><Ic c={ICON.doneCircle} s={15} />Closed</span>
-        ) : (
-          <div style={{ display: "flex", gap: 6 }}>
-            {task.action2 && <button className="mews-btn mews-btn--tertiary mews-btn--sm" onClick={() => fire("action2")}>{task.action2}</button>}
-            <button className={"mews-btn mews-btn--sm " + (active ? "mews-btn--primary" : "mews-btn--secondary")} onClick={() => fire("action")}>
-              {active ? <Ic c={ICON.chevUp} s={15} /> : null}{task.action}
-            </button>
-          </div>
-        )}
+      <div style={{ paddingLeft: 30, font: "400 12px/1.45 var(--mews-font-family)", color: "var(--mews-text-secondary)", textDecoration: done ? "line-through" : "none" }}>{task.detail}</div>
+      <div style={{ paddingLeft: 30, display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
+        {task.assignee
+          ? <MetaItem><Avatar name={task.assignee} />{task.assignee}</MetaItem>
+          : <MetaItem icon={ICON.profile} color="var(--mews-text-tertiary)">Unassigned</MetaItem>}
+        <MetaItem icon={ICON.time} color={task.overdue ? "var(--mews-red-600)" : "var(--mews-text-tertiary)"}>{task.deadline}</MetaItem>
       </div>
     </div>
   );
@@ -224,17 +224,14 @@ function InlineResolve({ task, onClose, onResolve }) {
 function StageGroup({ stage, done, onToggle, onDeep, onAction, expandedId, onResolve, defaultOpen }) {
   const items = TASKS.filter(stage.match || ((t) => t.stage === stage.id));
   const left = items.filter((t) => !done[t.id]).length;
-  const sysCount = items.filter((t) => t.system).length;
   const [open, setOpen] = React.useState(defaultOpen);
   return (
     <div style={{ border: "1px solid var(--mews-border-secondary)", borderRadius: 8, overflow: "hidden" }}>
       <button onClick={() => setOpen(!open)} style={{ width: "100%", display: "flex", alignItems: "center", gap: 10, padding: "12px 14px", border: "none", background: "#fff", cursor: "pointer" }}>
         <Ic c={open ? ICON.chevUp : ICON.chevDown} s={18} style={{ color: "var(--mews-text-secondary)" }} />
         <span style={{ font: "600 14px/1 var(--mews-font-family)", color: "var(--mews-text-primary)" }}>{stage.label}</span>
-        <Pill tone="basic" style={{ height: 20 }}>{stage.hint}</Pill>
-        {sysCount > 0 && <Pill tone="primary" icon={ICON.task} style={{ height: 20 }}>{sysCount} from Tasks</Pill>}
         <span style={{ marginLeft: "auto", display: "inline-flex", alignItems: "center", gap: 4, font: "500 12px/1 var(--mews-font-family)", color: left ? "var(--mews-text-secondary)" : "var(--mews-green-600)" }}>
-          {left ? `${left} to do` : <React.Fragment><Ic c={ICON.doneCircle} s={15} />Completed</React.Fragment>}
+          {left ? `${left} out of ${items.length} to do` : <React.Fragment><Ic c={ICON.doneCircle} s={15} />Completed</React.Fragment>}
         </span>
       </button>
       {open && (
