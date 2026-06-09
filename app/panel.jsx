@@ -28,20 +28,20 @@ function EmptyTab({ name }) {
 
 function Tabs({ tabs, active, setActive }) {
   return (
-    <div style={{ display: "flex", gap: 2, padding: "0 16px", borderBottom: "1px solid var(--mews-border-primary)", overflowX: "auto" }}>
+    <div className="mews-tabs-scroll" style={{ display: "flex", gap: 2, padding: "0 16px", borderBottom: "1px solid var(--mews-border-primary)", overflowX: "auto", scrollbarWidth: "none", msOverflowStyle: "none" }}>
       {tabs.map((t) => {
         const on = t.name === active;
         return (
           <button key={t.name} onClick={() => setActive(t.name)}
             style={{ border: "none", background: "none", cursor: "pointer", padding: "12px 8px", marginBottom: -1, display: "inline-flex", alignItems: "center", gap: 6, whiteSpace: "nowrap",
               font: (on ? "600" : "500") + " 14px/1.4 var(--mews-font-family)",
-              color: on ? "var(--mews-text-primary)" : "var(--mews-text-secondary)",
+              color: on ? "var(--mews-indigo-600)" : "var(--mews-text-secondary)",
               borderBottom: "2px solid " + (on ? "var(--mews-indigo-500)" : "transparent") }}>
             {t.icon != null && <Ic c={t.icon} s={16} style={{ color: on ? "var(--mews-indigo-600)" : "var(--mews-text-tertiary)" }} />}
             {t.name}
             {t.badge != null && (
               <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: 18, height: 18, padding: "0 5px", borderRadius: 999,
-                background: t.badge > 0 ? "var(--mews-red-500)" : "var(--mews-night-100)", color: t.badge > 0 ? "#fff" : "var(--mews-text-secondary)", font: "600 11px/1 var(--mews-font-family)" }}>{t.badge}</span>
+                background: t.badge > 0 ? "var(--mews-indigo-500)" : "var(--mews-night-100)", color: t.badge > 0 ? "#fff" : "var(--mews-text-secondary)", font: "600 11px/1 var(--mews-font-family)" }}>{t.badge}</span>
             )}
           </button>
         );
@@ -83,7 +83,7 @@ function ResPanel({ variant = "ref", guest, status, onClose }) {
       <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "12px 16px" }}>
         {onClose && <GhostBtn icon={ICON.cross} title="Close" onClick={onClose} style={{ border: "none", marginLeft: -6, flexShrink: 0 }} />}
         <span style={{ font: "500 16px/1.5 var(--mews-font-family)", color: "var(--mews-text-primary)", whiteSpace: "nowrap", flexShrink: 0 }}>4 x</span>
-        <span style={{ color: "var(--mews-text-primary-action)", textDecoration: "underline", textUnderlineOffset: 2, textDecorationColor: "var(--mews-indigo-200)", fontWeight: 600, fontSize: 16, cursor: "pointer", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{guest || "Selma Willson"}</span>
+        <span style={{ color: "var(--mews-text-primary)", textDecoration: "underline", textUnderlineOffset: 2, textDecorationColor: "var(--mews-night-150)", fontWeight: 600, fontSize: 16, cursor: "pointer", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{guest || "Selma Willson"}</span>
         <Pill tone={STATUS_TONE[status] || "info"} style={{ flexShrink: 0 }}>{status || "To check in"}</Pill>
         <GhostBtn icon={ICON.bolt} title="Quick actions" style={{ flexShrink: 0 }} />
         <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>

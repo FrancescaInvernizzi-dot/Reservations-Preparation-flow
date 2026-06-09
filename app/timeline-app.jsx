@@ -115,7 +115,7 @@ function Drawer({ sel, onClose, variant }) {
   }, [close]);
   const shown = mounted && !closing;
   return (
-    <div style={{ position: "fixed", top: APP_BAR_H, right: 0, bottom: 0, width: 560, maxWidth: "94vw", background: "#fff",
+    <div style={{ position: "fixed", top: APP_BAR_H, right: 0, bottom: 0, width: 720, maxWidth: "94vw", background: "#fff",
       borderLeft: "1px solid var(--mews-border-secondary)", boxShadow: "var(--mews-shadow-300)", zIndex: 45,
       transform: shown ? "translateX(0)" : "translateX(100%)", transition: "transform 260ms cubic-bezier(.22,.61,.36,1)", display: "flex", flexDirection: "column" }}>
       <ResPanel key={sel.guest + sel.status} variant={variant} guest={sel.guest} status={sel.status} onClose={close} />
