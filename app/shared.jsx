@@ -48,7 +48,7 @@ function ALink({ children, strong = true, size = 14, onClick }) {
 }
 
 // Generic small pill (status-indicator style)
-function Pill({ children, tone = "basic", outlined = false, icon, style }) {
+function Pill({ children, tone = "basic", outlined = false, subtle = false, icon, style }) {
   const tones = {
     info:    { bg: "var(--mews-blue-25)",   bd: "var(--mews-blue-100)",   fg: "var(--mews-blue-700)" },
     success: { bg: "var(--mews-green-25)",  bd: "var(--mews-green-100)",  fg: "var(--mews-green-700)" },
@@ -58,6 +58,7 @@ function Pill({ children, tone = "basic", outlined = false, icon, style }) {
     basic:   { bg: "var(--mews-night-50)",  bd: "var(--mews-night-150)",  fg: "var(--mews-night-700)" },
   };
   const t = tones[tone] || tones.basic;
+  const borderColor = subtle ? "transparent" : (outlined ? "var(--mews-night-200)" : t.bd);
   return (
     <span
       style={{
@@ -65,7 +66,7 @@ function Pill({ children, tone = "basic", outlined = false, icon, style }) {
         padding: icon ? "0 8px 0 6px" : "0 8px", borderRadius: 4,
         font: "500 12px/1 var(--mews-font-family)", whiteSpace: "nowrap",
         background: outlined ? "transparent" : t.bg,
-        border: "1px solid " + (outlined ? "var(--mews-night-200)" : t.bd),
+        border: "1px solid " + borderColor,
         color: outlined ? "var(--mews-night-700)" : t.fg, ...style,
       }}
     >
@@ -189,12 +190,12 @@ function LockToggle({ on = true }) {
 }
 
 // Circular progress ring
-function Ring({ value, total, size = 56, stroke = 6, label }) {
+function Ring({ value, total, size = 56, stroke = 6, label, tone }) {
   const pct = total ? value / total : 0;
   const r = (size - stroke) / 2;
   const c = 2 * Math.PI * r;
   const done = pct >= 1;
-  const col = done ? "var(--mews-green-500)" : "var(--mews-indigo-500)";
+  const col = done ? "var(--mews-green-500)" : tone === "warning" ? "var(--mews-red-500)" : "var(--mews-indigo-500)";
   return (
     <div style={{ position: "relative", width: size, height: size, flexShrink: 0 }}>
       <svg width={size} height={size} style={{ transform: "rotate(-90deg)" }}>

@@ -87,7 +87,7 @@ function ReadinessStrip({ stage, done }) {
     : left ? `${stage.label} in progress` : `${stage.label} complete`;
   return (
     <div className="mews-card" style={{ padding: 16, borderColor: "var(--mews-border-secondary)", display: "flex", alignItems: "center", gap: 16 }}>
-      <Ring value={items.length - left} total={items.length} size={54} />
+      <Ring value={items.length - left} total={items.length} size={54} tone={blocking ? "warning" : undefined} />
       <div style={{ flex: 1 }}>
         <div style={{ font: "600 16px/1.3 var(--mews-font-family)", color: "var(--mews-text-primary)" }}>{heading}</div>
         <div style={{ fontSize: 13, color: "var(--mews-text-secondary)", marginTop: 2 }}>
@@ -123,7 +123,7 @@ function TaskRow({ task, done, onToggle, onDeep, onAction, active, compact = fal
         {done ? (
           <span style={{ display: "inline-flex", alignItems: "center", gap: 4, font: "500 12px/1 var(--mews-font-family)", color: "var(--mews-green-600)" }}><Ic c={ICON.doneCircle} s={15} />Done</span>
         ) : (
-          <button className={"mews-btn mews-btn--sm " + (active ? "mews-btn--primary" : "mews-btn--secondary")} onClick={fire}>
+          <button className={"mews-btn mews-btn--sm " + (active ? "mews-btn--primary" : "mews-btn--tertiary")} onClick={fire}>
             {active ? <Ic c={ICON.chevUp} s={15} /> : null}{task.action}
           </button>
         )}
@@ -136,7 +136,7 @@ function TaskRow({ task, done, onToggle, onDeep, onAction, active, compact = fal
 function Avatar({ name, size = 20 }) {
   const initials = name.split(" ").map((w) => w[0]).join("").slice(0, 2).toUpperCase();
   return (
-    <span style={{ width: size, height: size, borderRadius: "50%", background: "var(--mews-indigo-100)", color: "var(--mews-indigo-700)", display: "inline-flex", alignItems: "center", justifyContent: "center", font: "600 10px/1 var(--mews-font-family)", flexShrink: 0 }}>{initials}</span>
+    <span style={{ width: size, height: size, borderRadius: "50%", background: "var(--mews-night-100)", color: "var(--mews-night-700)", display: "inline-flex", alignItems: "center", justifyContent: "center", font: "600 10px/1 var(--mews-font-family)", flexShrink: 0 }}>{initials}</span>
   );
 }
 
@@ -154,35 +154,41 @@ function SystemTaskRow({ task, done, onToggle, onDeep, onAction, active }) {
   const fire = (which) => (onAction ? onAction(task, which) : onDeep && onDeep(task.deep));
   const primaryActionClass = active
     ? "mews-btn--primary"
-    : task.blocking ? "mews-btn--secondary" : "mews-btn--tertiary";
+    : task.action2 ? "mews-btn--secondary" : "mews-btn--tertiary";
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 6, padding: "12px 4px", opacity: done ? 0.6 : 1, transition: "opacity 160ms ease" }}>
       <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
         <Checkbox checked={done} onChange={() => onToggle(task.id)} />
-        <div style={{ flex: 1, minWidth: 0, display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
-          <span
-            onClick={() => onDeep && onDeep(task.deep)}
-            style={{ font: "600 14px/1.4 var(--mews-font-family)", color: "var(--mews-text-primary)", textDecoration: done ? "line-through" : "underline", textUnderlineOffset: 2, textDecorationColor: "var(--mews-night-150)", cursor: "pointer" }}
-          >
-            {task.taskNo} · {task.title}
-          </span>
-          <Pill tone="primary" icon={task.source === "Auto" ? ICON.bolt : ICON.settings} style={{ height: 18, fontSize: 11, padding: "0 6px 0 5px" }}>{task.source}</Pill>
-          {!done && task.blocking && <Pill tone="danger" style={{ height: 18, fontSize: 11, padding: "0 6px" }}>Blocks check-in</Pill>}
-        </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
-          {task.meta && !done && <span style={{ font: "600 14px/1 var(--mews-font-family)", fontVariantNumeric: "tabular-nums", color: task.tone === "danger" ? "var(--mews-red-600)" : "var(--mews-text-primary)" }}>{task.meta}</span>}
-          {done ? (
-            <span style={{ display: "inline-flex", alignItems: "center", gap: 4, font: "500 12px/1 var(--mews-font-family)", color: "var(--mews-green-600)" }}><Ic c={ICON.doneCircle} s={15} />Closed</span>
-          ) : (
-            <div style={{ display: "flex", gap: 6 }}>
-              {task.action2 && <button className="mews-btn mews-btn--tertiary mews-btn--sm" onClick={() => fire("action2")}>{task.action2}</button>}
-              <button className={"mews-btn mews-btn--sm " + primaryActionClass} onClick={() => fire("action")}>
-                {active ? <Ic c={ICON.chevUp} s={15} /> : null}{task.action}
-              </button>
-            </div>
-          )}
+        <div style={{ flex: 1, minWidth: 0, display: "flex", flexWrap: "wrap", alignItems: "center", columnGap: 10, rowGap: 6 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, flexShrink: 0 }}>
+            <span
+              onClick={() => onDeep && onDeep(task.deep)}
+              style={{ font: "600 14px/1.4 var(--mews-font-family)", color: "var(--mews-text-primary)", textDecoration: done ? "line-through" : "underline", textUnderlineOffset: 2, textDecorationColor: "var(--mews-night-150)", cursor: "pointer", whiteSpace: "nowrap" }}
+            >
+              {task.taskNo} · {task.title}
+            </span>
+            <Pill subtle tone="primary" icon={task.source === "Auto" ? ICON.bolt : ICON.settings} style={{ height: 18, fontSize: 11, padding: "0 6px 0 5px", flexShrink: 0 }}>{task.source}</Pill>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginLeft: "auto", flexShrink: 0 }}>
+            {task.meta && !done && <span style={{ font: "600 14px/1 var(--mews-font-family)", fontVariantNumeric: "tabular-nums", color: task.tone === "danger" ? "var(--mews-red-600)" : "var(--mews-text-primary)" }}>{task.meta}</span>}
+            {done ? (
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 4, font: "500 12px/1 var(--mews-font-family)", color: "var(--mews-green-600)" }}><Ic c={ICON.doneCircle} s={15} />Closed</span>
+            ) : (
+              <div style={{ display: "flex", gap: 6 }}>
+                {task.action2 && <button className="mews-btn mews-btn--tertiary mews-btn--sm" onClick={() => fire("action2")}>{task.action2}</button>}
+                <button className={"mews-btn mews-btn--sm " + primaryActionClass} onClick={() => fire("action")}>
+                  {active ? <Ic c={ICON.chevUp} s={15} /> : null}{task.action}
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
+      {!done && task.blocking && (
+        <div style={{ paddingLeft: 30 }}>
+          <Pill tone="danger" style={{ height: 18, fontSize: 11, padding: "0 6px" }}>Blocks check-in</Pill>
+        </div>
+      )}
       <div style={{ paddingLeft: 30, font: "400 12px/1.45 var(--mews-font-family)", color: "var(--mews-text-secondary)", textDecoration: done ? "line-through" : "none" }}>{task.detail}</div>
       <div style={{ paddingLeft: 30, display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
         {task.assignee
@@ -261,7 +267,7 @@ function TodoTab({ onDeep }) {
     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
       {/* readiness summary strip */}
       <div className="mews-card" style={{ padding: 16, borderColor: "var(--mews-border-secondary)", display: "flex", alignItems: "center", gap: 16 }}>
-        <Ring value={before.length - beforeLeft} total={before.length} size={54} />
+        <Ring value={before.length - beforeLeft} total={before.length} size={54} tone={blocking ? "warning" : undefined} />
         <div style={{ flex: 1 }}>
           <div style={{ font: "600 16px/1.3 var(--mews-font-family)", color: "var(--mews-text-primary)" }}>
             {blocking ? `${blocking} task${blocking > 1 ? "s" : ""} blocking check-in` : "Ready to check in"}
@@ -367,7 +373,7 @@ function ReadinessCard({ onDeep }) {
   return (
     <div className="mews-card" style={{ padding: 0, overflow: "hidden", borderColor: ready ? "var(--mews-green-100)" : "var(--mews-indigo-100)", boxShadow: "var(--mews-shadow-100)" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 16, padding: 16, background: ready ? "var(--mews-green-25)" : "var(--mews-indigo-0)" }}>
-        <Ring value={before.length - left} total={before.length} size={52} />
+        <Ring value={before.length - left} total={before.length} size={52} tone={blocking ? "warning" : undefined} />
         <div style={{ flex: 1 }}>
           <div style={{ font: "600 16px/1.3 var(--mews-font-family)", color: "var(--mews-text-primary)" }}>
             {ready ? "Selma is ready to check in" : `${left} thing${left > 1 ? "s" : ""} to do before check-in`}
@@ -447,7 +453,7 @@ function LifecyclePrep({ onDeep }) {
             <div style={{ font: "600 16px/1.3 var(--mews-font-family)", color: "var(--mews-text-primary)" }}>Preparation tasks</div>
             <div style={{ fontSize: 13, color: "var(--mews-text-secondary)" }}>Complete these to advance to <strong style={{ color: "var(--mews-text-primary)", fontWeight: 600 }}>In house</strong></div>
           </div>
-          <Ring value={before.length - left} total={before.length} size={48} />
+          <Ring value={before.length - left} total={before.length} size={48} tone={blocking ? "warning" : undefined} />
         </div>
         <div style={{ padding: "4px 20px 8px" }}>
           {before.map((t, i) => (
