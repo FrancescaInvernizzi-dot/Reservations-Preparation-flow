@@ -109,12 +109,13 @@ function AddTaskModal({ onClose }) {
   const shown = mounted && !closing;
   return ReactDOM.createPortal(
     <div style={{ position: "fixed", inset: 0, zIndex: 60, fontFamily: "var(--mews-font-family)" }}>
-      <div onClick={close} style={{ position: "absolute", inset: 0, background: "rgba(15,15,25,.78)", opacity: shown ? 1 : 0, transition: "opacity 200ms ease" }} />
-      <div style={{ position: "absolute", top: "50%", left: "50%",
-        transform: `translate(-50%, -50%) scale(${shown ? 1 : 0.98})`, opacity: shown ? 1 : 0,
-        transition: "opacity 180ms ease, transform 220ms cubic-bezier(.22,.61,.36,1)",
-        width: 600, maxHeight: "92vh", background: "#fff", borderRadius: 14,
-        boxShadow: "var(--mews-shadow-300)", display: "flex", flexDirection: "column", overflow: "hidden" }}>
+      <div onClick={close} style={{ position: "absolute", inset: 0, background: "rgba(15,15,25,.55)", opacity: shown ? 1 : 0, transition: "opacity 200ms ease" }} />
+      <div style={{ position: "absolute", top: 0, right: 0, bottom: 0,
+        transform: `translateX(${shown ? 0 : 100}%)`,
+        transition: "transform 260ms cubic-bezier(.22,.61,.36,1)",
+        width: 560, maxWidth: "94vw", background: "#fff",
+        borderLeft: "1px solid var(--mews-border-secondary)", boxShadow: "var(--mews-shadow-300)",
+        display: "flex", flexDirection: "column", overflow: "hidden" }}>
         {/* Header */}
         <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "16px 20px" }}>
           <GhostBtn icon={ICON.cross} title="Close" onClick={close} />
@@ -236,7 +237,8 @@ function ResPanel({ variant = "ref", guest, status, onClose }) {
 
   let body;
   if (active === "To do") {
-    body = variant === "A1" ? <TodoTabInline status={status} /> : variant === "A2" ? <TodoTabPanel status={status} /> : <TodoTab onDeep={onDeep} />;
+    const openAdd = () => setAddOpen(true);
+    body = variant === "A1" ? <TodoTabInline status={status} onAddTask={openAdd} /> : variant === "A2" ? <TodoTabPanel status={status} onAddTask={openAdd} /> : <TodoTab onDeep={onDeep} />;
   } else if (active === "Summary") {
     body = (
       <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
@@ -264,7 +266,6 @@ function ResPanel({ variant = "ref", guest, status, onClose }) {
             onMouseLeave={(e) => e.currentTarget.style.background = "var(--mews-bg-flat)"}>
             <SortListIcon size={18} />
           </button>
-          <GhostBtn icon={ICON.plus} title="Add task" onClick={() => setAddOpen(true)} />
           <button className="mews-btn mews-btn--tertiary mews-btn--sm" style={{ height: 32 }}>Billing</button>
         </div>
       </div>

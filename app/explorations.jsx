@@ -65,7 +65,12 @@ function useTasks(seedDoneIds) {
 }
 
 // Phase-aware readiness strip atop the To-do tab
-function ReadinessStrip({ stage, done }) {
+function ReadinessStrip({ stage, done, onAddTask }) {
+  const addBtn = onAddTask ? (
+    <button onClick={onAddTask} className="mews-btn mews-btn--secondary mews-btn--sm" style={{ flexShrink: 0, display: "inline-flex", alignItems: "center", gap: 6 }}>
+      <Ic c={ICON.plus} s={15} />Add task
+    </button>
+  ) : null;
   if (!stage) {
     return (
       <div className="mews-card" style={{ padding: 16, borderColor: "var(--mews-border-secondary)", display: "flex", alignItems: "center", gap: 16 }}>
@@ -74,6 +79,7 @@ function ReadinessStrip({ stage, done }) {
           <div style={{ font: "600 16px/1.3 var(--mews-font-family)", color: "var(--mews-text-primary)" }}>Stay complete</div>
           <div style={{ fontSize: 13, color: "var(--mews-text-secondary)", marginTop: 2 }}>All tasks across the stay are done</div>
         </div>
+        {addBtn}
       </div>
     );
   }
@@ -94,6 +100,7 @@ function ReadinessStrip({ stage, done }) {
           {left ? `${left} of ${items.length} ${stage.hint.toLowerCase()} task${items.length > 1 ? "s" : ""} remaining` : "All tasks in this phase complete"} · {totalLeft} open across the stay
         </div>
       </div>
+      {addBtn}
     </div>
   );
 }
@@ -285,7 +292,7 @@ function TodoTab({ onDeep }) {
 }
 
 /* ============ EXPLORATION A1 — resolve inline ============ */
-function TodoTabInline({ status = "Confirmed" }) {
+function TodoTabInline({ status = "Confirmed", onAddTask }) {
   const phase = PHASE_INDEX[status] != null ? PHASE_INDEX[status] : 0;
   const seedDone = React.useMemo(
     () => STAGES_SPLIT.filter((s, i) => i < phase).flatMap((s) => TASKS.filter(s.match).map((t) => t.id)),
@@ -300,7 +307,7 @@ function TodoTabInline({ status = "Confirmed" }) {
   const groupProps = { done, onToggle, onAction, expandedId, onResolve };
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-      <ReadinessStrip stage={activeStage} done={done} />
+      <ReadinessStrip stage={activeStage} done={done} onAddTask={onAddTask} />
       {STAGES_SPLIT.map((s, i) => (
         <StageGroup key={s.id} stage={s} {...groupProps} defaultOpen={i === phase} />
       ))}
@@ -342,7 +349,7 @@ function FloatingPanel({ task, onClose, onResolve }) {
   );
 }
 
-function TodoTabPanel({ status = "Confirmed" }) {
+function TodoTabPanel({ status = "Confirmed", onAddTask }) {
   const phase = PHASE_INDEX[status] != null ? PHASE_INDEX[status] : 0;
   const seedDone = React.useMemo(
     () => STAGES_SPLIT.filter((s, i) => i < phase).flatMap((s) => TASKS.filter(s.match).map((t) => t.id)),
@@ -355,7 +362,7 @@ function TodoTabPanel({ status = "Confirmed" }) {
   const groupProps = { done, onToggle, onAction: (t) => setPanelTask(t) };
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-      <ReadinessStrip stage={activeStage} done={done} />
+      <ReadinessStrip stage={activeStage} done={done} onAddTask={onAddTask} />
       {STAGES_SPLIT.map((s, i) => (
         <StageGroup key={s.id} stage={s} {...groupProps} defaultOpen={i === phase} />
       ))}
