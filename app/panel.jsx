@@ -110,12 +110,12 @@ function AddTaskModal({ onClose }) {
   const shown = mounted && !closing;
   return ReactDOM.createPortal(
     <div style={{ position: "fixed", inset: 0, zIndex: 60, fontFamily: "var(--mews-font-family)" }}>
-      <div onClick={close} style={{ position: "absolute", inset: 0, background: "rgba(15,15,25,.55)", opacity: shown ? 1 : 0, transition: "opacity 200ms ease" }} />
-      <div style={{ position: "absolute", top: 0, right: 0, bottom: 0,
-        transform: `translateX(${shown ? 0 : 100}%)`,
+      <div onClick={close} style={{ position: "absolute", inset: 0, background: "rgba(15,15,25,.75)", opacity: shown ? 1 : 0, transition: "opacity 200ms ease" }} />
+      <div style={{ position: "absolute", top: 24, right: 24, bottom: 24,
+        transform: `translateX(${shown ? 0 : 110}%)`,
         transition: "transform 260ms cubic-bezier(.22,.61,.36,1)",
-        width: 560, maxWidth: "94vw", background: "#fff",
-        borderLeft: "1px solid var(--mews-border-secondary)", boxShadow: "var(--mews-shadow-300)",
+        width: 580, maxWidth: "calc(100vw - 48px)", background: "#fff",
+        borderRadius: 14, boxShadow: "var(--mews-shadow-300)",
         display: "flex", flexDirection: "column", overflow: "hidden" }}>
         {/* Header */}
         <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "16px 20px" }}>
