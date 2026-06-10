@@ -111,11 +111,11 @@ function AddTaskModal({ onClose }) {
   return ReactDOM.createPortal(
     <div style={{ position: "fixed", inset: 0, zIndex: 60, fontFamily: "var(--mews-font-family)" }}>
       <div onClick={close} style={{ position: "absolute", inset: 0, background: "rgba(15,15,25,.75)", opacity: shown ? 1 : 0, transition: "opacity 200ms ease" }} />
-      <div style={{ position: "absolute", top: 24, right: 24, bottom: 24,
-        transform: `translateX(${shown ? 0 : 110}%)`,
+      <div style={{ position: "absolute", top: 80, right: 0, bottom: 24,
+        transform: `translateX(${shown ? 0 : 100}%)`,
         transition: "transform 260ms cubic-bezier(.22,.61,.36,1)",
-        width: 580, maxWidth: "calc(100vw - 48px)", background: "#fff",
-        borderRadius: 14, boxShadow: "var(--mews-shadow-300)",
+        width: 720, maxWidth: "100vw", background: "#fff",
+        borderRadius: "14px 0 0 14px", boxShadow: "var(--mews-shadow-300)",
         display: "flex", flexDirection: "column", overflow: "hidden" }}>
         {/* Header */}
         <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "16px 20px" }}>
