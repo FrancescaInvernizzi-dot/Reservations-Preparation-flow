@@ -21,7 +21,7 @@ const ST_TONE = {
 };
 
 const BAR_TONE = {
-  default: { bg: "#fff", bd: "var(--mews-night-200)", fg: "var(--mews-text-primary)", icon: "var(--mews-text-tertiary)", hatch: true },
+  default: { bg: "#fff", bd: "var(--mews-night-200)", fg: "var(--mews-text-primary)", icon: "var(--mews-text-tertiary)" },
   blue: { bg: "var(--mews-blue-25)", bd: "var(--mews-blue-100)", fg: "var(--mews-blue-800)", icon: "var(--mews-blue-600)", hatch: true },
   red: { bg: "var(--mews-red-25)", bd: "var(--mews-red-100)", fg: "var(--mews-red-700)", icon: "var(--mews-red-600)" },
   orange: { bg: "var(--mews-orange-25)", bd: "var(--mews-orange-100)", fg: "var(--mews-orange-800)", icon: "var(--mews-orange-700)" },
@@ -29,8 +29,8 @@ const BAR_TONE = {
 
 const HATCH = "repeating-linear-gradient(135deg, rgba(33,33,46,.035) 0 1px, transparent 1px 7px)";
 
-// Reservation lifecycle status derived from position relative to "now" (Tue 19/Wed 20 line).
-const NOW = 2; // day units
+// Reservation lifecycle status derived from position relative to "now" (start of Tue 19).
+const NOW = 1; // day units (Tue 19 begins)
 function statusFor(r) {
   if (r.tone === "blue") return "To check in";
   if (r.tone === "orange") return "Due out";
@@ -132,6 +132,8 @@ function Bar({ r, onOpen }) {
   const left = (r.s / NCOLS) * 100;
   const width = ((r.e - r.s) / NCOLS) * 100;
   const clickable = !!r.guest;
+  const inquired = (r.lead || []).indexOf("question") !== -1;
+  const hatch = !!t.hatch || inquired;
   return (
     <div
       onClick={clickable ? () => onOpen(r) : undefined}
@@ -139,7 +141,7 @@ function Bar({ r, onOpen }) {
       style={{
         position: "absolute", left: `calc(${left}% + 4px)`, width: `calc(${width}% - 8px)`,
         top: 5, height: 28, display: "flex", alignItems: "center", gap: 5, padding: "0 8px",
-        background: t.hatch ? `${HATCH}, ${t.bg}` : t.bg, border: "1px solid " + t.bd,
+        background: hatch ? `${HATCH}, ${t.bg}` : t.bg, border: "1px solid " + t.bd,
         borderRadius: 7, cursor: clickable ? "pointer" : "default", overflow: "hidden",
         zIndex: 2, transition: "box-shadow 120ms ease, transform 80ms ease",
       }}
