@@ -4,7 +4,7 @@
 
 const DAYS = ["Mon 18", "Tue 19", "Wed 20", "Thu 21", "Fri 22", "Sat 23", "Sun 24", "Mon 25"];
 const NCOLS = DAYS.length;
-const NOW_PCT = (2 / NCOLS) * 100; // line after Tue 19
+const NOW_PCT = (1 / NCOLS) * 100; // line at the start of Tue 19
 
 const BAR_ICON = {
   lock: ICON.lock, arrival: ICON.checkin, departure: ICON.checkout,
@@ -22,18 +22,32 @@ const ST_TONE = {
 
 const BAR_TONE = {
   default: { bg: "#fff", bd: "var(--mews-night-200)", fg: "var(--mews-text-primary)", icon: "var(--mews-text-tertiary)" },
+  gray: { bg: "var(--mews-night-50)", bd: "var(--mews-night-150)", fg: "var(--mews-text-primary)", icon: "var(--mews-text-tertiary)" },
   blue: { bg: "var(--mews-blue-25)", bd: "var(--mews-blue-100)", fg: "var(--mews-blue-800)", icon: "var(--mews-blue-600)", hatch: true },
   red: { bg: "var(--mews-red-25)", bd: "var(--mews-red-100)", fg: "var(--mews-red-700)", icon: "var(--mews-red-600)" },
   orange: { bg: "var(--mews-orange-25)", bd: "var(--mews-orange-100)", fg: "var(--mews-orange-800)", icon: "var(--mews-orange-700)" },
 };
+
+// Pick the effective tone for a reservation. Explicit r.tone always wins;
+// otherwise we infer from start position relative to "now":
+//   started before today  -> gray (past)
+//   starts during today   -> blue (to check in)
+//   starts later          -> gray (future)
+function effectiveTone(r) {
+  if (r.tone) return r.tone;
+  if (r.s < NOW) return "gray";
+  if (r.s < NOW + 1) return "blue";
+  return "gray";
+}
 
 const HATCH = "repeating-linear-gradient(135deg, rgba(33,33,46,.035) 0 1px, transparent 1px 7px)";
 
 // Reservation lifecycle status derived from position relative to "now" (start of Tue 19).
 const NOW = 1; // day units (Tue 19 begins)
 function statusFor(r) {
-  if (r.tone === "blue") return "To check in";
-  if (r.tone === "orange") return "Due out";
+  const tone = effectiveTone(r);
+  if (tone === "orange") return (r.lead || []).indexOf("arrival") !== -1 ? "Check in missed" : "Due out";
+  if (tone === "blue") return "To check in";
   if (r.e <= NOW) return "Checked out";
   if (r.s >= NOW) return r.s <= 3 ? "To check in" : "Confirmed";
   return r.e <= 3 ? "Due out" : "Checked in";
@@ -128,7 +142,7 @@ function Track({ children, style }) {
 }
 
 function Bar({ r, onOpen }) {
-  const t = BAR_TONE[r.tone || "default"];
+  const t = BAR_TONE[effectiveTone(r)] || BAR_TONE.default;
   const left = (r.s / NCOLS) * 100;
   const width = ((r.e - r.s) / NCOLS) * 100;
   const clickable = !!r.guest;

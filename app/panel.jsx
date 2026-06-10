@@ -9,6 +9,7 @@ const STATUS_TONE = {
   "To check in": "info",
   "Checked in": "success", "In house": "success",
   "Due out": "warning", "To check out": "warning",
+  "Check in missed": "warning",
   "Checked out": "basic",
 };
 
