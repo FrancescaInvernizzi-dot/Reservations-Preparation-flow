@@ -186,6 +186,92 @@ function RoomRow({ room, onOpen }) {
   );
 }
 
+const DAY_DATE_LABELS = [
+  "Monday 10.18.2024", "Tuesday 10.19.2024", "Wednesday 10.20.2024", "Thursday 10.21.2024",
+  "Friday 10.22.2024", "Saturday 10.23.2024", "Sunday 10.24.2024", "Monday 10.25.2024",
+];
+
+function AvailabilityPopover({ anchorRef, txt, dayIndex, onClose }) {
+  const [pos, setPos] = React.useState(null);
+  React.useEffect(() => {
+    const r = anchorRef.current && anchorRef.current.getBoundingClientRect();
+    if (r) setPos({ top: r.bottom + 8, left: r.left + r.width / 2 });
+  }, []);
+  React.useEffect(() => {
+    const handler = (e) => { if (!e.target.closest('[data-pop="avail"]')) onClose(); };
+    const esc = (e) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("mousedown", handler);
+    document.addEventListener("keydown", esc);
+    return () => { document.removeEventListener("mousedown", handler); document.removeEventListener("keydown", esc); };
+  }, [onClose]);
+  if (!pos) return null;
+  const m = (txt || "").match(/(\d+)\s+out of\s+(\d+)/);
+  const available = m ? Number(m[1]) : 0;
+  const total = m ? Number(m[2]) : 0;
+  const occupied = Math.max(0, total - available);
+  const blocks = occupied > 0 ? 1 : 0;
+  const reservations = Math.max(0, occupied - blocks);
+  return ReactDOM.createPortal(
+    <div data-pop="avail" onClick={(e) => e.stopPropagation()}
+      style={{ position: "fixed", top: pos.top, left: pos.left, transform: "translateX(-50%)",
+        background: "#fff", border: "1px solid var(--mews-border-secondary)", borderRadius: 12,
+        padding: 16, boxShadow: "var(--mews-shadow-300)", zIndex: 50, minWidth: 320,
+        fontFamily: "var(--mews-font-family)" }}>
+      <div style={{ font: "600 16px/1.3 var(--mews-font-family)", color: "var(--mews-text-primary)" }}>Availability</div>
+      <div style={{ font: "400 13px/1.4 var(--mews-font-family)", color: "var(--mews-text-secondary)", marginTop: 2 }}>{DAY_DATE_LABELS[dayIndex]}</div>
+      <div style={{ marginTop: 12, padding: 12, border: "1px solid var(--mews-border-secondary)", borderRadius: 8, display: "flex", alignItems: "center", gap: 10 }}>
+        <span style={{ font: "600 18px/1 var(--mews-font-family)", color: "var(--mews-text-primary)" }}>{available}</span>
+        <Pill tone="success" icon={ICON.done}>available</Pill>
+        <button style={{ marginLeft: "auto", border: "none", background: "transparent", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 6, font: "500 13px/1 var(--mews-font-family)", color: "var(--mews-text-primary)", padding: 4 }}>
+          <Ic c={ICON.plus} s={16} />Book
+        </button>
+      </div>
+      <div style={{ marginTop: 8, padding: 12, border: "1px solid var(--mews-border-secondary)", borderRadius: 8 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <span style={{ font: "600 18px/1 var(--mews-font-family)", color: "var(--mews-text-primary)" }}>{occupied}</span>
+          <Pill tone="danger" icon={ICON.cross}>occupied</Pill>
+        </div>
+        {occupied > 0 && (
+          <div style={{ marginTop: 12, paddingTop: 10, borderTop: "1px solid var(--mews-border-secondary)", display: "flex", flexDirection: "column", gap: 8 }}>
+            <div style={{ display: "flex", alignItems: "center", font: "400 14px/1 var(--mews-font-family)", color: "var(--mews-text-primary)", gap: 10 }}>
+              <span style={{ minWidth: 14 }}>{reservations}</span>
+              <span>reservations</span>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", font: "400 14px/1 var(--mews-font-family)", color: "var(--mews-text-primary)", gap: 10 }}>
+              <span style={{ minWidth: 14 }}>{blocks}</span>
+              <span>in Availability blocks</span>
+              <button style={{ marginLeft: "auto", border: "none", background: "transparent", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 6, font: "500 13px/1 var(--mews-font-family)", color: "var(--mews-text-primary)", padding: 4 }}>
+                <Ic c={ICON.externalLink} s={15} />Details
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>,
+    document.body
+  );
+}
+
+function AvailabilityCell({ avail, dayIndex }) {
+  const txt = typeof avail === "string" ? avail : avail.t;
+  const [hover, setHover] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+  const eyeRef = React.useRef(null);
+  return (
+    <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
+      style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 6, font: "400 13px/1 var(--mews-font-family)", color: "var(--mews-text-secondary)" }}>
+      <span>{txt}</span>
+      <button ref={eyeRef} onClick={(e) => { e.stopPropagation(); setOpen((o) => !o); }} title="View availability"
+        style={{ opacity: hover || open ? 1 : 0, transition: "opacity 120ms ease",
+          border: "none", background: "transparent", cursor: "pointer", padding: 0,
+          color: "var(--mews-text-tertiary)", display: "inline-flex", alignItems: "center" }}>
+        <Ic c={ICON.show} s={15} />
+      </button>
+      {open && <AvailabilityPopover anchorRef={eyeRef} txt={txt} dayIndex={dayIndex} onClose={() => setOpen(false)} />}
+    </div>
+  );
+}
+
 function GroupHeader({ group, open, onToggle }) {
   return (
     <div style={{ display: "flex", background: "var(--mews-night-25)", borderBottom: "1px solid var(--mews-border-secondary)", minHeight: 40 }}>
@@ -198,15 +284,7 @@ function GroupHeader({ group, open, onToggle }) {
       </div>
       <Track>
         <div style={{ position: "absolute", inset: 0, display: "flex" }}>
-          {group.avail.map((a, i) => {
-            const txt = typeof a === "string" ? a : a.t;
-            const eye = typeof a === "object" && a.eye;
-            return (
-              <div key={i} style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 6, font: "400 13px/1 var(--mews-font-family)", color: "var(--mews-text-secondary)" }}>
-                {txt}{eye && <Ic c={ICON.show} s={15} style={{ color: "var(--mews-text-tertiary)" }} />}
-              </div>
-            );
-          })}
+          {group.avail.map((a, i) => <AvailabilityCell key={i} avail={a} dayIndex={i} />)}
         </div>
       </Track>
     </div>
