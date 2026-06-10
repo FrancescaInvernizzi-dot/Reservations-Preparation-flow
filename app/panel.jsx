@@ -81,13 +81,14 @@ function ResPanel({ variant = "ref", guest, status, onClose }) {
     <div style={{ background: "#fff", display: "flex", flexDirection: "column", height: "100%", position: "relative", fontFamily: "var(--mews-font-family)" }}>
       {/* Header */}
       <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "12px 16px" }}>
-        {onClose && <GhostBtn icon={ICON.cross} title="Close" onClick={onClose} style={{ border: "none", marginLeft: -6, flexShrink: 0 }} />}
+        {onClose && <GhostBtn icon={ICON.cross} title="Close" onClick={onClose} style={{ flexShrink: 0 }} />}
         <span style={{ font: "500 16px/1.5 var(--mews-font-family)", color: "var(--mews-text-primary)", whiteSpace: "nowrap", flexShrink: 0 }}>4 x</span>
         <span style={{ color: "var(--mews-text-primary)", textDecoration: "underline", textUnderlineOffset: 2, textDecorationColor: "var(--mews-night-150)", fontWeight: 600, fontSize: 16, cursor: "pointer", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{guest || "Selma Willson"}</span>
         <Pill tone={STATUS_TONE[status] || "info"} style={{ flexShrink: 0 }}>{status || "To check in"}</Pill>
-        <GhostBtn icon={ICON.bolt} title="Quick actions" style={{ flexShrink: 0 }} />
+        <Pill tone="basic" style={{ flexShrink: 0 }}>Digital key ready</Pill>
+        <GhostBtn icon={ICON.bolt} title="Quick actions" active style={{ flexShrink: 0 }} />
         <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
-          <GhostBtn icon={ICON.settings} title="View settings" />
+          <GhostBtn icon={ICON.expand} title="Expand panel" />
           <button className="mews-btn mews-btn--tertiary mews-btn--sm" style={{ height: 32 }}>Billing</button>
         </div>
       </div>

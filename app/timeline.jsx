@@ -12,10 +12,12 @@ const BAR_ICON = {
   calendar: ICON.calendar, key: ICON.key, alert: ICON.problematic,
 };
 
-// status code → text color
-const ST_COLOR = {
-  INS: "var(--mews-green-600)", CLE: "var(--mews-night-500)",
-  DIR: "var(--mews-orange-700)", OOS: "var(--mews-red-600)",
+// status code → text + background colors (tag-style)
+const ST_TONE = {
+  INS: { fg: "var(--mews-green-700)", bg: "var(--mews-green-25)" },
+  CLE: { fg: "var(--mews-night-700)", bg: "var(--mews-night-50)" },
+  DIR: { fg: "var(--mews-orange-800)", bg: "var(--mews-orange-25)" },
+  OOS: { fg: "var(--mews-red-700)", bg: "var(--mews-red-25)" },
 };
 
 const BAR_TONE = {
@@ -64,22 +66,22 @@ const GROUPS = [
   {
     name: "DBL DLX", avail: ["5 out of 7", { t: "2 out of 7", eye: true }, "5 out of 7", "5 out of 7", "5 out of 7", "5 out of 7", "5 out of 7", "5 out of 7"],
     rooms: [
-      { no: "108", st: "DIR", res: [{ s: 1.5, e: 4.5, guest: "Customer name", tone: "orange", lead: ["lock", "arrival"] }] },
+      { no: "108", st: "DIR", res: [{ s: 1.5, e: 4.5, guest: "Lukas Becker", tone: "orange", lead: ["lock", "arrival"] }] },
       { no: "109", st: "CLE", res: [
-        { s: -0.5, e: 1, guest: "Customer name", tone: "blue", vip: true, recur: true },
-        { s: 1.5, e: 4.5, guest: "Customer name", lead: ["lock", "calendar"] }] },
+        { s: -0.5, e: 1, guest: "Sofia Rossi", tone: "blue", vip: true, recur: true },
+        { s: 1.5, e: 4.5, guest: "Diego Hernandez", lead: ["lock", "calendar"] }] },
       { no: "110", st: "INS", res: [
-        { s: -0.5, e: 1.5, guest: "Customer name", lead: ["home"] },
+        { s: -0.5, e: 1.5, guest: "Yuki Tanaka", lead: ["home"] },
         { s: 5.5, e: 8.5, label: "House use", tone: "red", lead: ["home"] }] },
-      { no: "111", st: "CLE", res: [{ s: 1.5, e: 8.5, guest: "Customer name", lead: ["calendar"] }] },
+      { no: "111", st: "CLE", res: [{ s: 1.5, e: 8.5, guest: "Erik Andersen", lead: ["calendar"] }] },
       { no: "112", st: "INS", res: [] },
       { no: "113", st: "CLE", res: [
-        { s: 0.5, e: 2.5, guest: "Customer name", lead: ["lock", "arrival"] },
-        { s: 2.5, e: 6, guest: "Customer name", lead: ["cancel"] },
-        { s: 6.5, e: 8.5, guest: "Customer name", lead: ["lock", "cancel"] }] },
+        { s: 0.5, e: 2.5, guest: "Maya Patel", lead: ["lock", "arrival"] },
+        { s: 2.5, e: 6, guest: "Oliver Brown", lead: ["cancel"] },
+        { s: 6.5, e: 8.5, guest: "Lena Schmidt", lead: ["lock", "cancel"] }] },
       { no: "114", st: "DIR", res: [
-        { s: 1.5, e: 3.5, guest: "Customer name", lead: ["lock", "calendar"], recur: true },
-        { s: 3.5, e: 6.5, guest: "Customer name", lead: ["lock", "calendar"] }] },
+        { s: 1.5, e: 3.5, guest: "Ahmed Hassan", lead: ["lock", "calendar"], recur: true },
+        { s: 3.5, e: 6.5, guest: "Clara Dubois", lead: ["lock", "calendar"] }] },
     ],
   },
   {
@@ -87,28 +89,28 @@ const GROUPS = [
     rooms: [
       { no: "115", st: "CLE", res: [] },
       { no: "116", st: "INS", res: [
-        { s: 2, e: 4.5, guest: "Customer name", tone: "blue", lead: ["lock", "arrival"] },
-        { s: 6.5, e: 8.5, guest: "Customer name", lead: ["lock", "question"] }] },
+        { s: 2, e: 4.5, guest: "Nora Holm", tone: "blue", lead: ["lock", "arrival"] },
+        { s: 6.5, e: 8.5, guest: "Hugo Martin", lead: ["lock", "question"] }] },
       { no: "117", st: "OOS", res: [
-        { s: -0.5, e: 2, guest: "Customer name", lead: ["home"] },
+        { s: -0.5, e: 2, guest: "Wei Chen", lead: ["home"] },
         { s: 2.5, e: 5.5, label: "Out of order", tone: "red", lead: ["alert"] },
-        { s: 6.5, e: 8.5, guest: "Customer name", lead: ["lock", "calendar"] }] },
-      { no: "118", st: "CLE", res: [{ s: 2.5, e: 6.5, guest: "Customer name", lead: ["lock", "arrival"] }] },
+        { s: 6.5, e: 8.5, guest: "Ines Ferreira", lead: ["lock", "calendar"] }] },
+      { no: "118", st: "CLE", res: [{ s: 2.5, e: 6.5, guest: "Liam O'Brien", lead: ["lock", "arrival"] }] },
       { no: "119", st: "DIR", res: [
-        { s: -0.5, e: 2, guest: "Customer name", tone: "orange", lead: ["departure"] },
-        { s: 6.5, e: 8.5, guest: "Customer name", lead: ["lock", "calendar"], recur: true }] },
+        { s: -0.5, e: 2, guest: "Saskia Berg", tone: "orange", lead: ["departure"] },
+        { s: 6.5, e: 8.5, guest: "Felix Mayer", lead: ["lock", "calendar"], recur: true }] },
       { no: "120", st: "DIR", res: [
-        { s: 0.5, e: 2.5, guest: "Customer name", lead: ["lock", "home"] },
-        { s: 2.5, e: 5.5, guest: "Customer name", lead: ["lock", "cancel"], vip: true },
-        { s: 6.5, e: 8.5, guest: "Customer name", lead: ["lock", "calendar"] }] },
+        { s: 0.5, e: 2.5, guest: "Maja Kowalska", lead: ["lock", "home"] },
+        { s: 2.5, e: 5.5, guest: "Theo Lambert", lead: ["lock", "cancel"], vip: true },
+        { s: 6.5, e: 8.5, guest: "Aiko Yamada", lead: ["lock", "calendar"] }] },
       { no: "121", st: "DIR", res: [{ s: 2.5, e: 5.5, label: "House use", tone: "red", lead: ["home"] }] },
     ],
   },
   {
     name: "TRL DLX", avail: ["5 out of 7", "5 out of 7", "5 out of 7", "5 out of 7", "5 out of 7", "5 out of 7", "5 out of 7", "5 out of 7"],
     rooms: [
-      { no: "122", st: "INS", res: [{ s: 1.5, e: 4.5, guest: "Customer name", lead: ["lock", "arrival"] }] },
-      { no: "123", st: "CLE", res: [{ s: -0.5, e: 1.5, guest: "Customer name", lead: ["lock", "arrival"] }] },
+      { no: "122", st: "INS", res: [{ s: 1.5, e: 4.5, guest: "Camilla Conti", lead: ["lock", "arrival"] }] },
+      { no: "123", st: "CLE", res: [{ s: -0.5, e: 1.5, guest: "Noah Petersen", lead: ["lock", "arrival"] }] },
     ],
   },
 ];
@@ -156,7 +158,9 @@ function RoomRow({ room, onOpen }) {
   return (
     <div style={{ display: "flex", borderBottom: "1px solid var(--mews-border-secondary)", minHeight: 38 }}>
       <div style={{ width: 220, flexShrink: 0, display: "flex", alignItems: "center", gap: 12, padding: "0 16px", borderRight: "1px solid var(--mews-border-secondary)" }}>
-        <span style={{ width: 34, font: "600 11px/1 var(--mews-font-family)", letterSpacing: ".03em", color: ST_COLOR[room.st] }}>{room.st}</span>
+        {(() => { const tn = ST_TONE[room.st] || ST_TONE.CLE; return (
+          <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", height: 18, padding: "0 6px", borderRadius: 4, font: "600 10px/1 var(--mews-font-family)", letterSpacing: ".04em", color: tn.fg, background: tn.bg, flexShrink: 0 }}>{room.st}</span>
+        ); })()}
         <span style={{ font: "500 14px/1 var(--mews-font-family)", color: "var(--mews-text-primary)" }}>{room.no}</span>
       </div>
       <Track>
