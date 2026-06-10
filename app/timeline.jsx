@@ -42,6 +42,33 @@ function effectiveTone(r) {
 
 const HATCH = "repeating-linear-gradient(135deg, rgba(33,33,46,.035) 0 1px, transparent 1px 7px)";
 
+// Mocked availability blocks per group per day (rooms blocked off the timeline,
+// e.g. group holds, allocation blocks). Not rendered as bars; only counted here.
+const MOCK_BLOCKS_PER_DAY = {
+  "DBL":     [1, 1, 0, 0, 0, 0, 0, 0],
+  "DBL DLX": [0, 1, 1, 1, 0, 0, 0, 0],
+  "TRL":     [0, 0, 0, 1, 1, 1, 0, 0],
+  "TRL DLX": [0, 0, 1, 0, 0, 0, 0, 0],
+};
+
+function computeAvailability(group, dayIndex) {
+  let reservations = 0;
+  let visibleBlocks = 0;
+  for (const room of group.rooms) {
+    for (const r of room.res) {
+      if (r.s < dayIndex + 1 && r.e > dayIndex) {
+        if (r.guest) reservations++; else visibleBlocks++;
+      }
+    }
+  }
+  const mocked = ((MOCK_BLOCKS_PER_DAY[group.name] || [])[dayIndex]) || 0;
+  const blocks = visibleBlocks + mocked;
+  const total = group.rooms.length;
+  const occupied = Math.min(total, reservations + blocks);
+  const available = Math.max(0, total - occupied);
+  return { available, total, occupied, reservations, blocks };
+}
+
 // Reservation lifecycle status derived from position relative to "now" (start of Tue 19).
 const NOW = 1; // day units (Tue 19 begins)
 function statusFor(r) {
@@ -191,7 +218,7 @@ const DAY_DATE_LABELS = [
   "Friday 10.22.2024", "Saturday 10.23.2024", "Sunday 10.24.2024", "Monday 10.25.2024",
 ];
 
-function AvailabilityPopover({ anchorRef, txt, dayIndex, onClose }) {
+function AvailabilityPopover({ anchorRef, group, dayIndex, onClose }) {
   const [pos, setPos] = React.useState(null);
   React.useEffect(() => {
     const r = anchorRef.current && anchorRef.current.getBoundingClientRect();
@@ -205,12 +232,7 @@ function AvailabilityPopover({ anchorRef, txt, dayIndex, onClose }) {
     return () => { document.removeEventListener("mousedown", handler); document.removeEventListener("keydown", esc); };
   }, [onClose]);
   if (!pos) return null;
-  const m = (txt || "").match(/(\d+)\s+out of\s+(\d+)/);
-  const available = m ? Number(m[1]) : 0;
-  const total = m ? Number(m[2]) : 0;
-  const occupied = Math.max(0, total - available);
-  const blocks = occupied > 0 ? 1 : 0;
-  const reservations = Math.max(0, occupied - blocks);
+  const { available, occupied, reservations, blocks } = computeAvailability(group, dayIndex);
   return ReactDOM.createPortal(
     <div data-pop="avail" onClick={(e) => e.stopPropagation()}
       style={{ position: "fixed", top: pos.top, left: pos.left, transform: "translateX(-50%)",
@@ -252,8 +274,9 @@ function AvailabilityPopover({ anchorRef, txt, dayIndex, onClose }) {
   );
 }
 
-function AvailabilityCell({ avail, dayIndex }) {
-  const txt = typeof avail === "string" ? avail : avail.t;
+function AvailabilityCell({ group, dayIndex }) {
+  const { available, total } = computeAvailability(group, dayIndex);
+  const txt = `${available} out of ${total}`;
   const [hover, setHover] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const eyeRef = React.useRef(null);
@@ -267,7 +290,7 @@ function AvailabilityCell({ avail, dayIndex }) {
           color: "var(--mews-text-tertiary)", display: "inline-flex", alignItems: "center" }}>
         <Ic c={ICON.show} s={15} />
       </button>
-      {open && <AvailabilityPopover anchorRef={eyeRef} txt={txt} dayIndex={dayIndex} onClose={() => setOpen(false)} />}
+      {open && <AvailabilityPopover anchorRef={eyeRef} group={group} dayIndex={dayIndex} onClose={() => setOpen(false)} />}
     </div>
   );
 }
@@ -284,7 +307,7 @@ function GroupHeader({ group, open, onToggle }) {
       </div>
       <Track>
         <div style={{ position: "absolute", inset: 0, display: "flex" }}>
-          {group.avail.map((a, i) => <AvailabilityCell key={i} avail={a} dayIndex={i} />)}
+          {Array.from({ length: NCOLS }).map((_, i) => <AvailabilityCell key={i} group={group} dayIndex={i} />)}
         </div>
       </Track>
     </div>
