@@ -17,7 +17,7 @@ const ICON = {
   notifications: 0xe9c3, message: 0xe9a8, search: 0xea3a, filter: 0xe925,
   checkout: 0xe897, reservations: 0xea24, help: 0xe949, home: 0xe94f,
   dashboard: 0xe8cf, hide: 0xe94b, show: 0xea4b, logout: 0xe984,
-  expand: 0xe906,
+  expand: 0xe906, sortVert: 0xea7e,
 };
 
 function Ic({ c, s = 16, style, className = "" }) {

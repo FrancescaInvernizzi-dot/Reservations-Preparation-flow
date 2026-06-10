@@ -37,7 +37,7 @@ function Tabs({ tabs, active, setActive }) {
               font: (on ? "600" : "500") + " 14px/1.4 var(--mews-font-family)",
               color: on ? "var(--mews-text-primary)" : "var(--mews-text-secondary)",
               borderBottom: "2px solid " + (on ? "var(--mews-indigo-500)" : "transparent") }}>
-            {t.icon != null && <Ic c={t.icon} s={16} style={{ color: on ? "var(--mews-indigo-600)" : "var(--mews-text-tertiary)" }} />}
+            {t.icon != null && <Ic c={t.icon} s={16} style={{ color: on ? "var(--mews-text-primary)" : "var(--mews-text-tertiary)" }} />}
             {t.name}
             {t.badge != null && (
               <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: 18, height: 18, padding: "0 5px", borderRadius: 999,
@@ -86,9 +86,9 @@ function ResPanel({ variant = "ref", guest, status, onClose }) {
         <span style={{ color: "var(--mews-text-primary)", textDecoration: "underline", textUnderlineOffset: 2, textDecorationColor: "var(--mews-night-150)", fontWeight: 600, fontSize: 16, cursor: "pointer", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{guest || "Selma Willson"}</span>
         <Pill tone={STATUS_TONE[status] || "info"} style={{ flexShrink: 0 }}>{status || "To check in"}</Pill>
         <Pill tone="basic" style={{ flexShrink: 0 }}>Digital key ready</Pill>
-        <GhostBtn icon={ICON.bolt} title="Quick actions" active style={{ flexShrink: 0 }} />
+        <GhostBtn icon={ICON.bolt} title="Quick actions" active s={14} style={{ width: 24, height: 24, borderRadius: 4, flexShrink: 0 }} />
         <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
-          <GhostBtn icon={ICON.expand} title="Expand panel" />
+          <GhostBtn icon={ICON.sortVert} title="Reorder rows" />
           <button className="mews-btn mews-btn--tertiary mews-btn--sm" style={{ height: 32 }}>Billing</button>
         </div>
       </div>
